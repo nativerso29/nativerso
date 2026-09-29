@@ -12,12 +12,13 @@
 
   <style>
     :root {
-      --bg-coffee: #251812;        
+      --bg-coffee: #211510;        
       --bg-cream: #F4ECE1;         
       --color-mustard: #E5A93B;    
       --text-light: #F9F6F0;       
-      --text-dark: #251812;        
-      --card-coffee: #36241B; 
+      --text-dark: #211510;        
+      --card-coffee: #2C1D17; 
+      --border-line: rgba(229, 169, 59, 0.2);
       --font-main: 'Poppins', sans-serif;
     }
 
@@ -32,15 +33,15 @@
       position: relative;
     }
 
-    /* Esfera Dinâmica Flutuante */
+    /* Esfera Dinâmica Suave no Fundo */
     .floating-orb {
       position: absolute;
-      width: 450px;
-      height: 450px;
-      background: radial-gradient(circle, rgba(229,169,59,0.15) 0%, rgba(37,24,18,0) 70%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(229,169,59,0.12) 0%, rgba(33,21,16,0) 70%);
       border-radius: 50%;
-      top: 15%;
-      left: 5%;
+      top: 10%;
+      left: 10%;
       z-index: 0;
       pointer-events: none;
       animation: moveOrb 15s infinite alternate ease-in-out;
@@ -48,21 +49,21 @@
 
     @keyframes moveOrb {
       0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(120px, 150px) scale(1.25); }
+      100% { transform: translate(150px, 200px) scale(1.2); }
     }
 
-    /* Header Fixo */
+    /* Header Fixo com Linha Fina */
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background-color: rgba(37, 24, 18, 0.92);
+      background-color: rgba(33, 21, 16, 0.95);
       backdrop-filter: blur(12px);
-      padding: 1.2rem 5%;
+      padding: 1.2rem 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(229, 169, 59, 0.15);
+      border-bottom: 1px solid var(--border-line);
     }
 
     .brand {
@@ -76,9 +77,9 @@
       gap: 0.4rem;
     }
     .brand span { color: var(--color-mustard); }
-    .brand::after { content: "✦"; color: var(--color-mustard); font-size: 1rem; }
+    .brand::after { content: "✦"; color: var(--color-mustard); font-size: 0.9rem; }
 
-    nav { display: flex; gap: 2rem; align-items: center; }
+    nav { display: flex; gap: 2.5rem; align-items: center; }
     nav a {
       color: var(--text-light);
       text-decoration: none;
@@ -100,9 +101,9 @@
     }
     .btn-nav:hover { transform: scale(1.05); }
 
-    /* Hero Section Estilo Moodboard */
+    /* Hero Section */
     .hero {
-      padding: 7rem 5% 5rem;
+      padding: 7rem 6% 4rem;
       max-width: 1100px;
       margin: 0 auto;
       text-align: center;
@@ -116,14 +117,14 @@
       gap: 0.5rem;
       color: var(--color-mustard);
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       margin-bottom: 1.5rem;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
       font-weight: 700;
       line-height: 1.15;
       letter-spacing: -1px;
@@ -153,7 +154,7 @@
     }
     .btn-main:hover { background-color: var(--text-light); transform: translateY(-2px); }
 
-    /* Faixa Deslizante Dinâmica (Estilo Referência) */
+    /* Fita Deslizante Dinâmica e Elegante */
     .marquee-strip {
       background-color: var(--color-mustard);
       color: var(--text-dark);
@@ -161,14 +162,14 @@
       transform: rotate(-1.5deg);
       width: 110vw;
       margin-left: -5vw;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
       overflow: hidden;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
       z-index: 10;
       position: relative;
     }
@@ -187,13 +188,13 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* Transições Orgânicas (Ondas Suaves) */
+    /* Transições de Onda */
     .wave-top { width: 100%; line-height: 0; background-color: var(--bg-coffee); }
     .wave-top svg { display: block; width: 100%; height: 70px; }
     .wave-bottom { width: 100%; line-height: 0; background-color: var(--bg-cream); }
     .wave-bottom svg { display: block; width: 100%; height: 70px; }
 
-    .section-wrap { padding: 5rem 5%; max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+    .section-wrap { padding: 5rem 6%; max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
     
     .section-title {
       font-size: 2.3rem;
@@ -206,7 +207,7 @@
     .bg-light-section { background-color: var(--bg-cream); color: var(--text-dark); }
     .bg-light-section .section-title { color: var(--text-dark); }
 
-    /* Sobre com formato orgânico nas imagens */
+    /* Sobre */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -218,9 +219,8 @@
       width: 100%;
       height: 400px;
       background-color: #E6D9CC;
-      /* Forma orgânica assimétrica (estilo colagem de revista) */
-      border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
-      border: 3px solid var(--color-mustard);
+      border-radius: 20px;
+      border: 2px solid var(--color-mustard);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -228,17 +228,13 @@
       color: var(--text-dark);
       overflow: hidden;
       position: relative;
-      transition: border-radius 0.5s ease;
-    }
-    .about-image:hover {
-      border-radius: 40% 60% 50% 50% / 40% 50% 60% 50%;
     }
     .about-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; }
 
     .about-text h2 { font-size: 2rem; margin-bottom: 1.2rem; font-weight: 700; }
     .about-text p { margin-bottom: 1rem; font-size: 1rem; opacity: 0.9; }
 
-    /* Diferenciais (Cartões com cantos orgânicos) */
+    /* Diferenciais (Cartões limpos e profissionais) */
     .diff-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -247,22 +243,18 @@
 
     .diff-card {
       background-color: var(--card-coffee);
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      border-radius: 20px;
       padding: 3rem 2.5rem;
-      border: 1px solid rgba(229, 169, 59, 0.25);
-      transition: all 0.4s ease;
-      text-align: center;
+      border: 1px solid var(--border-line);
+      transition: transform 0.3s ease;
     }
-    .diff-card:hover { 
-      border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
-      transform: translateY(-5px); 
-    }
+    .diff-card:hover { transform: translateY(-4px); border-color: var(--color-mustard); }
     .diff-card.mustard-bg { background-color: var(--color-mustard); color: var(--text-dark); border: none; }
 
     .diff-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
     .diff-card p { font-size: 0.95rem; margin-bottom: 1.2rem; }
 
-    .clean-list { list-style: none; display: inline-block; text-align: left; }
+    .clean-list { list-style: none; }
     .clean-list li {
       font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
     }
@@ -270,28 +262,27 @@
     .diff-card.mustard-bg .clean-list li::before { color: var(--text-dark); }
     .diff-card:not(.mustard-bg) .clean-list li::before { color: var(--color-mustard); }
 
-    /* Serviços */
+    /* Serviços (Estrutura rica e profissional) */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
     }
 
     .service-card {
-      background-color: var(--bg-cream);
+      background-color: var(--card-coffee);
       border-radius: 20px;
-      padding: 2rem;
-      border: 1px solid #D3C5B5;
-      box-shadow: 4px 4px 0 rgba(37, 24, 18, 0.08);
-      transition: transform 0.2s;
+      padding: 2.5rem;
+      border: 1px solid var(--border-line);
+      transition: transform 0.2s, border-color 0.2s;
     }
-    .service-card:hover { transform: translateY(-4px); }
-    .service-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--text-dark); }
+    .service-card:hover { transform: translateY(-4px); border-color: var(--color-mustard); }
+    .service-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-mustard); }
     .service-card ul { list-style: none; }
-    .service-card ul li { font-size: 0.9rem; margin-bottom: 0.4rem; color: var(--text-dark); opacity: 0.85; }
-    .service-card ul li::before { content: "✦ "; color: var(--color-mustard); }
+    .service-card ul li { font-size: 0.95rem; margin-bottom: 0.6rem; opacity: 0.9; display: flex; align-items: center; gap: 0.5rem; }
+    .service-card ul li::before { content: "✦"; color: var(--color-mustard); font-size: 0.75rem; }
 
-    /* Portfólio com recortes orgânicos */
+    /* Portfólio */
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -300,16 +291,16 @@
 
     .work-card {
       background: var(--card-coffee);
-      border-radius: 24px;
+      border-radius: 20px;
       padding: 1.5rem;
-      border: 1px solid rgba(229, 169, 59, 0.2);
+      border: 1px solid var(--border-line);
     }
 
     .media-box {
       width: 100%;
       height: 380px;
       background: var(--bg-coffee);
-      border-radius: 20% 80% 30% 70% / 60% 30% 70% 40%;
+      border-radius: 14px;
       margin-bottom: 1.2rem;
       display: flex;
       align-items: center;
@@ -317,20 +308,21 @@
       color: #888;
       position: relative;
       overflow: hidden;
-      border: 2px solid var(--color-mustard);
+      border: 1px solid var(--border-line);
     }
     .media-box img, .media-box video { width: 100%; height: 100%; object-fit: cover; position: absolute; }
 
     .work-card h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem; color: var(--color-mustard); }
     .work-card p { font-size: 0.9rem; opacity: 0.85; }
 
-    /* Footer */
+    /* Footer / Contato */
     footer {
       background-color: var(--bg-coffee);
-      padding: 5rem 5% 4rem;
+      padding: 6rem 6% 4rem;
       text-align: center;
       position: relative;
       z-index: 1;
+      border-top: 1px solid var(--border-line);
     }
 
     footer h2 {
@@ -341,19 +333,18 @@
     }
 
     .social-links {
-      margin-top: 3.5rem;
+      margin-top: 4rem;
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 2.5rem;
       padding-top: 2rem;
-      border-top: 1px solid rgba(229, 169, 59, 0.15);
+      border-top: 1px solid var(--border-line);
     }
     .social-links a { color: var(--text-light); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
     .social-links a:hover { color: var(--color-mustard); }
 
     @media (max-width: 860px) {
-      .about-grid, .diff-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .diff-card { border-radius: 24px; }
+      .about-grid, .diff-grid, .services-grid { grid-template-columns: 1fr; gap: 2rem; }
       nav { display: none; }
     }
   </style>
@@ -382,7 +373,7 @@
     <a href="#contato" class="btn-main">Entrar no Universo</a>
   </section>
 
-  <!-- Faixa Deslizante (Estilo Moodboard Dinâmico) -->
+  <!-- Fita Deslizante Dinâmica -->
   <div class="marquee-strip">
     <div class="marquee-content">
       <span>✦ ESTRATÉGIA VISUAL ✦ MÉTODO ANTI-TRAVA ✦ QG NO NOTION ✦ ROTEIROS QUE RETÊM ✦ STORYMAKING ✦</span>
@@ -403,9 +394,9 @@
     <section class="section-wrap" id="sobre">
       <div class="about-grid">
         <div class="about-text">
-          <h2>A mente por trás do universo.</h2>
-          <p>O NatiVerso não é só uma agência, é um ecossistema. Nasceu da necessidade de conectar estética impecável a conteúdos que realmente seguram a atenção da audiência do primeiro ao último segundo.</p>
-          <p>Seja gerenciando suas redes, desenhando a identidade visual do zero, cobrindo o seu evento com o celular na mão ou gravando a voz que vai representar o seu negócio: eu entrego o pacote completo.</p>
+          <h2 style="color: var(--text-dark);">A mente por trás do universo.</h2>
+          <p style="color: var(--text-dark);">O NatiVerso não é só uma agência, é um ecossistema. Nasceu da necessidade de conectar estética impecável a conteúdos que realmente seguram a atenção da audiência do primeiro ao último segundo.</p>
+          <p style="color: var(--text-dark);">Seja gerenciando suas redes, desenhando a identidade visual do zero, cobrindo o seu evento com o celular na mão ou gravando a voz que vai representar o seu negócio: eu entrego o pacote completo.</p>
         </div>
         <div class="about-image">
           <span>[Sua Foto Aqui]</span>
@@ -416,12 +407,12 @@
 
     <!-- O que nos torna únicos -->
     <section class="section-wrap">
-      <h2 class="section-title">O que nos torna únicos</h2>
+      <h2 class="section-title" style="color: var(--text-dark);">O que nos torna únicos</h2>
       <div class="diff-grid">
-        <div class="diff-card">
+        <div class="diff-card" style="background-color: var(--bg-coffee); color: var(--text-light);">
           <h3 style="color: var(--color-mustard);">Gravação sem travar.<br>Roteiros que retêm.</h3>
-          <p style="color: var(--text-light);">Acha difícil gravar? Eu tenho um método. Desenvolvo seus roteiros guiados por storytelling e ganchos poderosos. Na hora da captação, você recebe direção de verdade para falar com naturalidade, sem parecer um robô.</p>
-          <ul class="clean-list" style="color: var(--text-light);">
+          <p>Acha difícil gravar? Eu tenho um método. Desenvolvo seus roteiros guiados por storytelling e ganchos poderosos. Na hora da captação, você recebe direção de verdade para falar com naturalidade, sem parecer um robô.</p>
+          <ul class="clean-list">
             <li>Foco em retenção visual</li>
             <li>Roteiro estratégico</li>
             <li>Direção in loco</li>
@@ -448,41 +439,44 @@
     </svg>
   </div>
 
-  <!-- Serviços -->
+  <!-- Serviços (Reestruturados, ricos e profissionais) -->
   <section class="section-wrap" id="servicos">
     <h2 class="section-title">Serviços</h2>
     <div class="services-grid">
       <div class="service-card">
         <h3>Social Media Completo</h3>
         <ul>
-          <li>Estudo profundo da marca</li>
-          <li>Calendário Mensal</li>
-          <li>Design e copy de legendas</li>
-          <li>Gestão de perfil</li>
+          <li>Estudo profundo e posicionamento da marca</li>
+          <li>Definição de Linhas Editoriais</li>
+          <li>Calendário Mensal estruturado</li>
+          <li>Design autoral, copy e gestões de perfil</li>
         </ul>
       </div>
+
       <div class="service-card">
         <h3>StoryMaker em Eventos</h3>
         <ul>
-          <li>Cobertura em tempo real</li>
-          <li>Roteiro prévio alinhado</li>
-          <li>Captação focada em narrativa</li>
+          <li>Cobertura criativa e dinâmica em tempo real</li>
+          <li>Roteiro prévio alinhado com o cliente</li>
+          <li>Captação mobile focada em narrativa</li>
         </ul>
       </div>
+
       <div class="service-card">
         <h3>VideoMaker & Locução</h3>
         <ul>
-          <li>Método Anti-Trava</li>
-          <li>Edição focada em retenção</li>
+          <li>Gravação guiada pelo Método Anti-Trava</li>
+          <li>Edição vertical focada em alta retenção</li>
           <li>Locução publicitária exclusiva</li>
         </ul>
       </div>
+
       <div class="service-card">
         <h3>Identidade Visual</h3>
         <ul>
-          <li>Criação de Logo e Variações</li>
-          <li>Manual da Marca no Notion</li>
-          <li>Kit pronto para mídias sociais</li>
+          <li>Criação de Logo e Variações de marca</li>
+          <li>Manual da Marca guardado no Notion</li>
+          <li>Kit visual pronto para redes sociais</li>
         </ul>
       </div>
     </div>
@@ -516,7 +510,7 @@
   <footer id="contato">
     <h2>Pronta para entrar no NatiVerso?</h2>
     <p>Bora transformar a presença digital do seu negócio? Resposta rápida, sem enrolação.</p>
-    <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-main" style="background-color: var(--bg-cream);">Marcar um bate-papo</a>
+    <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-main" style="background-color: var(--bg-cream); margin-top: 1.5rem;">Marcar um bate-papo</a>
     
     <div class="social-links">
       <a href="https://instagram.com/SEUPERFIL" target="_blank">Instagram</a>

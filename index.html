@@ -12,11 +12,11 @@
 
   <style>
     :root {
-      --bg-coffee: #221611;        /* Marrom Café Profundo Real */
-      --bg-cream: #FDF9F3;         /* Fundo Claro com Textura */
+      --bg-cream: #FDF9F3;         
+      --bg-coffee: #221611;     
+      --bg-soft-blue: #D6E4ED;     
+      --bg-soft-yellow: #F7E9B9;   
       --bg-card: #F4EADF;         
-      --bg-soft-blue: #D6E4ED;     /* Azul Pastel Editorial */
-      --bg-soft-yellow: #F7E9B9;   /* Amarelo Pastel Editorial */
       --color-mustard: #D49A36;    
       --color-accent: #8C3B32;     
       --font-main: 'Poppins', sans-serif;
@@ -26,20 +26,19 @@
     html { scroll-behavior: smooth; overflow-x: hidden; }
     
     body {
-      background-color: var(--bg-coffee);
-      color: var(--bg-cream);
+      background-color: var(--bg-cream);
+      color: var(--bg-coffee);
       font-family: var(--font-main);
       line-height: 1.6;
+      position: relative;
     }
 
-    /* Textura de quadradinhos sutil para fundos claros */
+    /* Textura de quadradinhos sutil */
     .grid-texture {
-      background-color: var(--bg-cream);
-      color: var(--color-coffee);
       background-image: 
-        linear-gradient(to right, rgba(34, 22, 17, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(34, 22, 17, 0.04) 1px, transparent 1px);
-      background-size: 32px 32px;
+        linear-gradient(to right, rgba(34, 22, 17, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(34, 22, 17, 0.035) 1px, transparent 1px);
+      background-size: 30px 30px;
     }
 
     /* ─── HEADER ─── */
@@ -47,27 +46,27 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background-color: rgba(34, 22, 17, 0.95);
-      backdrop-filter: blur(12px);
+      background-color: rgba(253, 249, 243, 0.95);
+      backdrop-filter: blur(10px);
       padding: 1.2rem 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(212, 154, 54, 0.2);
+      border-bottom: 2px dashed rgba(212, 154, 54, 0.3);
     }
 
     .brand {
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--bg-cream);
+      color: var(--bg-coffee);
       text-decoration: none;
       letter-spacing: -0.5px;
     }
     .brand span { color: var(--color-mustard); }
 
-    nav { display: flex; gap: 2rem; align-items: center; }
+    nav { display: flex; gap: 1.8rem; align-items: center; }
     nav a {
-      color: var(--bg-cream);
+      color: var(--bg-coffee);
       text-decoration: none;
       font-size: 0.95rem;
       font-weight: 500;
@@ -77,19 +76,20 @@
 
     .btn-nav {
       background-color: var(--color-mustard);
-      color: var(--color-coffee);
+      color: var(--bg-coffee);
       padding: 0.5rem 1.5rem;
       border-radius: 20px;
       font-weight: 600;
       text-decoration: none;
       font-size: 0.9rem;
+      box-shadow: 2px 2px 0 var(--bg-coffee);
       transition: transform 0.1s;
     }
     .btn-nav:hover { transform: translateY(-1px); }
 
-    /* ─── HERO SECTION (Fundo Claro com Textura) ─── */
+    /* ─── HERO SECTION ─── */
     .hero {
-      padding: 7rem 6% 5rem;
+      padding: 6rem 6% 4rem;
       text-align: center;
       position: relative;
     }
@@ -97,26 +97,26 @@
     .hero-tag {
       display: inline-block;
       background-color: var(--bg-soft-yellow);
-      border: 1.5px solid var(--color-coffee);
+      border: 2px solid var(--bg-coffee);
       padding: 0.4rem 1.2rem;
       border-radius: 50px;
-      color: var(--color-coffee);
+      color: var(--bg-coffee);
       font-weight: 600;
       font-size: 0.8rem;
       letter-spacing: 1px;
       text-transform: uppercase;
       margin-bottom: 1.5rem;
+      box-shadow: 3px 3px 0 var(--bg-coffee);
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
       font-weight: 700;
-      line-height: 1.15;
+      line-height: 1.2;
       letter-spacing: -0.5px;
       margin-bottom: 1.5rem;
       max-width: 800px;
       margin-inline: auto;
-      color: var(--color-coffee);
     }
 
     .hero p {
@@ -124,29 +124,28 @@
       font-weight: 400;
       max-width: 580px;
       margin: 0 auto 2.5rem;
-      color: var(--color-coffee);
       opacity: 0.85;
     }
 
     .btn-main {
       background-color: var(--color-mustard);
-      color: var(--color-coffee);
+      color: var(--bg-coffee);
       padding: 0.9rem 2.5rem;
       border-radius: 30px;
       font-weight: 600;
       text-decoration: none;
       font-size: 0.95rem;
-      box-shadow: 3px 3px 0 var(--color-coffee);
+      box-shadow: 3px 3px 0 var(--bg-coffee);
       transition: all 0.2s;
       display: inline-block;
     }
-    .btn-main:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--color-coffee); }
+    .btn-main:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--bg-coffee); }
 
-    /* ─── FITA DESLIZANTE ─── */
+    /* ─── FITA DESLIZANTE (Corrigida sem falhas no loop) ─── */
     .marquee-strip {
       background-color: var(--bg-soft-blue);
-      color: var(--color-coffee);
-      padding: 0.8rem 0;
+      color: var(--bg-coffee);
+      padding: 0.7rem 0;
       transform: rotate(-1deg);
       width: 110vw;
       margin-left: -5vw;
@@ -155,45 +154,48 @@
       font-size: 0.85rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      border-top: 2px solid var(--color-coffee);
-      border-bottom: 2px solid var(--color-coffee);
+      border-top: 2px solid var(--bg-coffee);
+      border-bottom: 2px solid var(--bg-coffee);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       position: relative;
       z-index: 10;
-      margin-bottom: 3rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
     }
     .marquee-content {
       display: flex;
       white-space: nowrap;
-      animation: scrollText 20s linear infinite;
+      animation: scrollText 15s linear infinite;
     }
     .marquee-content span {
       display: flex;
       gap: 2rem;
-      margin-right: 2rem;
+      padding-right: 2rem;
     }
     @keyframes scrollText {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
 
-    /* ─── ONDA / CURVA GROSSA DINÂMICA ─── */
-    .wave-divider {
+    /* ─── ONDA GROSSA E ENCORPADA (Transição Perfeita) ─── */
+    .thick-wave-divider {
       width: 100%;
-      height: 60px;
+      height: 80px;
       overflow: hidden;
       line-height: 0;
     }
-    .wave-divider svg {
+    .thick-wave-divider svg {
       display: block;
       width: 100%;
-      height: 60px;
+      height: 80px;
     }
 
-    /* ─── SEÇÕES COM FUNDO MARROM CAFÉ REAL ─── */
+    /* ─── SEÇÕES MARROM CAFÉ ─── */
     .coffee-section {
       background-color: var(--bg-coffee);
       color: var(--bg-cream);
-      padding: 6rem 6%;
+      padding: 5rem 6%;
+      position: relative;
     }
 
     .section-title {
@@ -204,7 +206,6 @@
       text-align: center;
     }
 
-    /* Estilo Editorial Editorial (Inspirado nas referências da Olive & Studio) */
     .editorial-layout {
       max-width: 1100px;
       margin: 0 auto;
@@ -219,23 +220,15 @@
       gap: 4rem;
       align-items: center;
     }
-
-    .editorial-block.reverse {
-      grid-template-columns: 0.9fr 1.1fr;
-    }
+    .editorial-block.reverse { grid-template-columns: 0.9fr 1.1fr; }
 
     .editorial-text h2 {
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       font-weight: 700;
       margin-bottom: 1.2rem;
       letter-spacing: -0.5px;
     }
-
-    .editorial-text p {
-      font-size: 1.05rem;
-      opacity: 0.9;
-      margin-bottom: 1.2rem;
-    }
+    .editorial-text p { font-size: 1.02rem; opacity: 0.9; margin-bottom: 1.2rem; }
 
     .editorial-card-frame {
       background-color: #312018;
@@ -244,15 +237,19 @@
       border: 2px solid rgba(212, 154, 54, 0.3);
       position: relative;
     }
+    .editorial-card-frame.yellow-tint { background-color: #38321E; border-color: var(--bg-soft-yellow); }
+    .editorial-card-frame.blue-tint { background-color: #1E2D38; border-color: var(--bg-soft-blue); }
 
-    .editorial-card-frame.blue-tint {
-      background-color: #1E2D38;
-      border-color: var(--bg-soft-blue);
-    }
-
-    .editorial-card-frame.yellow-tint {
-      background-color: #38321E;
-      border-color: var(--bg-soft-yellow);
+    /* Estrela sutil autoral nas molduras */
+    .editorial-card-frame::before {
+      content: "✦";
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background-color: var(--bg-coffee);
+      color: var(--color-mustard);
+      padding: 0 8px;
+      font-size: 1rem;
     }
 
     .clean-list { list-style: none; margin-top: 1.5rem; }
@@ -261,7 +258,7 @@
     }
     .clean-list li::before { content: "✦"; font-size: 0.8rem; color: var(--color-mustard); }
 
-    /* Exemplo Notion Interativo */
+    /* Notion Preview */
     .notion-box {
       background-color: #1A100B;
       border-radius: 12px;
@@ -273,10 +270,10 @@
     }
     .notion-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; opacity: 0.9; }
 
-    /* ─── SERVIÇOS (Sem partes brancas perdidas) ─── */
+    /* ─── SEÇÃO DE SERVIÇOS (Fundo claro, sem manchas brancas) ─── */
     .services-section {
       background-color: var(--bg-cream);
-      color: var(--color-coffee);
+      color: var(--bg-coffee);
       padding: 6rem 6%;
     }
 
@@ -291,57 +288,43 @@
     .service-box {
       background-color: #FFFFFF;
       border-radius: 20px;
-      padding: 2.5rem;
-      border: 2px solid var(--color-coffee);
-      box-shadow: 4px 4px 0 var(--color-coffee);
-      transition: transform 0.2s;
+      padding: 2.2rem;
+      border: 2px solid var(--bg-coffee);
+      box-shadow: 4px 4px 0 var(--bg-coffee);
     }
-    .service-box:hover { transform: translateY(-3px); }
-    .service-box h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-accent); }
+    .service-box h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-accent); }
     .service-box ul { list-style: none; }
-    .service-box ul li { font-size: 0.9rem; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; opacity: 0.85; }
+    .service-box ul li { font-size: 0.88rem; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; opacity: 0.85; }
     .service-box ul li::before { content: "✦"; color: var(--color-mustard); font-size: 0.75rem; }
 
-    /* ─── PORTFÓLIO COM ABAS (TABS) INTERATIVAS ─── */
+    /* ─── PORTFÓLIO RETO E ORGANIZADO POR CATEGORIAS ─── */
     .portfolio-section {
       background-color: var(--bg-coffee);
       color: var(--bg-cream);
       padding: 6rem 6%;
     }
 
-    .portfolio-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 3rem;
-    }
-
-    .tab-btn {
-      background-color: transparent;
-      border: 2px solid rgba(212, 154, 54, 0.4);
-      color: var(--bg-cream);
-      padding: 0.7rem 1.5rem;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .tab-btn:hover, .tab-btn.active {
-      background-color: var(--color-mustard);
-      color: var(--color-coffee);
-      border-color: var(--color-mustard);
-    }
-
-    .portfolio-content-grid {
-      display: none;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+    .portfolio-category-block {
       max-width: 1100px;
-      margin: 0 auto;
+      margin: 0 auto 5rem;
     }
-    .portfolio-content-grid.active { display: grid; }
+    .portfolio-category-block:last-child { margin-bottom: 0; }
+
+    .category-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--color-mustard);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .portfolio-grid-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
 
     .work-item {
       background-color: #312018;
@@ -352,7 +335,7 @@
 
     .media-placeholder {
       width: 100%;
-      height: 280px;
+      height: 240px;
       background-color: #1A100B;
       border-radius: 12px;
       display: flex;
@@ -364,15 +347,15 @@
       border: 1px dashed rgba(212,154,54,0.3);
     }
 
-    .work-item h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem; }
-    .work-item p { font-size: 0.88rem; opacity: 0.8; }
+    .work-item h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .work-item p { font-size: 0.85rem; opacity: 0.8; }
 
-    /* ─── FOOTER & ORÇAMENTO ─── */
+    /* ─── FOOTER / CONTATO ─── */
     footer {
       background-color: var(--bg-cream);
-      color: var(--color-coffee);
+      color: var(--bg-coffee);
       padding: 6rem 6% 3rem;
-      border-top: 3px solid var(--color-coffee);
+      border-top: 3px solid var(--bg-coffee);
     }
 
     .footer-container {
@@ -405,7 +388,7 @@
       gap: 2rem;
     }
     .social-links-right a {
-      color: var(--color-coffee);
+      color: var(--bg-coffee);
       text-decoration: none;
       font-weight: 600;
       font-size: 0.95rem;
@@ -450,14 +433,14 @@
     </div>
   </div>
 
-  <!-- Onda Grossa Dinâmica -->
-  <div class="wave-divider">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,30 Q300,60 600,30 T1200,30 L1200,60 L0,60 Z" fill="#221611"/>
+  <!-- Onda Grossa de Transição -->
+  <div class="thick-wave-divider">
+    <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+      <path d="M0,40 Q300,80 600,40 T1200,40 L1200,80 L0,80 Z" fill="#221611"/>
     </svg>
   </div>
 
-  <!-- SEÇÃO SOBRE & DIFERENCIAIS (FUNDO MARROM CAFÉ REAL, ESTILO EDITORIAL) -->
+  <!-- SEÇÃO SOBRE & DIFERENCIAIS (Fundo Marrom Café Real) -->
   <section class="coffee-section" id="sobre">
     <div class="editorial-layout">
       
@@ -469,7 +452,7 @@
           <p>Seja gerenciando suas redes, desenhando a identidade visual do zero, cobrindo o seu evento com o celular na mão ou gravando a voz que vai representar o seu negócio: eu entrego o pacote completo.</p>
         </div>
         <div class="editorial-card-frame">
-          <div style="height: 280px; display: flex; align-items: center; justify-content: center; color: var(--color-mustard); font-weight: 600;">
+          <div style="height: 260px; display: flex; align-items: center; justify-content: center; color: var(--color-mustard); font-weight: 600;">
             [Foto Editorial / Nati]
           </div>
         </div>
@@ -521,16 +504,16 @@
     </div>
   </section>
 
-  <!-- Onda de Transição para o Claro -->
-  <div class="wave-divider" style="background-color: #221611;">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,30 Q300,0 600,30 T1200,30 L1200,0 L0,0 Z" fill="#FDF9F3"/>
+  <!-- Onda Grossa de Transição para o Claro -->
+  <div class="thick-wave-divider" style="background-color: #221611;">
+    <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+      <path d="M0,40 Q300,0 600,40 T1200,40 L1200,0 L0,0 Z" fill="#FDF9F3"/>
     </svg>
   </div>
 
-  <!-- SEÇÃO DE SERVIÇOS (Fundo Claro Texturizado, Sem Espaços Brancos Vazios) -->
+  <!-- SEÇÃO DE SERVIÇOS (Fundo Claro Limpo, Sem fundos pretos) -->
   <section class="services-section" id="servicos">
-    <h2 class="section-title" style="color: var(--color-coffee);">Serviços</h2>
+    <h2 class="section-title" style="color: var(--bg-coffee);">Serviços</h2>
     <div class="services-grid">
       <div class="service-box">
         <h3>Social Media Completo</h3>
@@ -580,71 +563,57 @@
     </div>
   </section>
 
-  <!-- SEÇÃO DE PORTFÓLIO COM ABAS INTERATIVAS -->
+  <!-- SEÇÃO DE PORTFÓLIO ORGANIZADO POR CATEGORIAS DIRETAS -->
   <section class="portfolio-section" id="portfolio">
-    <h2 class="section-title">Portfólio por Categoria</h2>
-    
-    <!-- Botões / Abas -->
-    <div class="portfolio-tabs">
-      <button class="tab-btn active" onclick="switchTab(event, 'social')">Social Media & Design</button>
-      <button class="tab-btn" onclick="switchTab(event, 'video')">Edição de Vídeo</button>
-      <button class="tab-btn" onclick="switchTab(event, 'story')">StoryMaker</button>
-      <button class="tab-btn" onclick="switchTab(event, 'loc')">Locução</button>
-      <button class="tab-btn" onclick="switchTab(event, 'id')">Identidade Visual</button>
-    </div>
+    <h2 class="section-title">Portfólio</h2>
 
-    <!-- Categoria 1: Social Media -->
-    <div id="social" class="portfolio-content-grid active">
-      <div class="work-item">
-        <div class="media-placeholder">[Carrossel Feed 01]</div>
-        <h4>Carrossel Educacional</h4>
-        <p>Design focado em retenção de leitura e autoridade.</p>
-      </div>
-      <div class="work-item">
-        <div class="media-placeholder">[Identidade Feed]</div>
-        <h4>Grid Estruturado</h4>
-        <p>Harmonia visual e posicionamento de marca sólido.</p>
+    <!-- 1. Social Media & Design (5 itens) -->
+    <div class="portfolio-category-block">
+      <h3 class="category-title">✦ Social Media & Design</h3>
+      <div class="portfolio-grid-items">
+        <div class="work-item"><div class="media-placeholder">[Design 01]</div><h4>Carrossel Raiz</h4><p>Estratégia visual de alto engajamento.</p></div>
+        <div class="work-item"><div class="media-placeholder">[Design 02]</div><h4>Estética de Feed</h4><p>Harmonia e identidade marcante.</p></div>
+        <div class="work-item"><div class="media-placeholder">[Design 03]</div><h4>Stories Dinâmicos</h4><p>Templates autorais editáveis.</p></div>
+        <div class="work-item"><div class="media-placeholder">[Design 04]</div><h4>Capa de Destaque</h4><p>Organização visual do perfil.</p></div>
+        <div class="work-item"><div class="media-placeholder">[Design 05]</div><h4>Apresentação Visual</h4><p>PDFs e materiais institucionais.</p></div>
       </div>
     </div>
 
-    <!-- Categoria 2: Edição de Vídeo -->
-    <div id="video" class="portfolio-content-grid">
-      <div class="work-item">
-        <div class="media-placeholder">[Reel 9:16 - Cortes Ágeis]</div>
-        <h4>Reels Dinâmicos</h4>
-        <p>Edição focada em prender a atenção nos primeiros segundos.</p>
-      </div>
-      <div class="work-item">
-        <div class="media-placeholder">[Vídeo Institucional]</div>
-        <h4>Vídeo para Lançamento</h4>
-        <p>Ritmo magnético e sonoplastia imersiva.</p>
+    <!-- 2. Edição de Vídeo (5 itens) -->
+    <div class="portfolio-category-block">
+      <h3 class="category-title">✦ Edição de Vídeo (VideoMaker)</h3>
+      <div class="portfolio-grid-items">
+        <div class="work-item"><div class="media-placeholder">[Vídeo 01]</div><h4>Reel de Retenção</h4><p>Cortes ágeis e legendas dinâmicas.</p></div>
+        <div class="work-item"><div class="media-placeholder">[Vídeo 02]</div><h4>Vídeo para Lançamento</h4><p>Narrativa fluida e imersiva.</p></div>
+        <div class="work-item"><div class="media-placeholder">[Vídeo 03]</div><h4>Corte Podcast</h4><p>Destaques com alto poder de viralização.</p></div>
+        <div class="work-item"><div class="media-placeholder">[Vídeo 04]</div><h4>Reels Educacional</h4><p>Clareza e dinamismo visual.</p></div>
+        <div class="work-item"><div class="media-placeholder">[Vídeo 05]</div><h4>Institucional</h4><p>Autoridade e profissionalismo em cena.</p></div>
       </div>
     </div>
 
-    <!-- Categoria 3: StoryMaker -->
-    <div id="story" class="portfolio-content-grid">
-      <div class="work-item">
-        <div class="media-placeholder">[Cobertura Ao Vivo]</div>
-        <h4>Bastidores de Evento</h4>
-        <p>Narrativa em tempo real com dinamismo mobile.</p>
+    <!-- 3. StoryMaker (1 item) -->
+    <div class="portfolio-category-block">
+      <h3 class="category-title">✦ StoryMaker</h3>
+      <div class="portfolio-grid-items">
+        <div class="work-item"><div class="media-placeholder">[StoryMaker]</div><h4>Cobertura ao Vivo</h4><p>Bastidores e conexão real com a audiência.</p></div>
       </div>
     </div>
 
-    <!-- Categoria 4: Locução -->
-    <div id="loc" class="portfolio-content-grid">
-      <div class="work-item">
-        <div class="media-placeholder">[Áudio / Spot Comercial]</div>
-        <h4>Locução Publicitária</h4>
-        <p>Voz comercial marcante e profissional.</p>
+    <!-- 4. Locução (3 itens) -->
+    <div class="portfolio-category-block">
+      <h3 class="category-title">✦ Locução</h3>
+      <div class="portfolio-grid-items">
+        <div class="work-item"><div class="media-placeholder">[Locução 01]</div><h4>Spot Comercial</h4><p>Voz marcante para conversão.</p></div>
+        <div class="work-item"><div class="media-placeholder">[Locução 02]</div><h4>Narração de Vídeo</h4><p>Fluidez e tom institucional ideal.</p></div>
+        <div class="work-item"><div class="media-placeholder">[Locução 03]</div><h4>Vinheta & Chamada</h4><p>Impacto imediato para o seu público.</p></div>
       </div>
     </div>
 
-    <!-- Categoria 5: Identidade Visual -->
-    <div id="id" class="portfolio-content-grid">
-      <div class="work-item">
-        <div class="media-placeholder">[Manual de Marca]</div>
-        <h4>Branding Completo</h4>
-        <p>Logotipo, tipografia e diretrizes visuais no Notion.</p>
+    <!-- 5. Identidade Visual (1 item) -->
+    <div class="portfolio-category-block">
+      <h3 class="category-title">✦ Identidade Visual</h3>
+      <div class="portfolio-grid-items">
+        <div class="work-item"><div class="media-placeholder">[Branding]</div><h4>Identidade & Notion</h4><p>Logotipo completo e manual da marca centralizado.</p>
       </div>
     </div>
   </section>
@@ -657,7 +626,7 @@
       <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-main">Marcar um bate-papo</a>
     </div>
 
-    <!-- Redes sociais alinhadas estritamente no canto direito -->
+    <!-- Redes sociais estritamente no canto direito -->
     <div class="footer-bottom-bar">
       <div class="social-links-right">
         <a href="https://instagram.com/SEUPERFIL" target="_blank">Instagram</a>
@@ -666,20 +635,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Script para alternar as abas do portfólio -->
-  <script>
-    function switchTab(evt, categoryId) {
-      const grids = document.querySelectorAll('.portfolio-content-grid');
-      grids.forEach(grid => grid.classList.remove('active'));
-
-      const buttons = document.querySelectorAll('.tab-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-
-      document.getElementById(categoryId).classList.add('active');
-      evt.currentTarget.classList.add('active');
-    }
-  </script>
 
 </body>
 </html>

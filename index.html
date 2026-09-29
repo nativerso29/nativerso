@@ -15,10 +15,12 @@
       --bg-coffee: #211510;        
       --bg-cream: #F4ECE1;         
       --color-mustard: #E5A93B;    
+      --color-blue: #3A6B88;       /* Novo: Azul Petróleo Sofisticado */
+      --color-blue-dark: #234256;  /* Tom de azul mais escuro para fundos/detalhes */
       --text-light: #F9F6F0;       
       --text-dark: #211510;        
       --card-coffee: #2C1D17; 
-      --border-line: rgba(229, 169, 59, 0.2);
+      --border-line: rgba(58, 107, 136, 0.3); /* Linha sutil com toque azulado */
       --font-main: 'Poppins', sans-serif;
     }
 
@@ -33,12 +35,12 @@
       position: relative;
     }
 
-    /* Esfera Dinâmica Suave no Fundo */
+    /* Esfera Dinâmica Suave no Fundo (Com o novo tom azul) */
     .floating-orb {
       position: absolute;
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(229,169,59,0.12) 0%, rgba(33,21,16,0) 70%);
+      background: radial-gradient(circle, rgba(58,107,136,0.18) 0%, rgba(33,21,16,0) 70%);
       border-radius: 50%;
       top: 10%;
       left: 10%;
@@ -76,8 +78,7 @@
       align-items: center;
       gap: 0.4rem;
     }
-    .brand span { color: var(--color-mustard); }
-    /* Sem estrelas artificiais no logo, apenas ponto limpo de destaque se necessário, ou texto puro */
+    .brand span { color: var(--color-blue); } /* Detalhe do logo com o novo azul */
 
     nav { display: flex; gap: 2.5rem; align-items: center; }
     nav a {
@@ -87,11 +88,11 @@
       font-weight: 500;
       transition: color 0.2s;
     }
-    nav a:hover { color: var(--color-mustard); }
+    nav a:hover { color: var(--color-blue); }
 
     .btn-nav {
-      background-color: var(--color-mustard);
-      color: var(--text-dark);
+      background-color: var(--color-blue);
+      color: var(--text-light);
       padding: 0.6rem 1.6rem;
       border-radius: 50px;
       font-weight: 600;
@@ -101,10 +102,10 @@
     }
     .btn-nav:hover { transform: scale(1.05); }
 
-    /* Hero Section */
+    /* Hero Section - Título Proporcional e Elegante */
     .hero {
-      padding: 7rem 6% 4rem;
-      max-width: 1100px;
+      padding: 6rem 6% 4rem;
+      max-width: 1000px;
       margin: 0 auto;
       text-align: center;
       position: relative;
@@ -115,49 +116,49 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      color: var(--color-mustard);
+      color: var(--color-blue);
       font-weight: 600;
       font-size: 0.85rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      font-size: clamp(2rem, 3.8vw, 3.2rem); /* Tamanho controlado, sem exageros */
       font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -1px;
-      margin-bottom: 1.5rem;
-      max-width: 850px;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: 1.2rem;
+      max-width: 800px;
       margin-inline: auto;
     }
 
     .hero p {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 400;
-      max-width: 600px;
+      max-width: 580px;
       margin: 0 auto 2.5rem;
       opacity: 0.85;
     }
 
     .btn-main {
-      background-color: var(--color-mustard);
-      color: var(--text-dark);
-      padding: 1rem 2.5rem;
+      background-color: var(--color-blue);
+      color: var(--text-light);
+      padding: 0.9rem 2.3rem;
       border-radius: 50px;
-      font-weight: 700;
+      font-weight: 600;
       text-decoration: none;
-      font-size: 1rem;
+      font-size: 0.95rem;
       transition: all 0.3s;
       display: inline-block;
     }
-    .btn-main:hover { background-color: var(--text-light); transform: translateY(-2px); }
+    .btn-main:hover { background-color: var(--color-mustard); color: var(--text-dark); transform: translateY(-2px); }
 
-    /* Fita Deslizante Dinâmica e Elegante */
+    /* Fita Deslizante Dinâmica */
     .marquee-strip {
-      background-color: var(--color-mustard);
-      color: var(--text-dark);
+      background-color: var(--color-blue);
+      color: var(--text-light);
       padding: 0.8rem 0;
       transform: rotate(-1.5deg);
       width: 110vw;
@@ -197,7 +198,7 @@
     .section-wrap { padding: 5rem 6%; max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
     
     .section-title {
-      font-size: 2.3rem;
+      font-size: 2.2rem;
       font-weight: 700;
       letter-spacing: -1px;
       margin-bottom: 3rem;
@@ -220,7 +221,7 @@
       height: 400px;
       background-color: #E6D9CC;
       border-radius: 20px;
-      border: 2px solid var(--color-mustard);
+      border: 2px solid var(--color-blue);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -231,10 +232,10 @@
     }
     .about-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; }
 
-    .about-text h2 { font-size: 2rem; margin-bottom: 1.2rem; font-weight: 700; }
-    .about-text p { margin-bottom: 1rem; font-size: 1rem; opacity: 0.9; }
+    .about-text h2 { font-size: 1.8rem; margin-bottom: 1.2rem; font-weight: 700; }
+    .about-text p { margin-bottom: 1rem; font-size: 0.95rem; opacity: 0.9; }
 
-    /* Diferenciais (Cartões limpos e profissionais) */
+    /* Diferenciais */
     .diff-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -248,20 +249,20 @@
       border: 1px solid var(--border-line);
       transition: transform 0.3s ease;
     }
-    .diff-card:hover { transform: translateY(-4px); border-color: var(--color-mustard); }
-    .diff-card.mustard-bg { background-color: var(--color-mustard); color: var(--text-dark); border: none; }
+    .diff-card:hover { transform: translateY(-4px); border-color: var(--color-blue); }
+    .diff-card.blue-bg { background-color: var(--color-blue-dark); color: var(--text-light); border: 1px solid rgba(58,107,136,0.4); }
 
-    .diff-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+    .diff-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
     .diff-card p { font-size: 0.95rem; margin-bottom: 1.2rem; }
 
     .clean-list { list-style: none; }
     .clean-list li {
       font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
     }
-    .clean-list li::before { content: "—"; font-size: 0.75rem; color: var(--color-mustard); }
-    .diff-card.mustard-bg .clean-list li::before { color: var(--text-dark); }
+    .clean-list li::before { content: "—"; font-size: 0.75rem; color: var(--color-blue); }
+    .diff-card.blue-bg .clean-list li::before { color: var(--color-mustard); }
 
-    /* Serviços (Estrutura rica e profissional) */
+    /* Serviços */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -275,11 +276,11 @@
       border: 1px solid var(--border-line);
       transition: transform 0.2s, border-color 0.2s;
     }
-    .service-card:hover { transform: translateY(-4px); border-color: var(--color-mustard); }
-    .service-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-mustard); }
+    .service-card:hover { transform: translateY(-4px); border-color: var(--color-blue); }
+    .service-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-blue); }
     .service-card ul { list-style: none; }
-    .service-card ul li { font-size: 0.95rem; margin-bottom: 0.6rem; opacity: 0.9; display: flex; align-items: center; gap: 0.5rem; }
-    .service-card ul li::before { content: "—"; color: var(--color-mustard); font-size: 0.75rem; }
+    .service-card ul li { font-size: 0.92rem; margin-bottom: 0.6rem; opacity: 0.9; display: flex; align-items: center; gap: 0.5rem; }
+    .service-card ul li::before { content: "—"; color: var(--color-blue); font-size: 0.75rem; }
 
     /* Portfólio */
     .portfolio-grid {
@@ -311,7 +312,7 @@
     }
     .media-box img, .media-box video { width: 100%; height: 100%; object-fit: cover; position: absolute; }
 
-    .work-card h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem; color: var(--color-mustard); }
+    .work-card h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.2rem; color: var(--color-blue); }
     .work-card p { font-size: 0.9rem; opacity: 0.85; }
 
     /* Footer / Contato */
@@ -325,10 +326,10 @@
     }
 
     footer h2 {
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 700;
       margin-bottom: 1.5rem;
-      letter-spacing: -1px;
+      letter-spacing: -0.5px;
     }
 
     .social-links {
@@ -340,7 +341,7 @@
       border-top: 1px solid var(--border-line);
     }
     .social-links a { color: var(--text-light); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
-    .social-links a:hover { color: var(--color-mustard); }
+    .social-links a:hover { color: var(--color-blue); }
 
     @media (max-width: 860px) {
       .about-grid, .diff-grid, .services-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -380,7 +381,7 @@
     </div>
   </div>
 
-  <!-- Transição de Onda Suave (Topo) -->
+  <!-- Transição de Onda (Topo) -->
   <div class="wave-top">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
       <path d="M0,0 C150,90 350,-40 500,40 C650,120 900,10 1200,50 L1200,120 L0,120 Z" fill="#F4ECE1"></path>
@@ -409,7 +410,7 @@
       <h2 class="section-title" style="color: var(--text-dark);">O que nos torna únicos</h2>
       <div class="diff-grid">
         <div class="diff-card" style="background-color: var(--bg-coffee); color: var(--text-light);">
-          <h3 style="color: var(--color-mustard);">Gravação sem travar.<br>Roteiros que retêm.</h3>
+          <h3 style="color: var(--color-blue);">Gravação sem travar.<br>Roteiros que retêm.</h3>
           <p>Acha difícil gravar? Eu tenho um método. Desenvolvo seus roteiros guiados por storytelling e ganchos poderosos. Na hora da captação, você recebe direção de verdade para falar com naturalidade, sem parecer um robô.</p>
           <ul class="clean-list">
             <li>Foco em retenção visual</li>
@@ -418,7 +419,7 @@
           </ul>
         </div>
 
-        <div class="diff-card mustard-bg">
+        <div class="diff-card blue-bg">
           <h3>O seu QG exclusivo<br>no Notion.</h3>
           <p>Esqueça a bagunça no WhatsApp. Como meu cliente, você recebe um ambiente premium com absoluto controle sobre a sua marca. Tudo documentado à distância de um clique:</p>
           <ul class="clean-list">
@@ -431,7 +432,7 @@
     </section>
   </div>
 
-  <!-- Transição de Onda Suave (Base) -->
+  <!-- Transição de Onda (Base) -->
   <div class="wave-bottom">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
       <path d="M0,50 C300,100 650,0 1200,60 L1200,0 L0,0 Z" fill="#F4ECE1"></path>
@@ -509,7 +510,7 @@
   <footer id="contato">
     <h2>Pronta para entrar no NatiVerso?</h2>
     <p>Bora transformar a presença digital do seu negócio? Resposta rápida, sem enrolação.</p>
-    <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-main" style="background-color: var(--bg-cream); margin-top: 1.5rem;">Marcar um bate-papo</a>
+    <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-main" style="background-color: var(--bg-cream); color: var(--text-dark); margin-top: 1.5rem;">Marcar um bate-papo</a>
     
     <div class="social-links">
       <a href="https://instagram.com/SEUPERFIL" target="_blank">Instagram</a>

@@ -12,12 +12,13 @@
 
   <style>
     :root {
-      --bg-coffee: #221611;        /* Marrom café profundo e sofisticado */
-      --bg-cream: #F4ECE1;         /* Fundo creme limpo e elegante */
-      --color-mustard: #D49A36;    /* Mostarda clássico NatiVerso */
-      --text-dark: #221611;        
-      --text-light: #F9F6F0;       
-      --card-cream: #FFFFFF;       /* Cartões brancos/creme limpos */
+      --bg-cream: #FDF9F3;         /* Fundo claro principal */
+      --color-coffee: #2C1810;     /* Marrom café profundo */
+      --bg-soft-blue: #D6E4ED;     /* Azul pastel suave */
+      --bg-soft-yellow: #F7E9B9;   /* Amarelo pastel suave */
+      --bg-card: #F4EADF;         /* Creme estrutural */
+      --color-mustard: #D49A36;    /* Mostarda NatiVerso */
+      --color-accent: #8C3B32;     /* Vinho/café queimado */
       --font-main: 'Poppins', sans-serif;
     }
 
@@ -25,10 +26,19 @@
     html { scroll-behavior: smooth; overflow-x: hidden; }
     
     body {
-      background-color: var(--bg-coffee);
-      color: var(--text-light);
+      background-color: var(--bg-cream);
+      color: var(--color-coffee);
       font-family: var(--font-main);
       line-height: 1.6;
+      position: relative;
+    }
+
+    /* Textura de quadradinhos no fundo */
+    .grid-texture {
+      background-image: 
+        linear-gradient(to right, rgba(44, 24, 16, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(44, 24, 16, 0.035) 1px, transparent 1px);
+      background-size: 30px 30px;
     }
 
     /* ─── HEADER ─── */
@@ -36,19 +46,19 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background-color: rgba(34, 22, 17, 0.95);
+      background-color: rgba(253, 249, 243, 0.95);
       backdrop-filter: blur(10px);
       padding: 1.2rem 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(212, 154, 54, 0.2);
+      border-bottom: 2px dashed rgba(212, 154, 54, 0.3);
     }
 
     .brand {
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--text-light);
+      color: var(--color-coffee);
       text-decoration: none;
       letter-spacing: -0.5px;
       display: flex;
@@ -58,9 +68,9 @@
     .brand span { color: var(--color-mustard); }
     .brand::after { content: "✦"; color: var(--color-mustard); font-size: 0.9rem; }
 
-    nav { display: flex; gap: 2rem; align-items: center; }
+    nav { display: flex; gap: 1.8rem; align-items: center; }
     nav a {
-      color: var(--text-light);
+      color: var(--color-coffee);
       text-decoration: none;
       font-size: 0.95rem;
       font-weight: 500;
@@ -70,34 +80,37 @@
 
     .btn-nav {
       background-color: var(--color-mustard);
-      color: var(--text-dark);
+      color: var(--color-coffee);
       padding: 0.5rem 1.5rem;
       border-radius: 20px;
       font-weight: 600;
       text-decoration: none;
       font-size: 0.9rem;
+      box-shadow: 2px 2px 0 var(--color-coffee);
       transition: transform 0.1s;
     }
-    .btn-nav:hover { transform: scale(1.03); }
+    .btn-nav:hover { transform: translateY(-1px); }
 
     /* ─── HERO SECTION ─── */
     .hero {
-      background-color: var(--bg-cream);
-      color: var(--text-dark);
-      padding: 6rem 6% 5rem;
+      padding: 6rem 6% 4rem;
       text-align: center;
       position: relative;
-      border-bottom: 4px solid var(--bg-coffee);
     }
 
     .hero-tag {
       display: inline-block;
-      color: var(--color-mustard);
+      background-color: var(--bg-soft-yellow);
+      border: 2px solid var(--color-coffee);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      color: var(--color-coffee);
       font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
       text-transform: uppercase;
       margin-bottom: 1.5rem;
+      box-shadow: 3px 3px 0 var(--color-coffee);
     }
 
     .hero h1 {
@@ -120,21 +133,22 @@
 
     .btn-main {
       background-color: var(--color-mustard);
-      color: var(--text-dark);
+      color: var(--color-coffee);
       padding: 0.9rem 2.5rem;
       border-radius: 30px;
       font-weight: 600;
       text-decoration: none;
       font-size: 0.95rem;
+      box-shadow: 3px 3px 0 var(--color-coffee);
       transition: all 0.2s;
       display: inline-block;
     }
-    .btn-main:hover { background-color: var(--text-dark); color: var(--text-light); }
+    .btn-main:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--color-coffee); }
 
     /* ─── FITA DESLIZANTE ─── */
     .marquee-strip {
-      background-color: var(--color-mustard);
-      color: var(--text-dark);
+      background-color: var(--bg-soft-blue);
+      color: var(--color-coffee);
       padding: 0.7rem 0;
       transform: rotate(-1deg);
       width: 110vw;
@@ -144,12 +158,13 @@
       font-size: 0.85rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      border-top: 2px solid var(--text-dark);
-      border-bottom: 2px solid var(--text-dark);
+      border-top: 2px solid var(--color-coffee);
+      border-bottom: 2px solid var(--color-coffee);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       position: relative;
       z-index: 10;
       margin-top: 2rem;
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
     }
     .marquee-content {
       display: flex;
@@ -166,9 +181,26 @@
       100% { transform: translateX(-50%); }
     }
 
+    /* ─── LINHA/CURVA DINÂMICA ─── */
+    .floating-path-divider {
+      width: 100%;
+      height: 40px;
+      overflow: hidden;
+      position: relative;
+    }
+    .floating-path-divider svg {
+      width: 100%;
+      height: 40px;
+      animation: waveMove 6s ease-in-out infinite alternate;
+    }
+    @keyframes waveMove {
+      0% { transform: translateX(-15px); }
+      100% { transform: translateX(15px); }
+    }
+
     /* ─── SEÇÕES ─── */
     .section-wrap {
-      padding: 4rem 6%;
+      padding: 5rem 6%;
       max-width: 1100px;
       margin: 0 auto;
     }
@@ -179,15 +211,17 @@
       letter-spacing: -1px;
       margin-bottom: 3rem;
       text-align: center;
+      color: var(--color-coffee);
     }
 
-    /* Sobre & Diferenciais */
-    .editorial-box {
-      background-color: var(--bg-cream);
-      color: var(--text-dark);
+    /* Sobre com estilo de moldura colorida */
+    .about-card {
+      background-color: #FFFFFF;
       border-radius: 24px;
-      padding: 4rem;
-      position: relative;
+      padding: 3.5rem;
+      border: 3px solid var(--color-coffee);
+      box-shadow: 8px 8px 0 var(--color-mustard);
+      margin-bottom: 4rem;
     }
 
     .about-grid {
@@ -195,75 +229,119 @@
       grid-template-columns: 1.2fr 0.8fr;
       gap: 3rem;
       align-items: center;
-      margin-bottom: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid rgba(34, 22, 17, 0.15);
     }
 
     .about-image {
       width: 100%;
       height: 320px;
-      background-color: #E6D9CC;
+      background-color: var(--bg-soft-blue);
       border-radius: 16px;
+      border: 2px solid var(--color-coffee);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 600;
-      color: var(--text-dark);
+      color: var(--color-coffee);
       overflow: hidden;
       position: relative;
+      box-shadow: 4px 4px 0 var(--color-coffee);
     }
     .about-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; }
 
-    .diff-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+    /* Diferenciais Separados com Cores Diferentes (Estilo Referência) */
+    .differentials-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      margin-top: 3rem;
     }
 
-    .diff-card {
-      background-color: var(--card-cream);
-      color: var(--text-dark);
-      border-radius: 16px;
-      padding: 2.2rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    .diff-box {
+      background-color: var(--bg-soft-yellow);
+      border-radius: 24px;
+      padding: 3rem;
+      border: 3px solid var(--color-coffee);
+      box-shadow: 6px 6px 0 var(--color-coffee);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
     }
-    .diff-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.8ln; margin-bottom: 0.8rem; line-height: 1.2; color: var(--text-dark); }
-    .diff-card p { font-size: 0.92rem; margin-bottom: 1rem; opacity: 0.85; }
+
+    .diff-box.alt {
+      background-color: var(--bg-soft-blue);
+      box-shadow: 6px 6px 0 var(--color-accent);
+    }
+
+    .diff-content h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--color-coffee);
+    }
+    .diff-content p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 1.2rem; }
 
     .clean-list { list-style: none; }
     .clean-list li {
-      font-size: 0.88rem; font-weight: 500; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
     }
-    .clean-list li::before { content: "✦"; font-size: 0.75rem; color: var(--color-mustard); }
+    .clean-list li::before { content: "✦"; font-size: 0.75rem; color: var(--color-accent); }
 
-    /* ─── SERVIÇOS ─── */
+    /* Notion Preview Mockup */
+    .notion-preview-mockup {
+      background-color: var(--color-coffee);
+      color: #FDF9F3;
+      border-radius: 16px;
+      padding: 1.5rem;
+      font-family: monospace;
+      font-size: 0.82rem;
+      border: 2px solid var(--color-coffee);
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+    }
+    .notion-preview-mockup .mockup-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .notion-preview-mockup .mockup-row span { color: var(--color-mustard); }
+
+    /* ─── SERVIÇOS (Com blocos de cores variadas) ─── */
     .services-wrapper {
-      background-color: var(--bg-cream);
-      color: var(--text-dark);
-      padding: 6rem 6%;
+      padding: 5rem 6%;
+      background-color: var(--bg-card);
+      border-top: 3px solid var(--color-coffee);
+      border-bottom: 3px solid var(--color-coffee);
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
       max-width: 1100px;
       margin: 0 auto;
     }
 
     .service-card {
-      background-color: var(--card-cream);
-      border-radius: 16px;
-      padding: 2.2rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      background-color: #FFFFFF;
+      border-radius: 20px;
+      padding: 2.5rem;
+      border: 2px solid var(--color-coffee);
+      box-shadow: 5px 5px 0 var(--color-coffee);
+      transition: transform 0.2s;
     }
-    .service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-dark); }
-    .service-card ul { list-style: none; }
-    .service-card ul li { font-size: 0.9rem; margin-bottom: 0.6rem; opacity: 0.85; display: flex; align-items: center; gap: 0.5rem; color: var(--text-dark); }
-    .service-card ul li::before { content: "✦"; color: var(--color-mustard); font-size: 0.75rem; }
+    .service-card:hover { transform: translateY(-3px); }
+    .service-card.yellow-card { background-color: var(--bg-soft-yellow); box-shadow: 5px 5px 0 var(--color-accent); }
+    .service-card.blue-card { background-color: var(--bg-soft-blue); box-shadow: 5px 5px 0 var(--color-coffee); }
 
-    /* ─── PORTFÓLIO ─── */
+    .service-card h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-coffee); }
+    .service-card ul { list-style: none; }
+    .service-card ul li { font-size: 0.92rem; margin-bottom: 0.6rem; opacity: 0.85; display: flex; align-items: center; gap: 0.5rem; color: var(--color-coffee); }
+    .service-card ul li::before { content: "✦"; color: var(--color-accent); font-size: 0.75rem; }
+
+    /* ─── PORTFÓLIO (Blocos coloridos e marcantes) ─── */
     .portfolio-section {
       padding: 6rem 6%;
       max-width: 1100px;
@@ -272,73 +350,103 @@
 
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
     }
 
     .work-card {
-      background: #312018;
-      color: var(--text-light);
-      border-radius: 16px;
+      background: #FFFFFF;
+      color: var(--color-coffee);
+      border-radius: 20px;
       padding: 1.5rem;
-      border: 1px solid rgba(212, 154, 54, 0.2);
+      border: 2px solid var(--color-coffee);
+      box-shadow: 5px 5px 0 var(--color-mustard);
+      transition: transform 0.2s;
     }
+    .work-card.yellow-work { box-shadow: 5px 5px 0 var(--color-accent); background-color: var(--bg-soft-yellow); }
+    .work-card.blue-work { box-shadow: 5px 5px 0 var(--color-coffee); background-color: var(--bg-soft-blue); }
+    .work-card:hover { transform: translateY(-3px); }
 
     .media-box {
       width: 100%;
       height: 280px;
-      background: var(--bg-coffee);
-      border-radius: 10px;
+      background: var(--color-coffee);
+      border-radius: 12px;
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #888;
+      color: var(--color-mustard);
       position: relative;
       overflow: hidden;
+      border: 2px solid var(--color-coffee);
+      font-weight: 600;
     }
     .media-box img, .media-box video { width: 100%; height: 100%; object-fit: cover; position: absolute; }
 
-    .work-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; color: var(--color-mustard); }
-    .work-card p { font-size: 0.85rem; opacity: 0.8; }
+    .work-card h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--color-coffee); }
+    .work-card p { font-size: 0.9rem; opacity: 0.8; }
 
     /* ─── FOOTER / CONTATO ─── */
     footer {
-      background-color: var(--bg-cream);
-      color: var(--text-dark);
-      padding: 5rem 6% 3rem;
-      text-align: center;
-      border-top: 4px solid var(--bg-coffee);
+      background-color: var(--bg-card);
+      color: var(--color-coffee);
+      padding: 6rem 6% 3rem;
+      border-top: 3px solid var(--color-coffee);
       margin-top: 4rem;
     }
 
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
     footer h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4vw, 3.2rem);
       font-weight: 700;
       margin-bottom: 1rem;
     }
 
-    footer p { font-size: 1rem; opacity: 0.8; margin-bottom: 2rem; }
+    footer p { font-size: 1.05rem; opacity: 0.85; margin-bottom: 2rem; max-width: 600px; }
 
-    .social-links {
-      margin-top: 3rem;
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
+    /* Redes sociais alinhadas estritamente no canto direito */
+    .footer-bottom-bar {
+      width: 100%;
+      max-width: 1100px;
+      margin: 4rem auto 0;
       padding-top: 2rem;
-      border-top: 1px dashed rgba(34, 22, 17, 0.2);
+      border-top: 1px dashed rgba(44, 24, 16, 0.3);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
     }
-    .social-links a { color: var(--text-dark); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
-    .social-links a:hover { color: var(--color-mustard); }
+
+    .social-links-right {
+      display: flex;
+      gap: 2rem;
+    }
+    .social-links-right a {
+      color: var(--color-coffee);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .social-links-right a:hover { color: var(--color-accent); }
 
     @media (max-width: 860px) {
-      .about-grid, .diff-grid, .services-grid, .portfolio-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .editorial-box { padding: 2rem; }
+      .about-grid, .diff-box, .services-grid, .portfolio-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-card, .diff-box { padding: 2rem; }
       nav { display: none; }
+      .footer-bottom-bar { justify-content: center; }
     }
   </style>
 </head>
-<body>
+<body class="grid-texture">
 
   <!-- Header -->
   <header>
@@ -347,8 +455,9 @@
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
       <a href="#portfolio">Portfólio</a>
+      <a href="#contato">Contato</a>
     </nav>
-    <a href="#contato" class="btn-nav">Orçamento</a>
+    <a href="#orcamento" class="btn-nav">Orçamento</a>
   </header>
 
   <!-- Hero Section -->
@@ -356,7 +465,7 @@
     <div class="hero-tag">✦ O ECOSSISTEMA CRIATIVO ✦</div>
     <h1>O lugar onde a sua presença digital ganha vida.</h1>
     <p>Comunicação 360º de verdade. Unimos estratégia de conteúdo, roteiros magnéticos e direção de arte em um método fluido para você focar no que importa: crescer.</p>
-    <a href="#contato" class="btn-main">Entre no Universo</a>
+    <a href="#contato" class="btn-main">Entrar no Universo</a>
   </section>
 
   <!-- Fita Deslizante -->
@@ -367,13 +476,20 @@
     </div>
   </div>
 
-  <!-- Bloco Editorial: Sobre & Diferenciais -->
-  <div class="section-wrap">
-    <div class="editorial-box" id="sobre">
+  <!-- Curva Dinâmica -->
+  <div class="floating-path-divider">
+    <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+      <path d="M0,20 Q300,40 600,20 T1200,20" fill="none" stroke="#D49A36" stroke-width="3" stroke-dasharray="6,6"/>
+    </svg>
+  </div>
+
+  <!-- Bloco: Sobre -->
+  <div class="section-wrap" id="sobre">
+    <div class="about-card">
       <div class="about-grid">
         <div class="about-text">
-          <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--text-dark);">A mente por trás do universo.</h2>
-          <p>O NatiVerso não é uma agência, é um ecossistema. Nasceu da necessidade de conectar estética a conteúdos que realmente seguram a atenção da audiência do primeiro ao último segundo.</p>
+          <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--color-coffee);">A mente por trás do universo.</h2>
+          <p>O NatiVerso não é só uma agência, é um ecossistema. Nasceu da necessidade de conectar estética a conteúdos que realmente seguram a atenção da audiência do primeiro ao último segundo.</p>
           <p>Seja gerenciando suas redes, desenhando a identidade visual do zero, cobrindo o seu evento com o celular na mão ou gravando a voz que vai representar o seu negócio: eu entrego o pacote completo.</p>
         </div>
         <div class="about-image">
@@ -381,33 +497,52 @@
           <!-- <img src="sua-foto.jpg" alt="Foto Nati"> -->
         </div>
       </div>
+    </div>
 
-      <!-- Diferenciais -->
-      <div class="diff-grid">
-        <div class="diff-card">
+    <!-- Diferenciais com blocos de cores diferentes -->
+    <div class="differentials-wrapper">
+      
+      <!-- Caixa 1: Amarela (Gravação) -->
+      <div class="diff-box">
+        <div class="diff-content">
           <h3>Gravação sem travar. Roteiros que retêm.</h3>
-          <p>Acha difícil gravar? Eu tenho um método. Desenvolvo seus roteiros guiados por storytelling e ganchos poderosos para falar com naturalidade frente à câmera.</p>
+          <p>Acha difícil gravar? Eu tenho um método. Desenvolvo seus roteiros guiados por storytelling e ganchos poderosos para falar com naturalidade absoluta frente à câmera.</p>
           <ul class="clean-list">
-            <li>Foco em retenção visual</li>
-            <li>Roteiro estratégico</li>
-            <li>Direção in loco</li>
+            <li>Foco total em retenção visual</li>
+            <li>Roteiro estratégico sob medida</li>
+            <li>Direção in loco para destravar a fala</li>
           </ul>
         </div>
-
-        <div class="diff-card" style="background-color: var(--bg-coffee); color: var(--text-light);">
-          <h3 style="color: var(--color-mustard);">O seu QG exclusivo no Notion.</h3>
-          <p style="opacity: 0.85;">Esqueça a bagunça no WhatsApp. Como meu cliente, você recebe um ambiente premium com absoluto controle e visibilidade da sua marca.</p>
-          <ul class="clean-list" style="color: var(--text-light);">
-            <li>Manual e Diretrizes da Marca</li>
-            <li>Linhas Editoriais Estruturadas</li>
-            <li>Calendário e status ao vivo</li>
-          </ul>
+        <div class="media-box" style="height: 200px; margin: 0;">
+          <span>[Bastidores / Gravação]</span>
         </div>
       </div>
+
+      <!-- Caixa 2: Azul (QG Notion) -->
+      <div class="diff-box alt">
+        <div class="diff-content">
+          <h3>O seu QG exclusivo no Notion.</h3>
+          <p>Esqueça a bagunça no WhatsApp. Como meu cliente, você recebe um ambiente premium com absoluto controle, organização e visibilidade da sua marca centralizados.</p>
+          <ul class="clean-list">
+            <li>Manual e Diretrizes da Marca</li>
+            <li>Linhas Editoriais Estruturadas</li>
+            <li>Calendário e status de aprovação ao vivo</li>
+          </ul>
+        </div>
+        
+        <!-- Exemplo do Notion -->
+        <div class="notion-preview-mockup">
+          <div class="mockup-row"><span>📁</span> <strong>Workspace: NatiVerso QG</strong></div>
+          <div class="mockup-row"><span>📄</span> Manual_Diretrizes_Marca.pdf</div>
+          <div class="mockup-row"><span>📅</span> Calendario_Editorial.ts</div>
+          <div class="mockup-row" style="border:none; margin-bottom:0;"><span>🟢 Status:</span> Roteiro Aprovado & Pronto</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- Serviços -->
+  <!-- Seção de Serviços com blocos coloridos -->
   <div class="services-wrapper" id="servicos">
     <h2 class="section-title">Serviços</h2>
     <div class="services-grid">
@@ -421,7 +556,7 @@
         </ul>
       </div>
 
-      <div class="service-card">
+      <div class="service-card yellow-card">
         <h3>StoryMaker em Eventos</h3>
         <ul>
           <li>Cobertura criativa em tempo real</li>
@@ -430,7 +565,7 @@
         </ul>
       </div>
 
-      <div class="service-card">
+      <div class="service-card blue-card">
         <h3>VideoMaker</h3>
         <ul>
           <li>Gravação guiada Anti-Trava</li>
@@ -448,7 +583,7 @@
         </ul>
       </div>
 
-      <div class="service-card" style="grid-column: 1 / -1; max-width: 500px; margin: 0 auto; width: 100%;">
+      <div class="service-card yellow-card" style="grid-column: 1 / -1; max-width: 500px; margin: 0 auto; width: 100%;">
         <h3>Identidade Visual</h3>
         <ul>
           <li>Criação de Logo e Variações</li>
@@ -459,8 +594,8 @@
     </div>
   </div>
 
-  <!-- Portfólio -->
-  <div class="portfolio-section" id="portfolio">
+  <!-- Portfólio Colorido -->
+  <div class="section-wrap" id="portfolio">
     <h2 class="section-title">Portfólio</h2>
     <div class="portfolio-grid">
       <div class="work-card">
@@ -471,7 +606,7 @@
         <p>Identidade visual e linhas editoriais marcantes.</p>
       </div>
 
-      <div class="work-card">
+      <div class="work-card yellow-work">
         <div class="media-box">
           <span>[Storymaker / Eventos]</span>
         </div>
@@ -479,7 +614,7 @@
         <p>Acontecimentos transformados em conteúdo envolvente.</p>
       </div>
 
-      <div class="work-card">
+      <div class="work-card blue-work">
         <div class="media-box">
           <span>[Vídeo Vertical / 9:16]</span>
         </div>
@@ -487,7 +622,7 @@
         <p>Cortes ágeis e dinâmicos focados em prender a atenção.</p>
       </div>
 
-      <div class="work-card">
+      <div class="work-card yellow-work">
         <div class="media-box">
           <span>[Áudio / Locução]</span>
         </div>
@@ -497,16 +632,21 @@
     </div>
   </div>
 
-  <!-- Footer / Contato -->
+  <!-- Footer / Contato & Orçamento -->
   <footer id="contato">
-    <h2>Pronta para entrar no NatiVerso?</h2>
-    <p>Bora transformar a presença digital do seu negócio? Resposta rápida, sem enrolação.</p>
-    <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-main" style="margin-top: 1rem;">Marcar um bate-papo</a>
-    
-    <div class="social-links">
-      <a href="https://instagram.com/SEUPERFIL" target="_blank">Instagram</a>
-      <a href="https://tiktok.com/@SEUPERFIL" target="_blank">TikTok</a>
-      <a href="https://linkedin.com/in/SEUPERFIL" target="_blank">LinkedIn</a>
+    <div class="footer-content" id="orcamento">
+      <h2>Pronta para entrar no NatiVerso?</h2>
+      <p>Bora transformar a presença digital do seu negócio? Resposta rápida, sem enrolação.</p>
+      <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-main">Marcar um bate-papo</a>
+    </div>
+
+    <!-- Redes sociais estritamente no canto direito -->
+    <div class="footer-bottom-bar">
+      <div class="social-links-right">
+        <a href="https://instagram.com/SEUPERFIL" target="_blank">Instagram</a>
+        <a href="https://tiktok.com/@SEUPERFIL" target="_blank">TikTok</a>
+        <a href="https://linkedin.com/in/SEUPERFIL" target="_blank">LinkedIn</a>
+      </div>
     </div>
   </footer>
 

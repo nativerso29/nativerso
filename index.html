@@ -3,387 +3,546 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NatiVerso | Comunicação e Audiovisual</title>
+  <title>NatiVerso | Ecossistema de Conteúdo & Audiovisual</title>
   
-  <!-- Fontes: Oswald para Títulos (Impacto) e Poppins para Textos (Moderno/Amigável) -->
+  <!-- Fontes Exclusivas: Playfair Display (Editorial Clássico) + Plus Jakarta Sans (Moderna) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ─── PALETA DARK CHOCOLATE ─── */
     :root {
-      --bg-main: #140E0C;          /* Café expresso profundo */
-      --bg-card: #1D1512;          /* Chocolate amargo para os cartões */
-      --text-main: #F7F3EE;        /* Creme / Aveia suave para o texto principal */
-      --text-muted: #B8ADA7;       /* Bege acinzentado para textos longos */
-      --accent: #E0A44B;           /* Mostarda / Ocre Dourado da sua marca */
-      --accent-hover: #EDB560;     /* Mostarda mais claro para interações */
-      --border: #322520;           /* Linhas divisórias discretas */
-      
-      --font-title: 'Oswald', sans-serif;
-      --font-text: 'Poppins', sans-serif;
+      --bg-deep: #120D0B;          /* Café expresso muito profundo */
+      --bg-surface: #1B1310;       /* Chocolate amargo estrutural */
+      --bg-card: #231915;          /* Superfície de destaque dos cards */
+      --text-main: #F7F3EE;        /* Aveia / Creme suave */
+      --text-muted: #A89890;       /* Marrom acinzentado elegante */
+      --accent-gold: #DCA142;      /* Ocre mostarda característico */
+      --accent-glow: rgba(220, 161, 66, 0.15);
+      --border-subtle: #362620;    /* Linhas finas de divisão */
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     
     body {
-      background-color: var(--bg-main);
+      background-color: var(--bg-deep);
       color: var(--text-main);
-      font-family: var(--font-text);
-      line-height: 1.6;
+      font-family: var(--font-sans);
+      line-height: 1.7;
     }
 
-    /* ─── HEADER ─── */
+    /* ─── HEADER EXCLUSIVO ─── */
     header {
-      background-color: rgba(20, 14, 12, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 1.5rem 8%;
+      background-color: rgba(18, 13, 11, 0.9);
+      backdrop-filter: blur(12px);
+      padding: 1.5rem 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-subtle);
       position: sticky;
       top: 0;
       z-index: 100;
     }
 
+    .brand-group {
+      display: flex;
+      flex-direction: column;
+    }
+
     .brand {
-      font-family: var(--font-title);
-      font-size: 2rem;
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
       font-weight: 700;
       color: var(--text-main);
       text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: -1px;
+      letter-spacing: -0.5px;
     }
-    
-    .brand span { color: var(--accent); }
+
+    .brand span {
+      color: var(--accent-gold);
+      font-style: italic;
+    }
+
+    .brand-sub {
+      font-family: monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+    }
 
     nav {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       align-items: center;
     }
 
     nav a {
-      color: var(--text-main);
+      color: var(--text-muted);
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 500;
       transition: color 0.2s;
     }
 
-    nav a:hover { color: var(--accent); }
+    nav a:hover { color: var(--accent-gold); }
 
-    .btn-nav {
-      background-color: var(--accent);
-      color: #140E0C;
-      padding: 0.6rem 1.5rem;
+    .nav-btn {
+      background-color: var(--accent-gold);
+      color: #120D0B;
+      padding: 0.6rem 1.4rem;
       font-weight: 600;
+      border-radius: 30px;
       text-decoration: none;
-      border-radius: 4px;
-      transition: background 0.3s;
+      transition: all 0.3s;
     }
-    
-    .btn-nav:hover { background-color: var(--accent-hover); }
 
-    /* ─── BOTÕES ─── */
-    .btn {
+    .nav-btn:hover { background-color: #E8B35C; transform: translateY(-1px); }
+
+    /* ─── HERO SECTION AUTORAL ─── */
+    .hero {
+      padding: 8rem 6% 6rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-tag {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      background-color: var(--accent);
-      color: #140E0C;
-      font-weight: 600;
-      font-family: var(--font-text);
-      font-size: 0.95rem;
-      padding: 1rem 2.2rem;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: all 0.3s;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
-    
-    .btn-outline {
-      background-color: transparent;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-    }
-    
-    .btn-outline:hover {
-      background-color: var(--accent);
-      color: #140E0C;
-    }
-
-    /* ─── HERO SECTION (ESTILO AGÊNCIA: ESQUERDA) ─── */
-    .hero {
-      padding: 8rem 8% 6rem;
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .status-rec {
-      display: flex;
-      align-items: center;
       gap: 0.6rem;
-      color: var(--accent);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
       font-family: monospace;
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      letter-spacing: 1px;
+      font-size: 0.8rem;
+      color: var(--accent-gold);
+      margin-bottom: 2rem;
     }
 
-    .status-rec::before {
+    .hero-tag::before {
       content: "";
-      width: 10px;
-      height: 10px;
-      background-color: var(--accent);
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent-gold);
       border-radius: 50%;
-      animation: piscar 1.5s infinite;
+      animation: pulse 2s infinite;
     }
 
-    @keyframes piscar {
+    @keyframes pulse {
       0% { opacity: 1; }
-      50% { opacity: 0.3; }
+      50% { opacity: 0.4; }
       100% { opacity: 1; }
     }
 
     .hero h1 {
-      font-family: var(--font-title);
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      line-height: 1.05;
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.15;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: -1.5px;
       margin-bottom: 1.5rem;
-      color: var(--text-main);
-      max-width: 900px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent-gold);
     }
 
     .hero p {
       color: var(--text-muted);
       font-size: 1.1rem;
-      max-width: 600px;
       margin-bottom: 2.5rem;
+      max-width: 580px;
     }
-    
-    .hero-buttons {
+
+    .hero-actions {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
     }
 
-    /* ─── SEÇÕES COMUNS ─── */
-    section { padding: 5rem 8%; max-width: 1400px; margin: 0 auto; }
-    
-    .section-title {
-      font-family: var(--font-title);
-      font-size: 3rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: -1px;
-      margin-bottom: 0.5rem;
+    .btn-primary {
+      background-color: var(--accent-gold);
+      color: #120D0B;
+      font-weight: 600;
+      padding: 0.9rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover { background-color: #E8B35C; transform: translateY(-2px); }
+
+    .btn-secondary {
+      background-color: transparent;
       color: var(--text-main);
-    }
-
-    .section-subtitle {
-      color: var(--accent);
-      font-size: 1rem;
+      border: 1px solid var(--border-subtle);
       font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 3rem;
+      padding: 0.9rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s;
     }
 
-    /* ─── DIFERENCIAIS E SERVIÇOS ─── */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-bottom: 2rem;
+    .btn-secondary:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+    /* Caixa Visual do Hero (Estética de Estúdio) */
+    .hero-visual-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
 
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: 3rem;
-      border-radius: 8px;
-      transition: border-color 0.3s;
+    .hero-visual-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--accent-gold);
     }
-    
-    .card:hover { border-color: rgba(224, 164, 75, 0.4); }
 
-    .card-icon {
-      font-size: 2rem;
+    .hero-visual-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
       margin-bottom: 1.5rem;
     }
 
-    .card h3 {
-      font-family: var(--font-title);
-      font-size: 1.8rem;
-      text-transform: uppercase;
-      letter-spacing: -0.5px;
-      margin-bottom: 1rem;
-      color: var(--text-main);
+    .spec-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
-    .card p {
+    .spec-pill {
+      background: var(--bg-deep);
+      border: 1px solid var(--border-subtle);
+      padding: 0.3rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      color: var(--text-main);
+      font-family: monospace;
+    }
+
+    /* ─── SEÇÕES COMUNS ─── */
+    section { padding: 6rem 6%; max-width: 1300px; margin: 0 auto; }
+    
+    .section-header {
+      margin-bottom: 4rem;
+    }
+
+    .section-header span {
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: var(--accent-gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+
+    .section-header h2 em {
+      font-style: italic;
+      color: var(--accent-gold);
+    }
+
+    /* ─── DIFERENCIAIS (MÉTODO & NOTION) ─── */
+    .differentiators-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .diff-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .diff-card:hover {
+      border-color: var(--accent-gold);
+    }
+
+    .diff-number {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      color: var(--accent-gold);
+      opacity: 0.2;
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+    }
+
+    .diff-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .diff-card p {
       color: var(--text-muted);
       font-size: 0.95rem;
       margin-bottom: 1.5rem;
     }
-    
-    .feature-list { list-style: none; }
-    .feature-list li {
-      font-size: 0.95rem;
-      color: var(--text-main);
-      margin-bottom: 0.6rem;
+
+    .notion-preview-box {
+      background: var(--bg-deep);
+      border: 1px dashed var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.2rem;
+      font-family: monospace;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .notion-preview-box div {
+      margin-bottom: 0.4rem;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
     }
-    .feature-list li::before {
-      content: "✦";
-      color: var(--accent);
-      font-size: 0.8rem;
+
+    .notion-preview-box span { color: var(--accent-gold); }
+
+    /* ─── SERVIÇOS ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 2.5rem;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .service-box:hover {
+      transform: translateY(-4px);
+      background: var(--bg-card);
+    }
+
+    .service-box h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-box ul {
+      list-style: none;
+      margin-top: 1.2rem;
+    }
+
+    .service-box ul li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .service-box ul li::before {
+      content: "—";
+      color: var(--accent-gold);
     }
 
     /* ─── PORTFÓLIO ─── */
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
     }
 
-    .work-preview {
+    .work-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .work-screen {
       width: 100%;
       height: 400px;
-      background: #110A08; /* Um tom ainda mais escuro para o fundo da mídia */
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      background: var(--bg-deep);
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--text-muted);
-      overflow: hidden;
+      border-bottom: 1px solid var(--border-subtle);
     }
 
-    .media-cover {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
+    .work-details { padding: 1.8rem; }
+    .work-details span {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .work-details h4 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      margin: 0.3rem 0 0.5rem;
+    }
+    .work-details p { color: var(--text-muted); font-size: 0.88rem; }
+
+    /* ─── RODAPÉ / ORÇAMENTO ─── */
+    footer {
+      background-color: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+      padding: 6rem 6% 4rem;
+      text-align: center;
     }
 
-    .work-info { padding: 1.5rem 0; }
-    .work-info h4 { 
-      font-family: var(--font-title); 
-      font-size: 1.5rem; 
-      text-transform: uppercase; 
-      margin-bottom: 0.2rem; 
-      color: var(--text-main);
-    }
-    .work-info p { color: var(--text-muted); font-size: 0.95rem; }
-
-    /* ─── SOBRE / FOOTER ─── */
-    .about-section {
-      background: #0A0706; /* Quase preto para contrastar o rodapé */
-      border-top: 1px solid var(--border);
-      padding: 6rem 8%;
+    footer h2 {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
 
-    @media (max-width: 860px) {
-      .grid-2 { grid-template-columns: 1fr; }
-      nav { display: none; } /* Pode ser substituído por menu hambúrguer futuramente */
-      .hero h1 { font-size: 2.8rem; }
+    footer p {
+      color: var(--text-muted);
+      max-width: 550px;
+      margin: 0 auto 2.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 4rem; }
+      .differentiators-grid { grid-template-columns: 1fr; }
+      nav { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Menu Superior -->
+  <!-- Header -->
   <header>
-    <a href="#" class="brand">Nati<span>Verso</span></a>
+    <div class="brand-group">
+      <a href="#" class="brand">Nati<span>Verso</span></a>
+      <span class="brand-sub">ESTÚDIO 360° // 2026</span>
+    </div>
     <nav>
-      <a href="#sobre">Quem somos</a>
+      <a href="#diferenciais">Método</a>
       <a href="#servicos">Serviços</a>
       <a href="#portfolio">Portfólio</a>
-      <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-nav">Falar no WhatsApp</a>
+      <a href="https://wa.me/55SEUNUMERO" target="_blank" class="nav-btn">Orçamento</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section Autoral -->
   <section class="hero">
-    <div class="status-rec">REC 00:03:03:22</div>
-    
-    <h1>Comunicação 360º de verdade.</h1>
-    
-    <p>O ecossistema onde a sua marca ganha forma, narrativa e presença. Unimos estratégia de conteúdo, roteiros magnéticos e direção de arte para você focar no que importa: crescer.</p>
-    
-    <div class="hero-buttons">
-      <a href="https://wa.me/55SEUNUMERO?text=Olá,%20vim%20pelo%20portfólio!" target="_blank" class="btn">Solicitar Proposta</a>
-      <a href="#portfolio" class="btn btn-outline">Ver Portfólio</a>
+    <div>
+      <div class="hero-tag">CONTEÚDO COM ESTRUTURA & ESTÉTICA</div>
+      <h1>O universo onde sua marca ganha <em>voz, ritmo e direção</em>.</h1>
+      <p>Esqueça os padrões engessados. Unimos a sensibilidade de uma curadoria editorial com a precisão de um ecossistema digital feito para prender a atenção do primeiro ao último segundo.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/55SEUNUMERO?text=Olá!%20Gostaria%20de%20conversar%20sobre%20o%20projeto%20da%20minha%20marca." target="_blank" class="btn-primary">Iniciar Projeto no WhatsApp</a>
+        <a href="#portfolio" class="btn-secondary">Explorar Trabalhos</a>
+      </div>
+    </div>
+
+    <!-- Bloco Visual Exclusivo do NatiVerso -->
+    <div class="hero-visual-card">
+      <h4>Arquitetura do NatiVerso</h4>
+      <p>Uma entrega que cruza a estratégia de marca com a autonomia criativa:</p>
+      <div class="spec-pills">
+        <span class="spec-pill"># Storymaking</span>
+        <span class="spec-pill"># Método Anti-Trava</span>
+        <span class="spec-pill"># Hub Notion Exclusivo</span>
+        <span class="spec-pill"># Identidade Editorial</span>
+        <span class="spec-pill"># Locução & Voz</span>
+      </div>
     </div>
   </section>
 
-  <!-- Diferenciais (Método e Notion) -->
-  <section>
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-icon">🎬</div>
-        <h3>Gravação sem travar</h3>
-        <p>Desenvolvo seus roteiros guiados por storytelling e ganchos poderosos. Na hora da captação, você recebe direção de verdade para falar com naturalidade, sem parecer um robô.</p>
+  <!-- Diferenciais Únicos (Notion & Gravação) -->
+  <section id="diferenciais">
+    <div class="section-header">
+      <span>Exclusivo NatiVerso</span>
+      <h2>Por que trabalhar <em>diferente</em>?</h2>
+    </div>
+
+    <div class="differentiators-grid">
+      <!-- Método Gravação -->
+      <div class="diff-card">
+        <div class="diff-number">01</div>
+        <h3>Gravação sem travar & Roteiros com Ganchos</h3>
+        <p>Produzir vídeo não precisa ser um fardo. Desenvolvo seus roteiros através de storytelling magnético. Na captação, você recebe uma condução de fala natural para eliminar o bloqueio e transmitir pura autoridade frente à câmera.</p>
+        <span style="font-size: 0.85rem; color: var(--accent-gold); font-family: monospace;">✦ Foco total na retenção e conversão</span>
       </div>
 
-      <div class="card">
-        <div class="card-icon">🧠</div>
-        <h3>QG Exclusivo no Notion</h3>
-        <p>Esqueça a bagunça no WhatsApp. Como meu cliente, você recebe um ambiente premium com absoluto controle. Tudo documentado:</p>
-        <ul class="feature-list">
-          <li>Manual e Diretrizes da Marca</li>
-          <li>Linhas Editoriais Estruturadas</li>
-          <li>Ideias de conteúdo com formato definido</li>
-          <li>Aprovação de posts e status ao vivo</li>
-        </ul>
+      <!-- Hub Notion -->
+      <div class="diff-card">
+        <div class="diff-number">02</div>
+        <h3>O seu QG Privado no Notion</h3>
+        <p>Transparência radical e organização de grande estúdio. Esqueça o caos no chat: você ganha um painel exclusivo com o controle absoluto do seu posicionamento:</p>
+        <div class="notion-preview-box">
+          <div><span>▶</span> Manual & Diretrizes da Marca.pdf</div>
+          <div><span>▶</span> Linhas Editoriais & Formatos Definidos</div>
+          <div><span>▶</span> Calendário de Produção & Status ao Vivo</div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Serviços -->
   <section id="servicos">
-    <h2 class="section-title">O que entregamos</h2>
-    <p class="section-subtitle">Gestão Visual, Narrativa e Estratégica</p>
-    
-    <div class="grid-2">
-      <div class="card">
-        <h3>Social Media & Identidade</h3>
-        <ul class="feature-list">
-          <li>Estudo profundo e planejamento mensal</li>
-          <li>Design, copy e edição para feed</li>
-          <li>Identidade visual e manual da marca</li>
-          <li>Gestão de perfil e relatório de métricas</li>
+    <div class="section-header">
+      <span>Ecossistema de Soluções</span>
+      <h2>O que construímos <em>juntos</em></h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-box">
+        <h3>Social Media 360°</h3>
+        <p>Do diagnóstico profundo de mercado até a publicação e métricas.</p>
+        <ul>
+          <li>Estudo estratégico e linhas editoriais</li>
+          <li>Calendário mensal estruturado</li>
+          <li>Design autoral, copies e legendas</li>
         </ul>
       </div>
 
-      <div class="card">
-        <h3>StoryMaker & VideoMaker</h3>
-        <ul class="feature-list">
-          <li>Cobertura de eventos em tempo real</li>
-          <li>Roteiro prévio alinhado aos objetivos</li>
-          <li>Vídeos dinâmicos para plataformas verticais</li>
-          <li>Locução publicitária com a voz NatiVerso</li>
+      <div class="service-box">
+        <h3>StoryMaker & Eventos</h3>
+        <p>Cobertura in loco com olhar de quem domina a narrativa em tempo real.</p>
+        <ul>
+          <li>Roteiro prévio de alinhamento</li>
+          <li>Captação mobile de alta performance</li>
+          <li>Postagens imediatas para engajamento</li>
+        </ul>
+      </div>
+
+      <div class="service-box">
+        <h3>VideoMaker & Voz</h3>
+        <p>Edição vertical dinâmica e locução profissional para campanhas.</p>
+        <ul>
+          <li>Cortes ágeis com foco em retenção</li>
+          <li>Sonoplastia e legendas estratégicas</li>
+          <li>Locução comercial e institucional</li>
         </ul>
       </div>
     </div>
@@ -391,66 +550,43 @@
 
   <!-- Portfólio -->
   <section id="portfolio">
-    <h2 class="section-title">Trabalhos</h2>
-    <p class="section-subtitle">O resultado final</p>
-    
+    <div class="section-header">
+      <span>Galeria de Cases</span>
+      <h2>Trabalhos em <em>Destaque</em></h2>
+    </div>
+
     <div class="portfolio-grid">
-      
-      <!-- Card 1 -->
-      <div class="work-card">
-        <div class="work-preview">
-          <span>[Vídeo Aqui]</span>
-          <!-- <video src="assets/seu-video.mp4" class="media-cover" autoplay loop muted playsinline></video> -->
-        </div>
-        <div class="work-info">
-          <h4>Audiovisual</h4>
-          <p>Cortes Ágeis & Retenção</p>
+      <div class="work-item">
+        <div class="work-screen"><span>[Prévia Vídeo / 9:16]</span></div>
+        <div class="work-details">
+          <span>Audiovisual</span>
+          <h4>Cortes & Dinâmica de Retenção</h4>
+          <p>Produção e pós-produção focada no ritmo das redes sociais.</p>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="work-card">
-        <div class="work-preview">
-          <span>[Carrossel Aqui]</span>
-          <!-- <img src="assets/seu-carrossel.jpg" class="media-cover" alt="Carrossel"> -->
-        </div>
-        <div class="work-info">
-          <h4>Social Media</h4>
-          <p>Linha Editorial & Design</p>
+      <div class="work-item">
+        <div class="work-screen"><span>[Prévia Carrossel / Editorial]</span></div>
+        <div class="work-details">
+          <span>Social Media & Marca</span>
+          <h4>Posicionamento Visual</h4>
+          <p>Identidade e linhas editoriais que marcam presença no feed.</p>
         </div>
       </div>
-
-      <!-- Card 3 -->
-      <div class="work-card">
-        <div class="work-preview">
-          <span>[Stories Aqui]</span>
-          <!-- <img src="assets/seu-story.jpg" class="media-cover" alt="Storymaker"> -->
-        </div>
-        <div class="work-info">
-          <h4>StoryMaker</h4>
-          <p>Narrativa de Eventos e Bastidores</p>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- Sobre / Contato -->
-  <div class="about-section" id="sobre">
-    <section style="padding: 0;">
-      <h2 class="section-title">NatiVerso</h2>
-      <p class="section-subtitle">A mente por trás do universo</p>
-      
-      <p style="max-width: 650px; margin-bottom: 1.5rem; color: var(--text-muted); font-size: 1.05rem;">
-        O NatiVerso não é só uma agência, é um ecossistema. Nasceu da necessidade de conectar estética impecável a conteúdos que realmente seguram a atenção da audiência do primeiro ao último segundo.
-      </p>
-      <p style="max-width: 650px; margin-bottom: 3rem; color: var(--text-muted); font-size: 1.05rem;">
-        Seja gerenciando suas redes, desenhando a identidade visual, cobrindo o seu evento com o celular na mão ou gravando a locução que vai representar o seu negócio: eu entrego um método rigoroso de organização para que a sua experiência seja tão premium quanto o conteúdo final.
-      </p>
-      
-      <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn">Iniciar Orçamento no WhatsApp</a>
-    </section>
-  </div>
+  <!-- Rodapé / Contato -->
+  <footer id="orcamento">
+    <h2>Pronta para estruturar o seu universo?</h2>
+    <p>Vamos desenhar o plano de comunicação ideal para o seu momento atual. Entre em contato direto pelo WhatsApp.</p>
+    <a href="https://wa.me/55SEUNUMERO?text=Olá,%20quero%20levar%20minha%20marca%20para%20o%20NatiVerso!" target="_blank" class="btn-primary">
+      Falar no WhatsApp
+    </a>
+    <p style="font-size: 0.75rem; margin-top: 4rem; color: #4A3832;">
+      © 2026 NatiVerso. Todos os direitos reservados.
+    </p>
+  </footer>
 
 </body>
 </html>

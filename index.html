@@ -8,19 +8,17 @@
   <!-- Fonte Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-coffee: #211510;        
-      --bg-cream: #F4ECE1;         
-      --color-mustard: #E5A93B;    
-      --color-blue: #3A6B88;       /* Novo: Azul Petróleo Sofisticado */
-      --color-blue-dark: #234256;  /* Tom de azul mais escuro para fundos/detalhes */
-      --text-light: #F9F6F0;       
-      --text-dark: #211510;        
-      --card-coffee: #2C1D17; 
-      --border-line: rgba(58, 107, 136, 0.3); /* Linha sutil com toque azulado */
+      --bg-coffee: #2C1810;        /* Marrom café profundo e rico */
+      --bg-cream: #FDF9F3;         /* Fundo creme papelaria limpo */
+      --bg-card: #F4EADF;         /* Tom creme escuro para cartões */
+      --color-mustard: #D49A36;    /* Mostarda elegante */
+      --color-accent: #8C3B32;     /* Tom de vinho/café queimado para detalhes */
+      --text-dark: #2C1810;        
+      --text-light: #FDF9F3;       
       --font-main: 'Poppins', sans-serif;
     }
 
@@ -32,45 +30,25 @@
       color: var(--text-light);
       font-family: var(--font-main);
       line-height: 1.6;
-      position: relative;
     }
 
-    /* Esfera Dinâmica Suave no Fundo (Com o novo tom azul) */
-    .floating-orb {
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(58,107,136,0.18) 0%, rgba(33,21,16,0) 70%);
-      border-radius: 50%;
-      top: 10%;
-      left: 10%;
-      z-index: 0;
-      pointer-events: none;
-      animation: moveOrb 15s infinite alternate ease-in-out;
-    }
-
-    @keyframes moveOrb {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(150px, 200px) scale(1.2); }
-    }
-
-    /* Header Fixo com Linha Fina */
+    /* ─── HEADER ESTILO RETRÔ / EDITORIAL ─── */
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background-color: rgba(33, 21, 16, 0.95);
-      backdrop-filter: blur(12px);
+      background-color: rgba(44, 24, 16, 0.95);
+      backdrop-filter: blur(10px);
       padding: 1.2rem 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--border-line);
+      border-bottom: 2px dashed rgba(212, 154, 54, 0.3);
     }
 
     .brand {
       font-size: 1.5rem;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--text-light);
       text-decoration: none;
       letter-spacing: -0.5px;
@@ -78,9 +56,10 @@
       align-items: center;
       gap: 0.4rem;
     }
-    .brand span { color: var(--color-blue); } /* Detalhe do logo com o novo azul */
+    .brand span { color: var(--color-mustard); }
+    .brand::after { content: "✦"; color: var(--color-mustard); font-size: 0.9rem; }
 
-    nav { display: flex; gap: 2.5rem; align-items: center; }
+    nav { display: flex; gap: 2rem; align-items: center; }
     nav a {
       color: var(--text-light);
       text-decoration: none;
@@ -88,48 +67,56 @@
       font-weight: 500;
       transition: color 0.2s;
     }
-    nav a:hover { color: var(--color-blue); }
+    nav a:hover { color: var(--color-mustard); }
 
     .btn-nav {
-      background-color: var(--color-blue);
-      color: var(--text-light);
-      padding: 0.6rem 1.6rem;
-      border-radius: 50px;
+      background-color: var(--color-mustard);
+      color: var(--text-dark);
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
       font-weight: 600;
       text-decoration: none;
       font-size: 0.9rem;
-      transition: transform 0.2s;
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+      transition: transform 0.1s;
     }
-    .btn-nav:hover { transform: scale(1.05); }
+    .btn-nav:hover { transform: translateY(-1px); }
 
-    /* Hero Section - Título Proporcional e Elegante */
+    /* ─── HERO SECTION COM TEXTURA XADREZ FINA (GRID PATTERN) ─── */
     .hero {
-      padding: 6rem 6% 4rem;
-      max-width: 1000px;
-      margin: 0 auto;
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      padding: 6rem 6% 5rem;
       text-align: center;
       position: relative;
-      z-index: 1;
+      /* Efeito de grade xadrez super subtil inspirado na referência */
+      background-image: 
+        linear-gradient(to right, rgba(44, 24, 16, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(44, 24, 16, 0.04) 1px, transparent 1px);
+      background-size: 30px 30px;
+      border-bottom: 6px solid var(--bg-coffee);
     }
 
     .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--color-blue);
+      display: inline-block;
+      background-color: var(--bg-card);
+      border: 1px solid var(--color-mustard);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      color: var(--color-accent);
       font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 3.8vw, 3.2rem); /* Tamanho controlado, sem exageros */
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
       font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.5px;
-      margin-bottom: 1.2rem;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 1.5rem;
       max-width: 800px;
       margin-inline: auto;
     }
@@ -143,36 +130,37 @@
     }
 
     .btn-main {
-      background-color: var(--color-blue);
-      color: var(--text-light);
-      padding: 0.9rem 2.3rem;
-      border-radius: 50px;
+      background-color: var(--color-mustard);
+      color: var(--text-dark);
+      padding: 0.9rem 2.5rem;
+      border-radius: 30px;
       font-weight: 600;
       text-decoration: none;
       font-size: 0.95rem;
-      transition: all 0.3s;
+      box-shadow: 3px 3px 0 var(--text-dark);
+      transition: all 0.2s;
       display: inline-block;
     }
-    .btn-main:hover { background-color: var(--color-mustard); color: var(--text-dark); transform: translateY(-2px); }
+    .btn-main:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--text-dark); }
 
-    /* Fita Deslizante Dinâmica */
+    /* ─── FITA DESLIZANTE CHARMOSA ─── */
     .marquee-strip {
-      background-color: var(--color-blue);
+      background-color: var(--color-accent);
       color: var(--text-light);
-      padding: 0.8rem 0;
-      transform: rotate(-1.5deg);
+      padding: 0.7rem 0;
+      transform: rotate(-1deg);
       width: 110vw;
       margin-left: -5vw;
-      margin-top: 3rem;
-      margin-bottom: 3rem;
       overflow: hidden;
-      font-weight: 700;
-      font-size: 0.9rem;
+      font-weight: 600;
+      font-size: 0.85rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      z-index: 10;
+      border-top: 2px solid var(--text-dark);
+      border-bottom: 2px solid var(--text-dark);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       position: relative;
+      z-index: 10;
     }
     .marquee-content {
       display: flex;
@@ -189,14 +177,13 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* Transições de Onda */
-    .wave-top { width: 100%; line-height: 0; background-color: var(--bg-coffee); }
-    .wave-top svg { display: block; width: 100%; height: 70px; }
-    .wave-bottom { width: 100%; line-height: 0; background-color: var(--bg-cream); }
-    .wave-bottom svg { display: block; width: 100%; height: 70px; }
+    /* ─── SEÇÃO SOBRE & DIFERENCIAIS (ESTILO BLOCAGEM DE PAPELARIA) ─── */
+    .section-wrap {
+      padding: 6rem 6%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-    .section-wrap { padding: 5rem 6%; max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
-    
     .section-title {
       font-size: 2.2rem;
       font-weight: 700;
@@ -205,23 +192,31 @@
       text-align: center;
     }
 
-    .bg-light-section { background-color: var(--bg-cream); color: var(--text-dark); }
-    .bg-light-section .section-title { color: var(--text-dark); }
+    /* Estilo "Cartão Postal / Bloco" inspirado na Nectar */
+    .editorial-box {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      border-radius: 24px;
+      padding: 4rem;
+      border: 3px solid var(--text-dark);
+      box-shadow: 8px 8px 0 var(--color-mustard);
+      position: relative;
+      margin-bottom: 4rem;
+    }
 
-    /* Sobre */
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
       align-items: center;
     }
 
     .about-image {
       width: 100%;
-      height: 400px;
+      height: 360px;
       background-color: #E6D9CC;
-      border-radius: 20px;
-      border: 2px solid var(--color-blue);
+      border-radius: 16px;
+      border: 2px solid var(--text-dark);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -232,57 +227,72 @@
     }
     .about-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; }
 
-    .about-text h2 { font-size: 1.8rem; margin-bottom: 1.2rem; font-weight: 700; }
-    .about-text p { margin-bottom: 1rem; font-size: 0.95rem; opacity: 0.9; }
-
-    /* Diferenciais */
+    /* Diferenciais em formato de blocos limpos */
     .diff-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
+      margin-top: 3rem;
     }
 
     .diff-card {
-      background-color: var(--card-coffee);
+      background-color: var(--bg-card);
+      color: var(--text-dark);
       border-radius: 20px;
-      padding: 3rem 2.5rem;
-      border: 1px solid var(--border-line);
-      transition: transform 0.3s ease;
+      padding: 2.5rem;
+      border: 2px solid var(--text-dark);
+      box-shadow: 4px 4px 0 var(--text-dark);
+      transition: transform 0.2s;
     }
-    .diff-card:hover { transform: translateY(-4px); border-color: var(--color-blue); }
-    .diff-card.blue-bg { background-color: var(--color-blue-dark); color: var(--text-light); border: 1px solid rgba(58,107,136,0.4); }
+    .diff-card:hover { transform: translateY(-3px); }
+    .diff-card.highlight { background-color: var(--color-mustard); }
 
-    .diff-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
-    .diff-card p { font-size: 0.95rem; margin-bottom: 1.2rem; }
+    .diff-card h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+    .diff-card p { font-size: 0.95rem; margin-bottom: 1.2rem; opacity: 0.9; }
 
     .clean-list { list-style: none; }
     .clean-list li {
       font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
     }
-    .clean-list li::before { content: "—"; font-size: 0.75rem; color: var(--color-blue); }
-    .diff-card.blue-bg .clean-list li::before { color: var(--color-mustard); }
+    .clean-list li::before { content: "✦"; font-size: 0.75rem; color: var(--color-accent); }
+    .diff-card.highlight .clean-list li::before { color: var(--text-dark); }
 
-    /* Serviços */
+    /* ─── SERVIÇOS (ESTILO BLOCOS DE MOLDURA) ─── */
+    .services-wrapper {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      padding: 6rem 6%;
+      border-top: 4px solid var(--text-dark);
+      border-bottom: 4px solid var(--text-dark);
+    }
+
     .services-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .service-card {
-      background-color: var(--card-coffee);
+      background-color: #FFFFFF;
       border-radius: 20px;
       padding: 2.5rem;
-      border: 1px solid var(--border-line);
-      transition: transform 0.2s, border-color 0.2s;
+      border: 2px solid var(--text-dark);
+      box-shadow: 4px 4px 0 var(--text-dark);
     }
-    .service-card:hover { transform: translateY(-4px); border-color: var(--color-blue); }
-    .service-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-blue); }
+    .service-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-accent); }
     .service-card ul { list-style: none; }
-    .service-card ul li { font-size: 0.92rem; margin-bottom: 0.6rem; opacity: 0.9; display: flex; align-items: center; gap: 0.5rem; }
-    .service-card ul li::before { content: "—"; color: var(--color-blue); font-size: 0.75rem; }
+    .service-card ul li { font-size: 0.92rem; margin-bottom: 0.6rem; opacity: 0.85; display: flex; align-items: center; gap: 0.5rem; color: var(--text-dark); }
+    .service-card ul li::before { content: "✦"; color: var(--color-mustard); font-size: 0.75rem; }
 
-    /* Portfólio */
+    /* ─── PORTFÓLIO ─── */
+    .portfolio-section {
+      padding: 6rem 6%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -290,17 +300,19 @@
     }
 
     .work-card {
-      background: var(--card-coffee);
+      background: var(--bg-card);
+      color: var(--text-dark);
       border-radius: 20px;
       padding: 1.5rem;
-      border: 1px solid var(--border-line);
+      border: 2px solid var(--text-dark);
+      box-shadow: 5px 5px 0 var(--text-dark);
     }
 
     .media-box {
       width: 100%;
-      height: 380px;
+      height: 360px;
       background: var(--bg-coffee);
-      border-radius: 14px;
+      border-radius: 12px;
       margin-bottom: 1.2rem;
       display: flex;
       align-items: center;
@@ -308,29 +320,30 @@
       color: #888;
       position: relative;
       overflow: hidden;
-      border: 1px solid var(--border-line);
+      border: 1px solid var(--text-dark);
     }
     .media-box img, .media-box video { width: 100%; height: 100%; object-fit: cover; position: absolute; }
 
-    .work-card h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.2rem; color: var(--color-blue); }
-    .work-card p { font-size: 0.9rem; opacity: 0.85; }
+    .work-card h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.2rem; color: var(--color-accent); }
+    .work-card p { font-size: 0.9rem; opacity: 0.8; }
 
-    /* Footer / Contato */
+    /* ─── FOOTER / CONTATO ─── */
     footer {
-      background-color: var(--bg-coffee);
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
       padding: 6rem 6% 4rem;
       text-align: center;
-      position: relative;
-      z-index: 1;
-      border-top: 1px solid var(--border-line);
+      border-top: 4px solid var(--text-dark);
     }
 
     footer h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4vw, 3.2rem);
       font-weight: 700;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       letter-spacing: -0.5px;
     }
+
+    footer p { font-size: 1.05rem; opacity: 0.8; margin-bottom: 2rem; }
 
     .social-links {
       margin-top: 4rem;
@@ -338,21 +351,19 @@
       justify-content: center;
       gap: 2.5rem;
       padding-top: 2rem;
-      border-top: 1px solid var(--border-line);
+      border-top: 1px dashed var(--text-dark);
     }
-    .social-links a { color: var(--text-light); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
-    .social-links a:hover { color: var(--color-blue); }
+    .social-links a { color: var(--text-dark); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+    .social-links a:hover { color: var(--color-accent); }
 
     @media (max-width: 860px) {
       .about-grid, .diff-grid, .services-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .editorial-box { padding: 2rem; }
       nav { display: none; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Esfera Dinâmica Flutuante -->
-  <div class="floating-orb"></div>
 
   <!-- Header -->
   <header>
@@ -365,52 +376,41 @@
     <a href="#contato" class="btn-nav">Orçamento</a>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section com Textura Xadrez -->
   <section class="hero">
-    <div class="hero-tag">— CONHEÇA O UNIVERSO —</div>
+    <div class="hero-tag">✦ CONHEÇA O UNIVERSO ✦</div>
     <h1>Entre no Universo onde a sua marca ganha forma, narrativa e presença.</h1>
     <p>Comunicação 360º de verdade. Unimos estratégia de conteúdo, roteiros magnéticos e direção de arte em um método fluido para você focar no que importa: crescer.</p>
     <a href="#contato" class="btn-main">Entrar no Universo</a>
   </section>
 
-  <!-- Fita Deslizante Dinâmica -->
+  <!-- Fita Deslizante -->
   <div class="marquee-strip">
     <div class="marquee-content">
-      <span>— ESTRATÉGIA VISUAL — MÉTODO ANTI-TRAVA — QG NO NOTION — ROTEIROS QUE RETÊM — STORYMAKING —</span>
-      <span>— ESTRATÉGIA VISUAL — MÉTODO ANTI-TRAVA — QG NO NOTION — ROTEIROS QUE RETÊM — STORYMAKING —</span>
+      <span>✦ ESTRATÉGIA VISUAL ✦ MÉTODO ANTI-TRAVA ✦ QG NO NOTION ✦ ROTEIROS QUE RETÊM ✦ STORYMAKING ✦</span>
+      <span>✦ ESTRATÉGIA VISUAL ✦ MÉTODO ANTI-TRAVA ✦ QG NO NOTION ✦ ROTEIROS QUE RETÊM ✦ STORYMAKING ✦</span>
     </div>
   </div>
 
-  <!-- Transição de Onda (Topo) -->
-  <div class="wave-top">
-    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M0,0 C150,90 350,-40 500,40 C650,120 900,10 1200,50 L1200,120 L0,120 Z" fill="#F4ECE1"></path>
-    </svg>
-  </div>
-
-  <!-- Sobre & Diferenciais (Fundo Creme) -->
-  <div class="bg-light-section">
-    <!-- Sobre -->
-    <section class="section-wrap" id="sobre">
+  <!-- Bloco Editorial: Sobre & Diferenciais -->
+  <div class="section-wrap">
+    <div class="editorial-box" id="sobre">
       <div class="about-grid">
         <div class="about-text">
-          <h2 style="color: var(--text-dark);">A mente por trás do universo.</h2>
-          <p style="color: var(--text-dark);">O NatiVerso não é só uma agência, é um ecossistema. Nasceu da necessidade de conectar estética impecável a conteúdos que realmente seguram a atenção da audiência do primeiro ao último segundo.</p>
-          <p style="color: var(--text-dark);">Seja gerenciando suas redes, desenhando a identidade visual do zero, cobrindo o seu evento com o celular na mão ou gravando a voz que vai representar o seu negócio: eu entrego o pacote completo.</p>
+          <h2>A mente por trás do universo.</h2>
+          <p>O NatiVerso não é só uma agência, é um ecossistema. Nasceu da necessidade de conectar estética impecável a conteúdos que realmente seguram a atenção da audiência do primeiro ao último segundo.</p>
+          <p>Seja gerenciando suas redes, desenhando a identidade visual do zero, cobrindo o seu evento com o celular na mão ou gravando a voz que vai representar o seu negócio: eu entrego o pacote completo.</p>
         </div>
         <div class="about-image">
           <span>[Sua Foto Aqui]</span>
           <!-- <img src="sua-foto.jpg" alt="Foto Nati"> -->
         </div>
       </div>
-    </section>
 
-    <!-- O que nos torna únicos -->
-    <section class="section-wrap">
-      <h2 class="section-title" style="color: var(--text-dark);">O que nos torna únicos</h2>
+      <!-- Diferenciais dentro do bloco editorial -->
       <div class="diff-grid">
-        <div class="diff-card" style="background-color: var(--bg-coffee); color: var(--text-light);">
-          <h3 style="color: var(--color-blue);">Gravação sem travar.<br>Roteiros que retêm.</h3>
+        <div class="diff-card">
+          <h3 style="color: var(--color-accent);">Gravação sem travar.<br>Roteiros que retêm.</h3>
           <p>Acha difícil gravar? Eu tenho um método. Desenvolvo seus roteiros guiados por storytelling e ganchos poderosos. Na hora da captação, você recebe direção de verdade para falar com naturalidade, sem parecer um robô.</p>
           <ul class="clean-list">
             <li>Foco em retenção visual</li>
@@ -419,7 +419,7 @@
           </ul>
         </div>
 
-        <div class="diff-card blue-bg">
+        <div class="diff-card highlight">
           <h3>O seu QG exclusivo<br>no Notion.</h3>
           <p>Esqueça a bagunça no WhatsApp. Como meu cliente, você recebe um ambiente premium com absoluto controle sobre a sua marca. Tudo documentado à distância de um clique:</p>
           <ul class="clean-list">
@@ -429,18 +429,11 @@
           </ul>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 
-  <!-- Transição de Onda (Base) -->
-  <div class="wave-bottom">
-    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M0,50 C300,100 650,0 1200,60 L1200,0 L0,0 Z" fill="#F4ECE1"></path>
-    </svg>
-  </div>
-
-  <!-- Serviços -->
-  <section class="section-wrap" id="servicos">
+  <!-- Seção de Serviços (Blocos emoldurados estilo Nectar) -->
+  <div class="services-wrapper" id="servicos">
     <h2 class="section-title">Serviços</h2>
     <div class="services-grid">
       <div class="service-card">
@@ -480,10 +473,10 @@
         </ul>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- Portfólio -->
-  <section class="section-wrap" id="portfolio">
+  <div class="portfolio-section" id="portfolio">
     <h2 class="section-title">Portfólio</h2>
     <div class="portfolio-grid">
       <div class="work-card">
@@ -504,13 +497,13 @@
         <p>Identidade visual e estratégia de feed.</p>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- Footer / Contato -->
   <footer id="contato">
     <h2>Pronta para entrar no NatiVerso?</h2>
     <p>Bora transformar a presença digital do seu negócio? Resposta rápida, sem enrolação.</p>
-    <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-main" style="background-color: var(--bg-cream); color: var(--text-dark); margin-top: 1.5rem;">Marcar um bate-papo</a>
+    <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-main" style="background-color: var(--color-mustard); color: var(--text-dark); margin-top: 1rem;">Marcar um bate-papo</a>
     
     <div class="social-links">
       <a href="https://instagram.com/SEUPERFIL" target="_blank">Instagram</a>

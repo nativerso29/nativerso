@@ -8,18 +8,16 @@
   <!-- Fonte Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-coffee: #2C1810;        /* Marrom café profundo */
-      --bg-cream: #F4EADF;         /* Bege creme suave */
-      --bg-soft-blue: #D6E4ED;     /* Azul pastel suave da referência */
-      --bg-soft-yellow: #F7E9B9;   /* Amarelo pastel suave */
-      --color-mustard: #D49A36;    /* Mostarda NatiVerso */
-      --color-accent: #8C3B32;     /* Vinho/café queimado */
-      --text-dark: #2C1810;        
-      --text-light: #FDF9F3;       
+      --bg-coffee: #221611;        /* Marrom café profundo e sofisticado */
+      --bg-cream: #F4ECE1;         /* Fundo creme limpo e elegante */
+      --color-mustard: #D49A36;    /* Mostarda clássico NatiVerso */
+      --text-dark: #221611;        
+      --text-light: #F9F6F0;       
+      --card-cream: #FFFFFF;       /* Cartões brancos/creme limpos */
       --font-main: 'Poppins', sans-serif;
     }
 
@@ -31,10 +29,6 @@
       color: var(--text-light);
       font-family: var(--font-main);
       line-height: 1.6;
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 40px 40px;
     }
 
     /* ─── HEADER ─── */
@@ -42,13 +36,13 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background-color: rgba(44, 24, 16, 0.95);
+      background-color: rgba(34, 22, 17, 0.95);
       backdrop-filter: blur(10px);
       padding: 1.2rem 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px dashed rgba(212, 154, 54, 0.3);
+      border-bottom: 1px solid rgba(212, 154, 54, 0.2);
     }
 
     .brand {
@@ -82,33 +76,28 @@
       font-weight: 600;
       text-decoration: none;
       font-size: 0.9rem;
-      box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
       transition: transform 0.1s;
     }
-    .btn-nav:hover { transform: translateY(-1px); }
+    .btn-nav:hover { transform: scale(1.03); }
 
-    /* ─── HERO SECTION (Estilo Colagem / Painel) ─── */
+    /* ─── HERO SECTION ─── */
     .hero {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
       padding: 6rem 6% 5rem;
-      max-width: 1100px;
-      margin: 0 auto;
       text-align: center;
       position: relative;
+      border-bottom: 4px solid var(--bg-coffee);
     }
 
     .hero-tag {
       display: inline-block;
-      background-color: var(--bg-soft-yellow);
-      border: 2px solid var(--text-dark);
-      padding: 0.4rem 1.2rem;
-      border-radius: 50px;
-      color: var(--text-dark);
+      color: var(--color-mustard);
       font-weight: 600;
-      font-size: 0.8rem;
-      letter-spacing: 1px;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
       text-transform: uppercase;
       margin-bottom: 1.5rem;
-      box-shadow: 3px 3px 0 var(--text-dark);
     }
 
     .hero h1 {
@@ -126,7 +115,7 @@
       font-weight: 400;
       max-width: 580px;
       margin: 0 auto 2.5rem;
-      opacity: 0.9;
+      opacity: 0.85;
     }
 
     .btn-main {
@@ -137,15 +126,14 @@
       font-weight: 600;
       text-decoration: none;
       font-size: 0.95rem;
-      box-shadow: 3px 3px 0 var(--text-dark);
       transition: all 0.2s;
       display: inline-block;
     }
-    .btn-main:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--text-dark); }
+    .btn-main:hover { background-color: var(--text-dark); color: var(--text-light); }
 
     /* ─── FITA DESLIZANTE ─── */
     .marquee-strip {
-      background-color: var(--bg-soft-blue);
+      background-color: var(--color-mustard);
       color: var(--text-dark);
       padding: 0.7rem 0;
       transform: rotate(-1deg);
@@ -158,7 +146,6 @@
       text-transform: uppercase;
       border-top: 2px solid var(--text-dark);
       border-bottom: 2px solid var(--text-dark);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       position: relative;
       z-index: 10;
       margin-top: 2rem;
@@ -194,41 +181,30 @@
       text-align: center;
     }
 
-    /* ─── BLOCO EDITORIAL (SOBRE & DIFERENCIAIS COMO CAIXAS ESTILO "OLIVE & STUDIO") ─── */
-    .editorial-container {
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .card-box {
+    /* Sobre & Diferenciais */
+    .editorial-box {
       background-color: var(--bg-cream);
       color: var(--text-dark);
       border-radius: 24px;
-      padding: 3rem;
-      border: 3px solid var(--text-dark);
-      box-shadow: 6px 6px 0 var(--color-mustard);
+      padding: 4rem;
       position: relative;
     }
-
-    .card-box.blue { background-color: var(--bg-soft-blue); box-shadow: 6px 6px 0 var(--text-dark); }
-    .card-box.yellow { background-color: var(--bg-soft-yellow); box-shadow: 6px 6px 0 var(--color-accent); }
 
     .about-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
-      gap: 2.5rem;
+      gap: 3rem;
       align-items: center;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(34, 22, 17, 0.15);
     }
 
     .about-image {
       width: 100%;
-      height: 300px;
+      height: 320px;
       background-color: #E6D9CC;
       border-radius: 16px;
-      border: 2px solid var(--text-dark);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -246,15 +222,14 @@
     }
 
     .diff-card {
-      background-color: #FFFFFF;
+      background-color: var(--card-cream);
       color: var(--text-dark);
-      border-radius: 18px;
+      border-radius: 16px;
       padding: 2.2rem;
-      border: 2px solid var(--text-dark);
-      box-shadow: 4px 4px 0 var(--text-dark);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
-    .diff-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.8rem; line-height: 1.2; color: var(--color-accent); }
-    .diff-card p { font-size: 0.92rem; margin-bottom: 1rem; opacity: 0.9; }
+    .diff-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.8ln; margin-bottom: 0.8rem; line-height: 1.2; color: var(--text-dark); }
+    .diff-card p { font-size: 0.92rem; margin-bottom: 1rem; opacity: 0.85; }
 
     .clean-list { list-style: none; }
     .clean-list li {
@@ -263,47 +238,51 @@
     .clean-list li::before { content: "✦"; font-size: 0.75rem; color: var(--color-mustard); }
 
     /* ─── SERVIÇOS ─── */
+    .services-wrapper {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      padding: 6rem 6%;
+    }
+
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
     .service-card {
-      background-color: var(--bg-cream);
-      color: var(--text-dark);
-      border-radius: 18px;
+      background-color: var(--card-cream);
+      border-radius: 16px;
       padding: 2.2rem;
-      border: 2px solid var(--text-dark);
-      box-shadow: 4px 4px 0 var(--text-dark);
-      transition: transform 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
-    .service-card:hover { transform: translateY(-2px); }
-    .service-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--color-accent); }
+    .service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-dark); }
     .service-card ul { list-style: none; }
-    .service-card ul li { font-size: 0.88rem; margin-bottom: 0.5rem; opacity: 0.85; display: flex; align-items: center; gap: 0.5rem; color: var(--text-dark); }
+    .service-card ul li { font-size: 0.9rem; margin-bottom: 0.6rem; opacity: 0.85; display: flex; align-items: center; gap: 0.5rem; color: var(--text-dark); }
     .service-card ul li::before { content: "✦"; color: var(--color-mustard); font-size: 0.75rem; }
 
     /* ─── PORTFÓLIO ─── */
+    .portfolio-section {
+      padding: 6rem 6%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
     }
 
     .work-card {
-      background: var(--bg-soft-yellow);
-      color: var(--text-dark);
-      border-radius: 18px;
+      background: #312018;
+      color: var(--text-light);
+      border-radius: 16px;
       padding: 1.5rem;
-      border: 2px solid var(--text-dark);
-      box-shadow: 4px 4px 0 var(--text-dark);
+      border: 1px solid rgba(212, 154, 54, 0.2);
     }
-    .work-card.blue-card { background: var(--bg-soft-blue); }
 
     .media-box {
       width: 100%;
@@ -317,11 +296,10 @@
       color: #888;
       position: relative;
       overflow: hidden;
-      border: 1px solid var(--text-dark);
     }
     .media-box img, .media-box video { width: 100%; height: 100%; object-fit: cover; position: absolute; }
 
-    .work-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; color: var(--text-dark); }
+    .work-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; color: var(--color-mustard); }
     .work-card p { font-size: 0.85rem; opacity: 0.8; }
 
     /* ─── FOOTER / CONTATO ─── */
@@ -330,7 +308,7 @@
       color: var(--text-dark);
       padding: 5rem 6% 3rem;
       text-align: center;
-      border-top: 4px solid var(--text-dark);
+      border-top: 4px solid var(--bg-coffee);
       margin-top: 4rem;
     }
 
@@ -348,14 +326,14 @@
       justify-content: center;
       gap: 2.5rem;
       padding-top: 2rem;
-      border-top: 1px dashed var(--text-dark);
+      border-top: 1px dashed rgba(34, 22, 17, 0.2);
     }
     .social-links a { color: var(--text-dark); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
-    .social-links a:hover { color: var(--color-accent); }
+    .social-links a:hover { color: var(--color-mustard); }
 
     @media (max-width: 860px) {
       .about-grid, .diff-grid, .services-grid, .portfolio-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .card-box { padding: 2rem; }
+      .editorial-box { padding: 2rem; }
       nav { display: none; }
     }
   </style>
@@ -389,26 +367,22 @@
     </div>
   </div>
 
-  <!-- Bloco Editorial Estilo Painel / Colagem -->
-  <div class="section-wrap" id="sobre">
-    <div class="editorial-container">
-      
-      <!-- Caixa Sobre -->
-      <div class="card-box">
-        <div class="about-grid">
-          <div class="about-text">
-            <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">A mente por trás do universo.</h2>
-            <p>O NatiVerso não é uma agência, é um ecossistema. Nasceu da necessidade de conectar estética a conteúdos que realmente seguram a atenção da audiência do primeiro ao último segundo.</p>
-            <p>Seja gerenciando suas redes, desenhando a identidade visual do zero, cobrindo o seu evento com o celular na mão ou gravando a voz que vai representar o seu negócio: eu entrego o pacote completo.</p>
-          </div>
-          <div class="about-image">
-            <span>[Sua Foto Aqui]</span>
-            <!-- <img src="sua-foto.jpg" alt="Foto Nati"> -->
-          </div>
+  <!-- Bloco Editorial: Sobre & Diferenciais -->
+  <div class="section-wrap">
+    <div class="editorial-box" id="sobre">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--text-dark);">A mente por trás do universo.</h2>
+          <p>O NatiVerso não é uma agência, é um ecossistema. Nasceu da necessidade de conectar estética a conteúdos que realmente seguram a atenção da audiência do primeiro ao último segundo.</p>
+          <p>Seja gerenciando suas redes, desenhando a identidade visual do zero, cobrindo o seu evento com o celular na mão ou gravando a voz que vai representar o seu negócio: eu entrego o pacote completo.</p>
+        </div>
+        <div class="about-image">
+          <span>[Sua Foto Aqui]</span>
+          <!-- <img src="sua-foto.jpg" alt="Foto Nati"> -->
         </div>
       </div>
 
-      <!-- Caixas de Diferenciais (Estilo Post-it / Cartões Soltos) -->
+      <!-- Diferenciais -->
       <div class="diff-grid">
         <div class="diff-card">
           <h3>Gravação sem travar. Roteiros que retêm.</h3>
@@ -420,22 +394,21 @@
           </ul>
         </div>
 
-        <div class="diff-card" style="background-color: var(--bg-soft-yellow);">
-          <h3>O seu QG exclusivo no Notion.</h3>
-          <p>Esqueça a bagunça no WhatsApp. Como meu cliente, você recebe um ambiente premium com absoluto controle e visibilidade da sua marca.</p>
-          <ul class="clean-list">
+        <div class="diff-card" style="background-color: var(--bg-coffee); color: var(--text-light);">
+          <h3 style="color: var(--color-mustard);">O seu QG exclusivo no Notion.</h3>
+          <p style="opacity: 0.85;">Esqueça a bagunça no WhatsApp. Como meu cliente, você recebe um ambiente premium com absoluto controle e visibilidade da sua marca.</p>
+          <ul class="clean-list" style="color: var(--text-light);">
             <li>Manual e Diretrizes da Marca</li>
             <li>Linhas Editoriais Estruturadas</li>
             <li>Calendário e status ao vivo</li>
           </ul>
         </div>
       </div>
-
     </div>
   </div>
 
   <!-- Serviços -->
-  <div class="section-wrap" id="servicos">
+  <div class="services-wrapper" id="servicos">
     <h2 class="section-title">Serviços</h2>
     <div class="services-grid">
       <div class="service-card">
@@ -448,7 +421,7 @@
         </ul>
       </div>
 
-      <div class="service-card" style="background-color: var(--bg-soft-yellow);">
+      <div class="service-card">
         <h3>StoryMaker em Eventos</h3>
         <ul>
           <li>Cobertura criativa em tempo real</li>
@@ -457,7 +430,7 @@
         </ul>
       </div>
 
-      <div class="service-card" style="background-color: var(--bg-soft-blue);">
+      <div class="service-card">
         <h3>VideoMaker</h3>
         <ul>
           <li>Gravação guiada Anti-Trava</li>
@@ -475,7 +448,7 @@
         </ul>
       </div>
 
-      <div class="service-card" style="background-color: var(--bg-soft-yellow); grid-column: 1 / -1; max-width: 500px; margin: 0 auto; width: 100%;">
+      <div class="service-card" style="grid-column: 1 / -1; max-width: 500px; margin: 0 auto; width: 100%;">
         <h3>Identidade Visual</h3>
         <ul>
           <li>Criação de Logo e Variações</li>
@@ -487,7 +460,7 @@
   </div>
 
   <!-- Portfólio -->
-  <div class="section-wrap" id="portfolio">
+  <div class="portfolio-section" id="portfolio">
     <h2 class="section-title">Portfólio</h2>
     <div class="portfolio-grid">
       <div class="work-card">
@@ -498,7 +471,7 @@
         <p>Identidade visual e linhas editoriais marcantes.</p>
       </div>
 
-      <div class="work-card blue-card">
+      <div class="work-card">
         <div class="media-box">
           <span>[Storymaker / Eventos]</span>
         </div>
@@ -514,7 +487,7 @@
         <p>Cortes ágeis e dinâmicos focados em prender a atenção.</p>
       </div>
 
-      <div class="work-card blue-card">
+      <div class="work-card">
         <div class="media-box">
           <span>[Áudio / Locução]</span>
         </div>
@@ -528,7 +501,7 @@
   <footer id="contato">
     <h2>Pronta para entrar no NatiVerso?</h2>
     <p>Bora transformar a presença digital do seu negócio? Resposta rápida, sem enrolação.</p>
-    <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-main" style="background-color: var(--bg-soft-yellow); color: var(--text-dark); margin-top: 1rem;">Marcar um bate-papo</a>
+    <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-main" style="margin-top: 1rem;">Marcar um bate-papo</a>
     
     <div class="social-links">
       <a href="https://instagram.com/SEUPERFIL" target="_blank">Instagram</a>

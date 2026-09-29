@@ -3,55 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NatiVerso | Social Media, Storymaker, Vídeo & Voz</title>
+  <title>NatiVerso | Comunicação 360º e Audiovisual</title>
   
-  <!-- Fontes Editoriais do Google -->
+  <!-- Fonte Poppins (A favorita do Design de Interação) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* ─── PALETA DARK CHOCOLATE & DESIGN SYSTEM ─── */
+    /* ─── PALETA CLEAN EDITORIAL & DESIGN SYSTEM ─── */
     :root {
-      --bg-dark: #140E0C;          /* Café expresso ultra profundo */
-      --bg-card: #1D1512;          /* Chocolate amargo suave */
-      --bg-card-hover: #261D19;    /* Destaque sutil ao passar o mouse */
-      --accent: #E0A44B;           /* Mostarda / Ocre Dourado do seu feed */
-      --accent-muted: #8C6A39;     /* Ocre queimado */
-      --accent-forest: #1E2D24;    /* Verde labirinto para pequenos detalhes */
-      --border: #322520;           /* Linhas discretas cor de cacau */
-      --text-main: #F7F3EE;        /* Creme / Aveia suave */
-      --text-muted: #B8ADA7;       /* Bege acinzentado de fácil leitura */
-      --font-serif: 'DM Serif Display', Georgia, serif;
-      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --bg-main: #FBF9F6;          
+      --bg-card: #FFFFFF;          
+      --text-dark: #1A1818;        
+      --text-muted: #5C5754;       
+      --accent: #DCA142;           
+      --accent-light: #F8EEDB;     
+      --border: #E8E4DF;           
+      --font-main: 'Poppins', sans-serif; /* Poppins aplicada aqui */
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      font-family: var(--font-sans);
+      background-color: var(--bg-main);
+      color: var(--text-dark);
+      font-family: var(--font-main);
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
-    /* ─── HEADER FIXO ─── */
+    /* ─── HEADER ─── */
     header {
       position: sticky;
       top: 0;
-      background: rgba(20, 14, 12, 0.88);
-      backdrop-filter: blur(14px);
+      background: rgba(251, 249, 246, 0.9);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 1.3rem 8%;
+      padding: 1.2rem 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -59,18 +48,14 @@
     }
 
     .brand {
-      font-family: var(--font-serif);
       font-size: 1.6rem;
-      letter-spacing: -0.5px;
-      color: var(--text-main);
+      font-weight: 800;
+      color: var(--text-dark);
       text-decoration: none;
+      letter-spacing: -0.5px;
     }
 
-    .brand span {
-      font-style: italic;
-      color: var(--accent);
-      font-weight: 400;
-    }
+    .brand span { color: var(--accent); }
 
     nav {
       display: flex;
@@ -81,58 +66,40 @@
     nav a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 500;
-      transition: color 0.25s;
+      transition: color 0.2s;
     }
 
-    nav a:hover {
-      color: var(--accent);
-    }
+    nav a:hover { color: var(--accent); }
 
-    /* ─── BOTÕES & BADGES ─── */
+    /* ─── BOTÕES ─── */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background-color: var(--accent);
-      color: #140E0C;
-      font-weight: 700;
+      background-color: var(--text-dark);
+      color: #FFF;
+      font-weight: 600;
       font-size: 0.95rem;
-      padding: 0.85rem 1.8rem;
-      border-radius: 40px;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
       text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      box-shadow: 0 4px 20px rgba(224, 164, 75, 0.15);
+      transition: all 0.3s;
     }
 
     .btn:hover {
+      background-color: var(--accent);
       transform: translateY(-2px);
-      background-color: #EDB560;
-      box-shadow: 0 8px 24px rgba(224, 164, 75, 0.28);
     }
 
-    .btn-secondary {
-      background: transparent;
-      color: var(--text-main);
-      border: 1px solid var(--border);
-      box-shadow: none;
-    }
-
-    .btn-secondary:hover {
-      background: var(--bg-card);
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .pill-badge {
+    .tag {
       display: inline-block;
-      padding: 0.4rem 1rem;
-      background: rgba(224, 164, 75, 0.1);
-      color: var(--accent);
-      border: 1px solid rgba(224, 164, 75, 0.25);
+      padding: 0.4rem 1.2rem;
+      background: var(--accent-light);
+      color: #A36F1C;
       border-radius: 50px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -141,151 +108,190 @@
 
     /* ─── HERO SECTION ─── */
     .hero {
-      padding: 7rem 8% 5rem;
+      padding: 8rem 6% 6rem;
       text-align: center;
-      max-width: 960px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
     .hero h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.3rem, 5vw, 4rem);
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
       line-height: 1.15;
-      font-weight: 400;
+      font-weight: 700;
+      letter-spacing: -1.5px;
       margin-bottom: 1.5rem;
-      color: var(--text-main);
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--accent);
+      color: var(--text-dark);
     }
 
     .hero p {
       color: var(--text-muted);
       font-size: 1.15rem;
-      max-width: 720px;
+      max-width: 750px;
       margin: 0 auto 2.5rem;
-      line-height: 1.7;
     }
 
-    .hero-actions {
+    /* ─── OS GRANDES DIFERENCIAIS (NOTION & GRAVAÇÃO) ─── */
+    .method-section {
+      padding: 2rem 6% 6rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .method-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    }
+
+    .method-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .method-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+
+    .method-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .notion-list {
+      list-style: none;
+    }
+
+    .notion-list li {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
       display: flex;
-      gap: 1.2rem;
-      justify-content: center;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .notion-list li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: bold;
     }
 
     /* ─── SEÇÕES COMUNS ─── */
-    section {
-      padding: 5rem 8%;
-      max-width: 1240px;
-      margin: 0 auto;
+    section { padding: 5rem 6%; max-width: 1200px; margin: 0 auto; }
+    
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
     }
 
-    .section-header {
-      margin-bottom: 3.5rem;
-      text-align: center;
-    }
-
-    .section-header h2 {
-      font-family: var(--font-serif);
-      font-size: 2.6rem;
-      font-weight: 400;
-      margin-bottom: 0.6rem;
-    }
-
-    .section-header h2 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .section-header p {
+    .section-subtitle {
       color: var(--text-muted);
-      font-size: 1rem;
+      font-size: 1.1rem;
+      margin-bottom: 4rem;
       max-width: 600px;
-      margin: 0 auto;
     }
 
-    /* ─── OS 5 SERVIÇOS ─── */
+    /* ─── QUEM SOMOS ─── */
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 4rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    }
+
+    .about-img {
+      width: 100%;
+      height: 400px;
+      background: #EAE5DE;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      overflow: hidden; /* Garante que a foto não vaze da borda arredondada */
+    }
+
+    .about-text h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+
+    /* ─── SERVIÇOS ─── */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
 
     .service-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.3s;
     }
 
     .service-card:hover {
-      background: var(--bg-card-hover);
-      border-color: rgba(224, 164, 75, 0.4);
-      transform: translateY(-4px);
-    }
-
-    .service-card:hover::before {
-      opacity: 1;
-    }
-
-    .service-number {
-      font-family: var(--font-serif);
-      font-style: italic;
-      color: var(--accent);
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+      border-color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(220, 161, 66, 0.08);
     }
 
     .service-card h3 {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 400;
-      margin-bottom: 1.2rem;
-    }
-
-    .service-list {
-      list-style: none;
+      font-size: 1.3rem;
+      font-weight: 700;
       margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--bg-main);
+      padding-bottom: 1rem;
     }
 
-    .service-list li {
+    .service-card ul {
+      list-style: none;
+    }
+
+    .service-card ul li {
       color: var(--text-muted);
-      font-size: 0.92rem;
-      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
       display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
+      gap: 0.5rem;
     }
 
-    .service-list li::before {
-      content: "✦";
+    .service-card ul li::before {
+      content: "•";
       color: var(--accent);
-      font-size: 0.8rem;
-      line-height: 1.6;
+      font-weight: bold;
     }
 
-    /* ─── VITRINE / PORTFÓLIO ─── */
+    /* ─── PORTFÓLIO ─── */
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -295,211 +301,81 @@
     .work-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 20px;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s, border-color 0.3s;
     }
 
-    .work-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
-    }
-
-    /* Mockup de Celular 9:16 */
-    .preview-phone {
+    .work-preview {
       width: 100%;
-      height: 480px;
-      background: #18110E;
-      position: relative;
+      height: 400px;
+      background: #EAE5DE;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      position: relative;
     }
 
-    .preview-phone img, .preview-phone video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .preview-editorial {
-      width: 100%;
-      height: 320px;
-      background: #18110E;
-      overflow: hidden;
-    }
-
-    .preview-editorial img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .work-info {
-      padding: 1.6rem;
-    }
-
-    .work-tag {
-      font-size: 0.75rem;
-      font-weight: 600;
+    .work-info { padding: 1.5rem; }
+    .work-info h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .work-info p { color: var(--text-muted); font-size: 0.9rem; }
+    
+    .work-tag-small {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
-
-    .work-info h4 {
-      font-family: var(--font-serif);
-      font-size: 1.35rem;
-      font-weight: 400;
       margin-bottom: 0.5rem;
+      display: block;
     }
 
-    .work-info p {
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
-
-    /* ─── ÁREA DE LOCUÇÃO (PLAYER DE VOZ) ─── */
-    .voice-section {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 3rem;
-      margin-top: 3rem;
-    }
-
-    .voice-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .voice-track {
-      background: #150E0C;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.2rem 1.5rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .voice-track-title {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--text-main);
-    }
-
-    .voice-track-desc {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    audio {
-      height: 38px;
-      border-radius: 20px;
-      outline: none;
-    }
-
-    /* ─── SOBRE A NATI ─── */
-    .about-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 4rem;
-      align-items: center;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 3.5rem;
-    }
-
-    .about-img-box {
-      width: 100%;
-      height: 440px;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background-color: #17100D;
-    }
-
-    .about-img-box img {
+    /* Classes auxiliares para imagens e vídeos se adaptarem à caixa */
+    .media-cover {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: cover; /* Faz o vídeo/foto preencher o espaço sem distorcer */
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
-    .about-text h3 {
-      font-family: var(--font-serif);
-      font-size: 2.2rem;
-      font-weight: 400;
-      margin-bottom: 1.2rem;
-    }
-
-    .about-text p {
-      color: var(--text-muted);
-      margin-bottom: 1.2rem;
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    /* ─── RODAPÉ / CONTATO ─── */
+    /* ─── ORÇAMENTO COMO BASE (FOOTER) ─── */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 6rem 8% 4rem;
+      background: var(--text-dark);
+      color: #FFF;
+      padding: 6rem 6%;
       text-align: center;
-      background: #110B09;
+      margin-top: 4rem;
     }
 
     footer h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 400;
-      margin-bottom: 1rem;
-    }
-
-    footer h2 em {
-      font-style: italic;
-      color: var(--accent);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
     }
 
     footer p {
-      color: var(--text-muted);
-      max-width: 550px;
-      margin: 0 auto 2.5rem;
-      font-size: 1.05rem;
+      color: #A39E9C;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 3rem;
     }
 
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 3rem;
+    .btn-footer {
+      background: var(--accent);
+      color: var(--text-dark);
     }
-
-    .social-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-
-    .social-links a:hover {
-      color: var(--accent);
+    
+    .btn-footer:hover {
+      background: #FFF;
+      color: var(--text-dark);
     }
 
     @media (max-width: 860px) {
-      .about-wrap { grid-template-columns: 1fr; padding: 2rem; gap: 2rem; }
-      nav { display: none; } /* Pode ser adaptado para menu hambúrguer futuramente */
+      .method-grid, .about-wrap { grid-template-columns: 1fr; }
+      .about-wrap { padding: 2rem; }
+      nav { display: none; }
     }
   </style>
 </head>
@@ -509,262 +385,177 @@
   <header>
     <a href="#" class="brand">Nati<span>Verso</span></a>
     <nav>
-      <a href="#servicos">O que entrego</a>
-      <a href="#portfolio">Trabalhos</a>
-      <a href="#locucao">Voz</a>
-      <a href="#sobre">Sobre</a>
-      <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;">Orçamento</a>
+      <a href="#quem-somos">Quem somos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#orcamento">Orçamento</a>
     </nav>
   </header>
 
-  <!-- Hero Section Editorial -->
+  <!-- Hero Section -->
   <section class="hero">
-    <div class="pill-badge">Comunicação 360° no Digital</div>
-    <h1>Estratégia visual, ritmo e voz para marcas que <em>recusam ser ignoradas</em>.</h1>
-    <p>Do planejamento editorial à captação em tempo real. Edições que prendem o olhar, identidade visual com propósito e a narrativa de quem entende de storytelling.</p>
-    <div class="hero-actions">
-      <a href="https://wa.me/55SEUNUMERO?text=Olá%20Nati!%20Vim%20pelo%20portfólio%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn">Solicitar Proposta no WhatsApp</a>
-      <a href="#portfolio" class="btn btn-secondary">Ver Projetos</a>
+    <div class="tag">Bem-vindo ao NatiVerso</div>
+    <h1>O ecossistema onde a sua marca ganha forma, narrativa e presença.</h1>
+    <p>Comunicação 360º de verdade. Unimos estratégia de conteúdo, roteiros magnéticos e direção de arte em um método de trabalho fluido e altamente organizado para você focar no que importa: crescer.</p>
+    <a href="#orcamento" class="btn">Solicitar Proposta</a>
+  </section>
+
+  <!-- Diferenciais NatiVerso -->
+  <section class="method-section">
+    <div class="method-grid">
+      
+      <!-- Diferencial 1: Método Destrava -->
+      <div class="method-card">
+        <div class="method-icon">🎬</div>
+        <h3>Gravação sem travar. Roteiros que retêm.</h3>
+        <p>Acha difícil gravar? Eu tenho um método. Desenvolvo seus roteiros guiados por <strong>storytelling e ganchos poderosos</strong>. Na hora da captação, você recebe direção de verdade para falar com naturalidade e confiança, sem parecer um robô.</p>
+      </div>
+
+      <!-- Diferencial 2: Hub Notion -->
+      <div class="method-card">
+        <div class="method-icon">🧠</div>
+        <h3>O seu QG exclusivo no Notion.</h3>
+        <p>Esqueça a bagunça no WhatsApp. Como meu cliente, você recebe um ambiente premium com absoluto controle sobre a sua marca. Tudo documentado e a um clique de distância:</p>
+        <ul class="notion-list">
+          <li>Manual e Diretrizes da Marca</li>
+          <li>Linhas Editoriais Estruturadas</li>
+          <li>Ideias de conteúdo com formato definido</li>
+          <li>Aprovação de posts, calendário e status ao vivo</li>
+        </ul>
+      </div>
+
     </div>
   </section>
 
-  <!-- Os 5 Serviços -->
-  <section id="servicos">
-    <div class="section-header">
-      <div class="pill-badge">Soluções Completas</div>
-      <h2>Como posso <em>transformar</em> seu conteúdo</h2>
-      <p>Entregas pensadas de ponta a ponta: sem pontas soltas entre roteiro, gravação e publicação.</p>
-    </div>
-
-    <div class="services-grid">
-      <!-- 1. Social Media -->
-      <div class="service-card">
-        <div>
-          <div class="service-number">01</div>
-          <h3>Social Media Estratégico</h3>
-          <ul class="service-list">
-            <li>Estudo e imersão na essência da marca</li>
-            <li>Definição de linhas editoriais com propósito</li>
-            <li>Calendário e planejamento mensal</li>
-            <li>Design + copy assertiva para posts e carrosséis</li>
-            <li>Edição de vídeos com legendas dinâmicas</li>
-            <li>Gestão ativa de perfil e relatório de métricas</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- 2. StoryMaker & Cobertura -->
-      <div class="service-card">
-        <div>
-          <div class="service-number">02</div>
-          <h3>StoryMaker & Eventos</h3>
-          <ul class="service-list">
-            <li>Cobertura criativa em tempo real para os Stories</li>
-            <li>Narrativa envolvente com início, meio e clímax</li>
-            <li>Roteiro e alinhamento prévio de metas com o cliente</li>
-            <li>Captação mobile em alta resolução e postagem ágil</li>
-            <li>Humanização de bastidores e ativação de vendas</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- 3. VideoMaker Mobile -->
-      <div class="service-card">
-        <div>
-          <div class="service-number">03</div>
-          <h3>VideoMaker Mobile</h3>
-          <ul class="service-list">
-            <li>Produção audiovisual focada no formato vertical (9:16)</li>
-            <li>Vídeos institucionais, comerciais e manifestos</li>
-            <li>Cortes com ritmo, dinamismo e foco em retenção</li>
-            <li>Sonoplastia e legendas de alto impacto</li>
-            <li>Direcionamento de poses e fala na gravação</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- 4. Identidade Visual -->
-      <div class="service-card">
-        <div>
-          <div class="service-number">04</div>
-          <h3>Identidade Visual</h3>
-          <ul class="service-list">
-            <li>Briefing profundo e diagnóstico de mercado</li>
-            <li>Logotipo principal, secundário e ícone para redes</li>
-            <li>Paleta de cores estratégica e tipografia editorial</li>
-            <li>Grafismos, texturas e elementos de apoio</li>
-            <li>Manual da Marca (Brand Guidelines) em PDF</li>
-            <li>Kit de aplicação digital pronto para o feed</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- 5. Locução & Voz -->
-      <div class="service-card">
-        <div>
-          <div class="service-number">05</div>
-          <h3>Locução & Voz</h3>
-          <ul class="service-list">
-            <li>Locução comercial para anúncios de alta conversão</li>
-            <li>Tom institucional, acolhedor ou dinâmico</li>
-            <li>Narração de manifestos de marca e vídeos de rotina</li>
-            <li>Captação de áudio limpa, tratada e equalizada</li>
-            <li>Sincronia milimétrica com a edição do vídeo</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfólio / Vitrine -->
-  <section id="portfolio">
-    <div class="section-header">
-      <div class="pill-badge">Galeria Visual</div>
-      <h2>Trabalhos em <em>Destaque</em></h2>
-      <p>Um recorte prático das narrativas, edições e identidades que construí.</p>
-    </div>
-
-    <div class="portfolio-grid">
-      <!-- Case 1: VideoMaker / Edição Dinâmica -->
-      <div class="work-card">
-        <div class="preview-phone">
-          <!-- Substitua por: <video src="assets/seu-video.mp4" autoplay loop muted playsinline></video> -->
-          <!-- Ou por: <img src="assets/capa-reel.jpg" alt="Case Reel"> -->
-          <div style="text-align: center; color: var(--text-muted); padding: 1.5rem;">
-            <p style="font-size: 2rem; margin-bottom: 0.5rem;">🎬</p>
-            <p style="font-size: 0.85rem;">Vídeo Vertical (9:16)<br>Loop ou Capa do Reel</p>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="work-tag">VideoMaker Mobile • Edição</div>
-          <h4>Cortes Ágeis & Retenção</h4>
-          <p>Edição com quebras de padrão, legendas dinâmicas e design sonoro para alto engajamento orgânico.</p>
-        </div>
-      </div>
-
-      <!-- Case 2: Storymaking & Eventos -->
-      <div class="work-card">
-        <div class="preview-phone">
-          <div style="text-align: center; color: var(--text-muted); padding: 1.5rem;">
-            <p style="font-size: 2rem; margin-bottom: 0.5rem;">📱</p>
-            <p style="font-size: 0.85rem;">Sequência de Stories<br>Cobertura ao Vivo</p>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="work-tag">Storymaker em Tempo Real</div>
-          <h4>Cobertura Imersiva</h4>
-          <p>Captação mobile com olhar cinematográfico e narrativa imediata para aquecer a audiência durante o evento.</p>
-        </div>
-      </div>
-
-      <!-- Case 3: Carrossel Editorial / Social Media -->
-      <div class="work-card">
-        <div class="preview-phone">
-          <div style="text-align: center; color: var(--text-muted); padding: 1.5rem;">
-            <p style="font-size: 2rem; margin-bottom: 0.5rem;">📑</p>
-            <p style="font-size: 0.85rem;">Carrossel / Post de Feed<br>Estética de Revista</p>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="work-tag">Social Media • Design & Copy</div>
-          <h4>Labirinto de Ideias</h4>
-          <p>Conteúdo carrossel com apelo visual editorial, unindo narrativa envolvente e copy que educa e converte.</p>
-        </div>
-      </div>
-
-      <!-- Case 4: Identidade Visual -->
-      <div class="work-card">
-        <div class="preview-phone">
-          <div style="text-align: center; color: var(--text-muted); padding: 1.5rem;">
-            <p style="font-size: 2rem; margin-bottom: 0.5rem;">✨</p>
-            <p style="font-size: 0.85rem;">Prancha de Marca<br>Tipografia & Cores</p>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="work-tag">Branding • Identidade Visual</div>
-          <h4>Posicionamento de Marca</h4>
-          <p>Construção de marca completa: tipografia clássica, cartela cromática quente e aplicações para o digital.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Seção de Áudio / Locução -->
-    <div class="voice-section" id="locucao">
-      <div class="voice-header">
-        <div>
-          <div class="work-tag">Demos de Áudio</div>
-          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400;">A Voz do NatiVerso</h3>
-        </div>
-        <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 450px;">
-          Ouça abaixo demonstrações de voz para campanhas comerciais, manifestos e narrações institucionais.
-        </p>
-      </div>
-
-      <!-- Faixa 1 -->
-      <div class="voice-track">
-        <div>
-          <div class="voice-track-title">01. Locução Comercial & Varejo Dinâmico</div>
-          <div class="voice-track-desc">Tom enérgico, direto e envolvente para Reels e anúncios pagos.</div>
-        </div>
-        <!-- Troque o link dentro do src pelo arquivo de áudio real -->
-        <audio controls src="assets/demo-comercial.mp3"></audio>
-      </div>
-
-      <!-- Faixa 2 -->
-      <div class="voice-track">
-        <div>
-          <div class="voice-track-title">02. Manifesto Institucional & Emocional</div>
-          <div class="voice-track-desc">Voz calma, empática e inspiradora para vídeos de posicionamento.</div>
-        </div>
-        <audio controls src="assets/demo-manifesto.mp3"></audio>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sobre Mim -->
-  <section id="sobre">
+  <!-- Quem Somos -->
+  <section id="quem-somos">
     <div class="about-wrap">
-      <div class="about-img-box">
-        <!-- Substitua pelo caminho da sua foto: <img src="assets/sua-foto.jpg" alt="Nati"> -->
-        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-muted); text-align: center; padding: 2rem;">
-          [Sua Foto Profissional / Editorial]
-        </div>
+      
+      <!-- CAIXA DA SUA FOTO (QUEM SOMOS) -->
+      <div class="about-img">
+        <span>[Sua Foto Aqui]</span>
+        <!-- QUANDO TIVER A FOTO, APAGUE O SPAN ACIMA E USE A LINHA ABAIXO: -->
+        <!-- <img src="sua-foto.jpg" class="media-cover" alt="Foto Nati"> -->
       </div>
+      
       <div class="about-text">
-        <div class="pill-badge">Quem está por trás</div>
-        <h3>Prazer, sou a mente por trás do <em>NatiVerso</em>.</h3>
-        <p>
-          Acredito que o bom conteúdo nasce no equilíbrio exato entre estética cuidadosa e intenção estratégica. Quando você une um visual impecável a uma narrativa pensada para reter, sua marca ganha autoridade imediata.
-        </p>
-        <p>
-          Minha atuação passa por todo o ecossistema: desde a captação de bastidores ao vivo no calor dos eventos até a pós-produção cirúrgica de cortes e a modulação da voz na locução. No NatiVerso, cada detalhe conta para que sua mensagem chegue com clareza e impacto.
-        </p>
-        <div style="margin-top: 2rem;">
-          <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn">Vamos Conversar?</a>
-        </div>
+        <h2>A mente por trás do universo.</h2>
+        <p>O NatiVerso não é só uma agência, é um ecossistema. Nasceu da necessidade de conectar estética impecável a conteúdos que realmente seguram a atenção da audiência do primeiro ao último segundo.</p>
+        <p>Seja gerenciando suas redes, desenhando a identidade visual do zero, cobrindo o seu evento com o celular na mão ou gravando a voz que vai representar o seu negócio: eu entrego o pacote completo.</p>
+        <p>Tudo com um método rigoroso de organização para que a sua experiência como cliente seja tão premium quanto o conteúdo que entregamos.</p>
       </div>
     </div>
   </section>
 
-  <!-- Rodapé & Fechamento -->
-  <footer>
-    <div class="pill-badge">Próximo Passo</div>
-    <h2>Pronta para levar sua marca para o <em>NatiVerso</em>?</h2>
-    <p>Me mande uma mensagem no WhatsApp com o seu objetivo atual para desenharmos uma proposta alinhada ao seu momento.</p>
+  <!-- Serviços -->
+  <section id="servicos">
+    <h2 class="section-title">Serviços</h2>
+    <p class="section-subtitle">O que fazemos para escalar a sua presença digital.</p>
     
-    <a href="https://wa.me/55SEUNUMERO?text=Olá%20Nati!%20Vim%20pelo%20portfólio." target="_blank" class="btn" style="padding: 1.1rem 2.4rem; font-size: 1.05rem;">
-      Iniciar Conversa no WhatsApp
-    </a>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Social Media Completo</h3>
+        <ul>
+          <li>Estudo profundo da marca</li>
+          <li>Definição de Linhas Editoriais</li>
+          <li>Planejamento e Calendário Mensal</li>
+          <li>Design, edição e copy (legendas)</li>
+          <li>Gestão de perfil e relatórios</li>
+        </ul>
+      </div>
 
-    <div class="social-links">
-      <a href="https://instagram.com/nativerso" target="_blank">Instagram</a>
-      <a href="https://tiktok.com/@nativerso" target="_blank">TikTok</a>
-      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      <div class="service-card">
+        <h3>StoryMaker em Eventos</h3>
+        <ul>
+          <li>Cobertura criativa em tempo real</li>
+          <li>Roteiro prévio alinhado com o cliente</li>
+          <li>Captação e edição mobile na hora</li>
+          <li>Olhar focado em narrativa (início, meio e fim)</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <h3>VideoMaker & Locução</h3>
+        <ul>
+          <li>Gravação com Método Anti-Trava</li>
+          <li>Vídeos institucionais e comerciais</li>
+          <li>Edição focada em retenção</li>
+          <li>Locução publicitária com a voz do NatiVerso</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <h3>Identidade Visual</h3>
+        <ul>
+          <li>Criação de Logo e Variações</li>
+          <li>Paleta de Cores e Tipografia</li>
+          <li>Manual da Marca no seu QG Notion</li>
+          <li>Kit pronto para mídias sociais</li>
+        </ul>
+      </div>
     </div>
+  </section>
 
-    <p style="font-size: 0.8rem; margin-top: 3rem; color: #5C4A42;">
-      © 2026 NatiVerso. Todos os direitos reservados.
-    </p>
+  <!-- Portfólio -->
+  <section id="portfolio">
+    <h2 class="section-title">Portfólio</h2>
+    <p class="section-subtitle">Um pouco do que já construímos.</p>
+    
+    <div class="portfolio-grid">
+      
+      <!-- CASE 1: VÍDEO -->
+      <div class="work-card">
+        <div class="work-preview">
+          <span>[Vídeo/Reel 9:16]</span>
+          <!-- QUANDO TIVER O VÍDEO, APAGUE O SPAN ACIMA E USE A LINHA ABAIXO: -->
+          <!-- <video src="meu-video.mp4" class="media-cover" autoplay loop muted playsinline></video> -->
+        </div>
+        <div class="work-info">
+          <span class="work-tag-small">Audiovisual</span>
+          <h4>Cortes Ágeis & Retenção</h4>
+          <p>Vídeos verticais com dinamismo, legendas e método de retenção.</p>
+        </div>
+      </div>
+
+      <!-- CASE 2: CARROSSEL / IMAGEM -->
+      <div class="work-card">
+        <div class="work-preview">
+          <span>[Carrossel Feed]</span>
+          <!-- QUANDO TIVER A FOTO, APAGUE O SPAN ACIMA E USE A LINHA ABAIXO: -->
+          <!-- <img src="meu-carrossel.jpg" class="media-cover" alt="Carrossel"> -->
+        </div>
+        <div class="work-info">
+          <span class="work-tag-small">Social Media</span>
+          <h4>Linha Editorial & Design</h4>
+          <p>Gestão visual e estratégica para feeds impossíveis de ignorar.</p>
+        </div>
+      </div>
+
+      <!-- CASE 3: STORY / EVENTOS -->
+      <div class="work-card">
+        <div class="work-preview">
+          <span>[Stories / Cobertura]</span>
+          <!-- QUANDO TIVER A FOTO/VÍDEO, APAGUE O SPAN ACIMA E USE A LINHA ABAIXO: -->
+          <!-- <img src="foto-evento.jpg" class="media-cover" alt="Stories"> -->
+        </div>
+        <div class="work-info">
+          <span class="work-tag-small">StoryMaker</span>
+          <h4>Narrativa de Eventos</h4>
+          <p>Bastidores e coberturas humanizadas postadas em tempo real.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Orçamento Base (Footer) -->
+  <section id="orcamento" style="padding: 0; max-width: 100%;"></section>
+  <footer>
+    <h2>Vamos construir o seu universo?</h2>
+    <p>Me conte sobre a sua marca, suas metas atuais e qual dos nossos serviços faz mais sentido para você. O processo de orçamento e onboard do NatiVerso é feito de forma personalizada.</p>
+    <a href="https://wa.me/55SEUNUMERO?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20para%20a%20minha%20marca!" target="_blank" class="btn btn-footer">
+      Iniciar Orçamento no WhatsApp
+    </a>
   </footer>
 
 </body>

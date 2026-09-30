@@ -42,22 +42,10 @@
       background-size: 30px 30px;
     }
 
-    /* Textura interna pontilhada/quadriculada sutil para cards inspirada na 1ª ref */
+    /* Textura interna inspirada na referência 1 */
     .pattern-texture {
-      background-image: radial-gradient(rgba(212, 154, 54, 0.15) 1.5px, transparent 1.5px);
-      background-size: 16px 16px;
-    }
-
-    /* Elementos decorativos de estrelas */
-    .star-deco {
-      color: var(--color-mustard);
-      font-size: 1.2rem;
-      display: inline-block;
-      animation: pulseStar 2s infinite ease-in-out;
-    }
-    @keyframes pulseStar {
-      0%, 100% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.2); opacity: 1; }
+      background-image: radial-gradient(rgba(212, 154, 54, 0.18) 1.5px, transparent 1.5px);
+      background-size: 18px 18px;
     }
 
     /* ─── HEADER ─── */
@@ -161,7 +149,7 @@
     }
     .btn-main:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--bg-coffee); }
 
-    /* ─── FITA AMARELA CURVA (Inspirada na Referência 1) ─── */
+    /* ─── FITA AMARELA CURVA ─── */
     .curved-marquee-wrap {
       width: 100vw;
       margin-left: calc(-50vw + 50%);
@@ -200,7 +188,7 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* ─── SEÇÕES MARROM CAFÉ ─── */
+    /* ─── SEÇÕES MARROM CAFÉ (SOBRE) ─── */
     .coffee-section {
       background-color: var(--bg-coffee);
       color: var(--bg-cream);
@@ -240,7 +228,6 @@
     }
     .editorial-text p { font-size: 1.02rem; opacity: 0.9; margin-bottom: 1.2rem; }
 
-    /* Moldura com Textura Interna */
     .editorial-card-frame {
       background-color: #312018;
       border-radius: 32px;
@@ -266,89 +253,11 @@
       font-size: 0.85rem;
       border: 1px solid rgba(212,154,54,0.4);
       margin-top: 1.5rem;
+      overflow: hidden;
     }
-    .notion-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; opacity: 0.9; }
+    .notion-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem; opacity: 0.9; width: 100%; }
 
-    /* ─── NOVA SEÇÃO: DIFERENCIAIS EXCLUSIVOS ─── */
-    .differentials-section {
-      background-color: var(--bg-cream);
-      color: var(--bg-coffee);
-      padding: 6rem 6%;
-      position: relative;
-    }
-    .differentials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .diff-card {
-      background-color: #FFFFFF;
-      border: 2px solid var(--bg-coffee);
-      border-radius: 24px;
-      padding: 2.5rem 2rem;
-      box-shadow: 5px 5px 0 var(--bg-coffee);
-      transition: transform 0.2s ease;
-      position: relative;
-    }
-    .diff-card:hover { transform: translateY(-5px); }
-    .diff-card .diff-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      display: inline-block;
-      background: var(--card-yellow);
-      padding: 0.6rem 1rem;
-      border-radius: 16px;
-      border: 2px solid var(--bg-coffee);
-    }
-    .diff-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; }
-    .diff-card p { font-size: 0.95rem; opacity: 0.85; }
-
-    /* ─── CARTÓES INCLINADOS COLORIDOS ─── */
-    .cards-showcase-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      max-width: 1100px;
-      margin: 4rem auto 0;
-    }
-
-    .slant-card {
-      border-radius: 28px;
-      padding: 2rem 1.5rem;
-      color: #FFFFFF;
-      border: 2px solid var(--bg-coffee);
-      box-shadow: 6px 6px 0 var(--bg-coffee);
-      transition: transform 0.3s ease;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 280px;
-    }
-    .slant-card:hover { transform: translateY(-8px) rotate(0deg) !important; }
-
-    .slant-card:nth-child(1) { background-color: var(--card-purple); transform: rotate(-3deg); }
-    .slant-card:nth-child(2) { background-color: var(--card-orange); transform: rotate(2deg); }
-    .slant-card:nth-child(3) { background-color: var(--card-pink); transform: rotate(-2deg); }
-    .slant-card:nth-child(4) { background-color: var(--card-yellow); color: var(--bg-coffee); transform: rotate(3deg); }
-
-    .slant-card .card-num {
-      font-size: 0.8rem;
-      font-weight: 700;
-      background: rgba(0,0,0,0.2);
-      padding: 0.2rem 0.6rem;
-      border-radius: 20px;
-      align-self: flex-start;
-      margin-bottom: 1rem;
-    }
-    .slant-card:nth-child(4) .card-num { background: rgba(34,22,17,0.15); }
-
-    .slant-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; line-height: 1.2; }
-    .slant-card p { font-size: 0.85rem; opacity: 0.9; }
-
-    /* ─── SERVIÇOS INTERATIVOS (Com textura interna inspirada na Ref 1) ─── */
+    /* ─── SERVIÇOS INTERATIVOS ─── */
     .services-section {
       background-color: var(--bg-cream);
       color: var(--bg-coffee);
@@ -467,6 +376,43 @@
     .work-item h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem; }
     .work-item p { font-size: 0.85rem; opacity: 0.8; }
 
+    /* ─── SEÇÃO DE DIFERENCIAIS (Apos o Portfólio) ─── */
+    .differentials-section {
+      background-color: var(--bg-cream);
+      color: var(--bg-coffee);
+      padding: 6rem 6%;
+      position: relative;
+      border-top: 3px solid var(--bg-coffee);
+    }
+    .differentials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .diff-card {
+      background-color: #FFFFFF;
+      border: 2px solid var(--bg-coffee);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      box-shadow: 5px 5px 0 var(--bg-coffee);
+      transition: transform 0.2s ease;
+      position: relative;
+    }
+    .diff-card:hover { transform: translateY(-5px); }
+    .diff-card .diff-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      background: var(--card-yellow);
+      padding: 0.6rem 1rem;
+      border-radius: 16px;
+      border: 2px solid var(--bg-coffee);
+    }
+    .diff-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; }
+    .diff-card p { font-size: 0.95rem; opacity: 0.85; }
+
     /* ─── FOOTER / CONTATO ─── */
     footer {
       background-color: var(--bg-cream);
@@ -513,7 +459,7 @@
     .social-links-right a:hover { color: var(--card-orange); }
 
     @media (max-width: 860px) {
-      .editorial-block, .cards-showcase-grid, .differentials-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .editorial-block, .differentials-grid { grid-template-columns: 1fr; gap: 2rem; }
       nav { display: none; }
       .footer-bottom-bar { justify-content: center; }
     }
@@ -526,9 +472,9 @@
     <a href="#" class="brand">NATI<span>VERSO</span></a>
     <nav>
       <a href="#sobre">Sobre</a>
-      <a href="#diferenciais">Diferenciais</a>
       <a href="#servicos">Serviços</a>
       <a href="#portfolio">Portfólio</a>
+      <a href="#diferenciais">Diferenciais</a>
       <a href="#contato">Contato</a>
     </nav>
     <a href="#orcamento" class="btn-nav">Orçamento</a>
@@ -536,7 +482,7 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-tag"><span class="star-deco">✦</span> O ECOSSISTEMA CRIATIVO <span class="star-deco">✦</span></div>
+    <div class="hero-tag">O ECOSSISTEMA CRIATIVO</div>
     <h1>O lugar onde a sua presença digital ganha vida.</h1>
     <p>Comunicação 360º de verdade. Unimos estratégia de conteúdo, roteiros magnéticos e direção de arte em um método fluido para você focar no que importa: crescer.</p>
     <a href="#orcamento" class="btn-main">Entrar no Universo</a>
@@ -552,7 +498,7 @@
     </div>
   </div>
 
-  <!-- SEÇÃO SOBRE & DIFERENCIAIS -->
+  <!-- SEÇÃO SOBRE -->
   <section class="coffee-section" id="sobre">
     <div class="editorial-layout">
       
@@ -602,7 +548,7 @@
           <div class="notion-box">
             <div class="notion-row"><span>📁</span> <strong>Workspace: NatiVerso QG</strong></div>
             <div class="notion-row"><span>📄</span> Manual_Diretrizes_Marca.pdf</div>
-            <div class="notion-row"><span>📅</span> Calendario_Editorial_Outubro.ts</div>
+            <div class="notion-row"><span>📅</span> Calendario_Editorial.ts</div>
             <div class="notion-row" style="margin-bottom:0;"><span>🟢 Status:</span> Roteiro Aprovado & Pronto</div>
           </div>
         </div>
@@ -613,66 +559,6 @@
         </div>
       </div>
 
-    </div>
-
-    <!-- Showcase de Cartões Inclinados Coloridos -->
-    <div class="cards-showcase-grid">
-      <div class="slant-card">
-        <span class="card-num">01</span>
-        <div>
-          <h3>Posicionamento Estratégico</h3>
-          <p>Sua marca apresentada com identidade visual forte e coerente.</p>
-        </div>
-      </div>
-      <div class="slant-card">
-        <span class="card-num">02</span>
-        <div>
-          <h3>Conteúdo com Retenção</h3>
-          <p>Roteiros e vídeos verticais pensados para prender a atenção.</p>
-        </div>
-      </div>
-      <div class="slant-card">
-        <span class="card-num">03</span>
-        <div>
-          <h3>Cobertura em Tempo Real</h3>
-          <p>Storymaking dinâmico para aproximar o seu público do seu dia a dia.</p>
-        </div>
-      </div>
-      <div class="slant-card">
-        <span class="card-num">04</span>
-        <div>
-          <h3>Organização Total</h3>
-          <p>Seu QG exclusivo no Notion com controle de todas as entregas.</p>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- SEÇÃO EXCLUSIVA DE DIFERENCIAIS -->
-  <section class="differentials-section" id="diferenciais">
-    <div style="text-align: center; margin-bottom: 3.5rem;">
-      <span class="star-deco">✦</span>
-      <h2 class="section-title" style="margin-bottom: 0.5rem; color: var(--bg-coffee);">Por que escolher o NatiVerso?</h2>
-      <p style="opacity: 0.8; font-size: 1.05rem;">Diferenciais criados para simplificar a sua rotina e acelerar resultados.</p>
-    </div>
-
-    <div class="differentials-grid">
-      <div class="diff-card">
-        <div class="diff-icon">🎯</div>
-        <h3>Método Anti-Trava</h3>
-        <p>Direção e roteiros dinâmicos que tiram o peso da câmera e fazem você destravar na hora de gravar.</p>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">⚡</div>
-        <h3>Agilidade Sem Perder o Charme</h3>
-        <p>Processos fluidos, comunicação direta e entregas pontuais para o seu negócio nunca ficar parado.</p>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">🔮</div>
-        <h3>Visão 360º Integrada</h3>
-        <p>Do design inicial à locução e cobertura de eventos: tudo conectado sob a mesma identidade estética.</p>
-      </div>
     </div>
   </section>
 
@@ -790,6 +676,32 @@
       <div class="work-item"><div class="media-placeholder">[Branding]</div><h4>Identidade & Notion</h4><p>Logotipo completo e manual da marca centralizado.</p></div>
     </div>
 
+  </section>
+
+  <!-- SEÇÃO DE DIFERENCIAIS (Agora logo após o Portfólio) -->
+  <section class="differentials-section" id="diferenciais">
+    <div style="text-align: center; margin-bottom: 3.5rem;">
+      <h2 class="section-title" style="margin-bottom: 0.5rem; color: var(--bg-coffee);">Por que escolher o NatiVerso?</h2>
+      <p style="opacity: 0.8; font-size: 1.05rem;">Diferenciais criados para simplificar a sua rotina e acelerar resultados.</p>
+    </div>
+
+    <div class="differentials-grid">
+      <div class="diff-card">
+        <div class="diff-icon">🎯</div>
+        <h3>Método Anti-Trava</h3>
+        <p>Direção e roteiros dinâmicos que tiram o peso da câmera e fazem você destravar na hora de gravar.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon">⚡</div>
+        <h3>Agilidade Sem Perder o Charme</h3>
+        <p>Processos fluidos, comunicação direta e entregas pontuais para o seu negócio nunca ficar parado.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon">🔮</div>
+        <h3>Visão 360º Integrada</h3>
+        <p>Do design inicial à locução e cobertura de eventos: tudo conectado sob a mesma identidade estética.</p>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER / CONTATO -->

@@ -262,12 +262,9 @@
     }
     .srv-content-panel.active { display: block; animation: pop .3s ease; }
     @keyframes pop { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
-    .srv-content-panel, .footer-container { transition: transform .25s ease; }
+    .srv-content-panel { transition: transform .25s ease; }
     .srv-content-panel:hover { transform: scale(1.025); }
-    .footer-container:hover { transform: scale(1.03); }
-    .footer-container .btn-main { background-color: var(--bg-coffee); color: var(--bg-cream); box-shadow: 3px 3px 0 var(--bg-cream); }
-    .footer-container .btn-main:hover { box-shadow: 5px 5px 0 var(--bg-cream); }
-    .srv-content-panel h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .srv-content-panel h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; }
     .srv-content-panel p { font-size: 1.05rem; opacity: 0.9; }
     .srv-content-panel ul { list-style: none; margin-top: 1.8rem; }
     .srv-content-panel ul li { font-size: 1.02rem; margin-bottom: 0.9rem; display: flex; align-items: center; gap: 0.6rem; }
@@ -360,41 +357,35 @@
     .diff-card:nth-child(2) { transform: translateY(-14px) rotate(1.5deg); }
     .diff-card:nth-child(3) { transform: rotate(3deg); }
     .diff-card:hover { transform: rotate(0) scale(1.06); position: relative; z-index: 3; }
-    .diff-card .diff-icon {
-      font-size: 1.8rem;
-      margin-bottom: 1.2rem;
-      display: inline-block;
-      background: var(--bg-cream);
-      padding: 0.7rem 1.1rem;
-      border-radius: 18px;
-      border: 2px solid var(--bg-coffee);
-    }
+    .diff-num { display: block; font-family: var(--font-accent); font-size: 3.2rem; font-weight: 700; line-height: 1; margin-bottom: .8rem; }
     .diff-card h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.8rem; }
     .diff-card p { font-size: 1rem; opacity: 0.9; }
 
     /* ─── FOOTER / CONTATO ─── */
-    footer { background-color: transparent; padding: 3rem 6% 3rem; }
-    .footer-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-      border: 2px solid var(--bg-coffee);
-      border-radius: 40px;
-      padding: 4rem 2rem;
-      box-shadow: 8px 8px 0 var(--bg-coffee);
+    footer {
+      margin-top: 2rem;
+      padding: 6rem 6% 2rem;
+      background-color: var(--bg-coffee);
+      color: var(--bg-cream);
+      border-radius: 48px 48px 0 0;
     }
-    footer h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; margin-bottom: 1rem; }
-    footer p { font-size: 1.05rem; opacity: 0.9; margin-bottom: 2rem; }
-    .footer-bottom-bar { width: 100%; max-width: 1100px; margin: 3rem auto 0; display: flex; justify-content: flex-end; align-items: center; }
-    .social-links-right { display: flex; gap: 2rem; }
-    .social-links-right a { color: var(--bg-coffee); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
-    .social-links-right a:hover { color: var(--color-mustard); }
+    .footer-cta { max-width: 760px; margin: 0 auto; text-align: center; }
+    footer h2 { font-size: clamp(2rem, 4.5vw, 3.4rem); font-weight: 700; line-height: 1.15; letter-spacing: -1px; margin-bottom: 1rem; }
+    footer h2 .accent { color: var(--card-yellow); }
+    .footer-text { font-size: 1.1rem; opacity: .85; margin-bottom: 2rem; }
+    .footer-cta .btn-main { box-shadow: 4px 4px 0 var(--bg-cream); }
+    .footer-cta .btn-main:hover { box-shadow: 6px 6px 0 var(--bg-cream); }
+    .footer-bottom { max-width: 1100px; margin: 4.5rem auto 0; padding-top: 1.8rem; border-top: 1px solid rgba(253, 249, 243, .15); display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .social-links { display: flex; gap: 1.8rem; }
+    .social-links a { color: var(--bg-cream); text-decoration: none; font-weight: 500; font-size: .95rem; transition: color .2s; }
+    .social-links a:hover { color: var(--color-mustard); }
 
     @media (max-width: 860px) {
       .editorial-block, .editorial-block.reverse, .differentials-grid { grid-template-columns: 1fr; gap: 2rem; }
       .diff-card:nth-child(n) { transform: rotate(0); min-height: 0; }
       nav { display: none; }
-      .footer-bottom-bar { justify-content: center; }
+      footer { padding-top: 5rem; border-radius: 32px 32px 0 0; }
+      .footer-bottom { justify-content: center; text-align: center; }
       .srv-content-panel { padding: 2rem; }
       .hero { grid-template-columns: 1fr; padding-top: 4rem; }
       .hero-art { height: 220px; }
@@ -636,17 +627,17 @@
 
     <div class="differentials-grid">
       <div class="diff-card c-mustard tex">
-        <div class="diff-icon">🎯</div>
+        <span class="diff-num">01</span>
         <h3>Método Anti-Trava</h3>
         <p>Direção e roteiros dinâmicos que tiram o peso da câmera e fazem você destravar na hora de gravar.</p>
       </div>
       <div class="diff-card c-rust tex">
-        <div class="diff-icon">⚡</div>
+        <span class="diff-num">02</span>
         <h3>Agilidade Sem Perder o Charme</h3>
         <p>Processos fluidos, comunicação direta e entregas pontuais para o seu negócio nunca ficar parado.</p>
       </div>
       <div class="diff-card c-yellow tex">
-        <div class="diff-icon">🔮</div>
+        <span class="diff-num">03</span>
         <h3>Visão 360º Integrada</h3>
         <p>Do design inicial à locução e cobertura de eventos: tudo conectado sob a mesma identidade estética.</p>
       </div>
@@ -655,14 +646,15 @@
 
   <!-- FOOTER / CONTATO -->
   <footer id="contato">
-    <div class="footer-container c-yellow tex" id="orcamento">
+    <div class="footer-cta" id="orcamento">
       <h2>Pronta para entrar no <span class="accent">NatiVerso</span>?</h2>
-      <p>Bora transformar a presença digital do seu negócio? Resposta rápida, sem enrolação.</p>
+      <p class="footer-text">Bora transformar a presença digital do seu negócio? Resposta rápida, sem enrolação.</p>
       <a href="https://wa.me/55SEUNUMERO" target="_blank" rel="noopener" class="btn-main">Marcar um bate-papo</a>
     </div>
 
-    <div class="footer-bottom-bar">
-      <div class="social-links-right">
+    <div class="footer-bottom">
+      <a href="#" class="brand" aria-label="Voltar ao topo">Nati<span>Verso</span></a>
+      <div class="social-links">
         <a href="https://instagram.com/SEUPERFIL" target="_blank" rel="noopener">Instagram</a>
         <a href="https://tiktok.com/@SEUPERFIL" target="_blank" rel="noopener">TikTok</a>
         <a href="https://linkedin.com/in/SEUPERFIL" target="_blank" rel="noopener">LinkedIn</a>

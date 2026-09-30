@@ -3,122 +3,257 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conceito Visual - NatiVerso</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>NatiVerso | O Ecossistema da sua Marca</title>
+  
+  <!-- Fonte Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg-cream: #FDF9F3;
-      --bg-coffee: #221611;
+      --bg-cream: #FDF9F3;         
+      --bg-coffee: #221611;     
       --card-coffee-light: #2D1E17;
-      --color-mustard: #D49A36;
       --card-yellow: #E5C158;
+      --color-mustard: #D49A36;    
+      --font-main: 'Poppins', sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     
     body {
+      background-color: var(--bg-cream);
+      color: var(--bg-coffee);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      position: relative;
+    }
+
+    /* Grid de fundo sutil */
+    .grid-texture {
+      background-image: 
+        linear-gradient(to right, rgba(34, 22, 17, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(34, 22, 17, 0.035) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--bg-coffee);
+      backdrop-filter: blur(10px);
+      padding: 1.2rem 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid rgba(212, 154, 54, 0.2);
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--bg-cream);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .brand span { color: var(--color-mustard); }
+
+    nav { display: flex; gap: 1.8rem; align-items: center; }
+    nav a {
+      color: var(--bg-cream);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--color-mustard); }
+
+    .btn-nav {
+      background-color: var(--color-mustard);
+      color: var(--bg-coffee);
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+      box-shadow: 2px 2px 0 var(--bg-cream);
+      transition: transform 0.1s;
+    }
+    .btn-nav:hover { transform: translateY(-1px); }
+
+    /* ─── HERO SECTION ─── */
+    .hero {
+      padding: 7rem 6% 4rem;
+      text-align: left;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background-color: var(--card-yellow);
+      border: 2px solid var(--bg-coffee);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      color: var(--bg-coffee);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      box-shadow: 3px 3px 0 var(--bg-coffee);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 1.5rem;
+      max-width: 850px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      font-weight: 400;
+      max-width: 650px;
+      margin: 0 0 2.5rem 0;
+      opacity: 0.85;
+    }
+
+    .btn-main {
+      background-color: var(--color-mustard);
+      color: var(--bg-coffee);
+      padding: 0.9rem 2.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      box-shadow: 3px 3px 0 var(--bg-coffee);
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-main:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--bg-coffee); }
+
+    /* ─── FITA AMARELA CURVA ─── */
+    .curved-marquee-wrap {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      overflow: hidden;
+      position: relative;
+      padding: 2.5rem 0;
+      z-index: 10;
+    }
+
+    .curved-tape {
+      background-color: var(--card-yellow);
+      color: var(--bg-coffee);
+      padding: 1rem 0;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-top: 2px solid var(--bg-coffee);
+      border-bottom: 2px solid var(--bg-coffee);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transform: rotate(-2.5deg) scale(1.03);
+      white-space: nowrap;
+    }
+
+    .curved-tape-content {
+      display: flex;
+      animation: scrollText 16s linear infinite;
+    }
+    .curved-tape-content span {
+      display: flex;
+      gap: 2rem;
+      padding-right: 2rem;
+    }
+    @keyframes scrollText {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ─── SEÇÃO SOBRE (FUNDO MARROM CAFÉ COM TEXTURA RICA) ─── */
+    .coffee-section {
       background-color: var(--bg-coffee);
       color: var(--bg-cream);
-      font-family: 'Poppins', sans-serif;
-      padding: 4rem 2rem;
-      /* Textura de fundo orgânica e sofisticada (pontilhado sutil com gradiente) */
+      padding: 7rem 6%;
+      position: relative;
       background-image: 
         radial-gradient(rgba(212, 154, 54, 0.08) 2px, transparent 2px),
-        linear-gradient(to bottom, #221611, #1A100C);
+        linear-gradient(to bottom, #221611, #180F0C);
       background-size: 24px 24px, 100% 100%;
     }
 
-    .container {
+    .section-title {
+      font-size: 2.3rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .editorial-layout {
       max-width: 1100px;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6rem;
     }
 
-    .concept-title {
-      font-size: 2.2rem;
-      margin-bottom: 3rem;
-      text-align: center;
-      letter-spacing: -0.5px;
-    }
-    .concept-title span { color: var(--color-mustard); }
-
-    /* Layout da seção do Notion repensado com respiro e moldura perfeita */
-    .editorial-grid {
+    .editorial-block {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 4rem;
       align-items: center;
-      background: var(--card-coffee-light);
-      border: 2px solid rgba(212, 154, 54, 0.25);
-      border-radius: 40px;
-      padding: 4rem;
-      box-shadow: 12px 12px 0 rgba(0,0,0,0.4);
-      position: relative;
-      overflow: hidden;
     }
+    .editorial-block.reverse { grid-template-columns: 0.9fr 1.1fr; }
 
-    /* Detalhe de fita orgânica decorativa no canto do card */
-    .editorial-grid::before {
-      content: "✦ NATIVERSO QG ✦";
-      position: absolute;
-      top: 20px;
-      right: -35px;
-      background: var(--card-yellow);
-      color: var(--bg-coffee);
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.3rem 3rem;
-      transform: rotate(45deg);
-      letter-spacing: 1px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    .text-side h2 {
-      font-size: 2rem;
+    .editorial-text h2 {
+      font-size: 2.1rem;
       font-weight: 700;
       margin-bottom: 1.2rem;
-      line-height: 1.2;
+      letter-spacing: -0.5px;
     }
+    .editorial-text p { font-size: 1.05rem; opacity: 0.9; margin-bottom: 1.2rem; }
 
-    .text-side p {
-      font-size: 1rem;
-      opacity: 0.85;
-      margin-bottom: 1.5rem;
+    .editorial-card-frame {
+      background-color: var(--card-coffee-light);
+      border-radius: 36px;
+      padding: 3rem;
+      border: 2px solid rgba(212, 154, 54, 0.3);
+      position: relative;
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.4);
     }
+    .editorial-card-frame.yellow-tint { background-color: #382C15; border-color: var(--card-yellow); }
 
-    .clean-list {
-      list-style: none;
-      margin-bottom: 2rem;
-    }
+    .clean-list { list-style: none; margin-top: 1.5rem; }
     .clean-list li {
-      font-size: 0.95rem;
-      margin-bottom: 0.6rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
+      font-size: 1rem; font-weight: 500; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem;
     }
-    .clean-list li::before {
-      content: "✦";
-      color: var(--color-mustard);
-      font-size: 0.8rem;
-    }
+    .clean-list li::before { content: "✦"; font-size: 0.8rem; color: var(--color-mustard); }
 
-    /* Caixa do Notion totalmente encapsulada, sem cortes, com visual app premium */
+    /* Caixa do Notion sem cortes e estilizada */
     .notion-preview-box {
       background-color: #140A07;
       border-radius: 20px;
       padding: 1.5rem;
       border: 1px solid rgba(212, 154, 54, 0.4);
       box-shadow: inset 0 2px 8px rgba(0,0,0,0.6);
+      margin-top: 1.8rem;
     }
-
     .notion-header-bar {
       display: flex;
       gap: 6px;
       margin-bottom: 1rem;
     }
-    .notion-dot {
-      width: 10px; height: 10px; border-radius: 50%;
-    }
+    .notion-dot { width: 10px; height: 10px; border-radius: 50%; }
     .dot-red { background: #FF5F56; }
     .dot-yellow { background: #FFBD2E; }
     .dot-green { background: #27C93F; }
@@ -129,70 +264,527 @@
       display: flex;
       flex-direction: column;
       gap: 0.7rem;
-      opacity: 0.9;
+      opacity: 0.95;
     }
 
+    /* Card da direita do Notion corrigido (com margem e bordas completas) */
     .visual-side-card {
       background: linear-gradient(135deg, #1A2834, #111B22);
-      border-radius: 28px;
-      padding: 2.5rem;
-      border: 2px solid rgba(109, 138, 150, 0.4);
-      min-height: 320px;
+      border-radius: 32px;
+      padding: 3rem 2rem;
+      border: 2px solid rgba(109, 138, 150, 0.5);
+      min-height: 280px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      box-shadow: 6px 6px 0 rgba(0,0,0,0.3);
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.3);
     }
-
     .visual-side-card h4 {
       color: #A3C1D3;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      font-weight: 700;
       margin-top: 1rem;
+    }
+
+    /* ─── SERVIÇOS INTERATIVOS ─── */
+    .services-section {
+      background-color: var(--bg-cream);
+      color: var(--bg-coffee);
+      padding: 7rem 6%;
+    }
+
+    .services-interactive-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .services-tabs-header {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .srv-tab-btn {
+      background-color: #FFFFFF;
+      border: 2px solid var(--bg-coffee);
+      color: var(--bg-coffee);
+      padding: 0.7rem 1.4rem;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--bg-coffee);
+      transition: all 0.2s;
+    }
+    .srv-tab-btn:hover, .srv-tab-btn.active {
+      background-color: var(--color-mustard);
+      box-shadow: 3px 3px 0 var(--bg-coffee);
+      transform: translateY(-2px);
+    }
+
+    .srv-content-panel {
+      display: none;
+      background-color: #FFFFFF;
+      border-radius: 32px;
+      padding: 3.5rem;
+      border: 2px solid var(--bg-coffee);
+      box-shadow: 6px 6px 0 var(--bg-coffee);
+    }
+    .srv-content-panel.active { display: block; }
+    .srv-content-panel h3 { font-size: 1.8rem; font-weight: 700; color: var(--bg-coffee); margin-bottom: 1rem; }
+    .srv-content-panel p { font-size: 1.05rem; opacity: 0.9; }
+    .srv-content-panel ul { list-style: none; margin-top: 1.8rem; }
+    .srv-content-panel ul li { font-size: 1.02rem; margin-bottom: 0.9rem; display: flex; align-items: center; gap: 0.6rem; }
+    .srv-content-panel ul li::before { content: "✦"; color: var(--color-mustard); font-size: 0.8rem; }
+
+    /* ─── PORTFÓLIO INTERATIVO ─── */
+    .portfolio-section {
+      background-color: var(--bg-coffee);
+      color: var(--bg-cream);
+      padding: 7rem 6%;
+      background-image: 
+        radial-gradient(rgba(212, 154, 54, 0.08) 2px, transparent 2px),
+        linear-gradient(to bottom, #180F0C, #221611);
+      background-size: 24px 24px, 100% 100%;
+    }
+
+    .portfolio-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    .tab-btn {
+      background-color: transparent;
+      border: 2px solid rgba(212, 154, 54, 0.4);
+      color: var(--bg-cream);
+      padding: 0.7rem 1.6rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background-color: var(--color-mustard);
+      color: var(--bg-coffee);
+      border-color: var(--color-mustard);
+    }
+
+    .portfolio-content-grid {
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .portfolio-content-grid.active { display: grid; }
+
+    .work-item {
+      background-color: var(--card-coffee-light);
+      border-radius: 24px;
+      padding: 1.8rem;
+      border: 2px solid rgba(212, 154, 54, 0.3);
+      box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+    }
+
+    .media-placeholder {
+      width: 100%;
+      height: 240px;
+      background-color: #140A07;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-mustard);
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      border: 1px dashed rgba(212,154,54,0.3);
+    }
+
+    .work-item h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .work-item p { font-size: 0.9rem; opacity: 0.8; }
+
+    /* ─── DIFERENCIAIS (APÓS O PORTFÓLIO) ─── */
+    .differentials-section {
+      background-color: var(--bg-cream);
+      color: var(--bg-coffee);
+      padding: 7rem 6%;
+      border-top: 3px solid var(--bg-coffee);
+    }
+    .differentials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .diff-card {
+      background-color: #FFFFFF;
+      border: 2px solid var(--bg-coffee);
+      border-radius: 28px;
+      padding: 3rem 2rem;
+      box-shadow: 6px 6px 0 var(--bg-coffee);
+      transition: transform 0.2s ease;
+    }
+    .diff-card:hover { transform: translateY(-5px); }
+    .diff-card .diff-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+      display: inline-block;
+      background: var(--card-yellow);
+      padding: 0.7rem 1.1rem;
+      border-radius: 18px;
+      border: 2px solid var(--bg-coffee);
+    }
+    .diff-card h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.8rem; }
+    .diff-card p { font-size: 1rem; opacity: 0.85; }
+
+    /* ─── FOOTER / CONTATO ─── */
+    footer {
+      background-color: var(--bg-cream);
+      color: var(--bg-coffee);
+      padding: 6rem 6% 3rem;
+      border-top: 3px solid var(--bg-coffee);
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    footer h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    footer p { font-size: 1.05rem; opacity: 0.85; margin-bottom: 2rem; }
+
+    .footer-bottom-bar {
+      width: 100%;
+      max-width: 1100px;
+      margin: 4rem auto 0;
+      padding-top: 2rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .social-links-right {
+      display: flex;
+      gap: 2rem;
+    }
+    .social-links-right a {
+      color: var(--bg-coffee);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .social-links-right a:hover { color: var(--color-mustard); }
+
+    @media (max-width: 860px) {
+      .editorial-block, .differentials-grid { grid-template-columns: 1fr; gap: 2rem; }
+      nav { display: none; }
+      .footer-bottom-bar { justify-content: center; }
     }
   </style>
 </head>
-<body>
+<body class="grid-texture">
 
-  <div class="container">
-    <h1 class="concept-title">Proposta de Direção Visual: <span>QG & Blocos Editoriais</span></h1>
+  <!-- Header -->
+  <header>
+    <a href="#" class="brand">NATI<span>VERSO</span></a>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="#orcamento" class="btn-nav">Orçamento</a>
+  </header>
 
-    <!-- Exemplo prático de como o bloco do Notion deve se comportar (sem cortes, estruturado e imponente) -->
-    <div class="editorial-grid">
-      <div class="text-side">
-        <h2>O seu QG exclusivo no Notion.</h2>
-        <p>Esqueça a bagunça. Um ambiente centralizado com absoluto controle, organização e visibilidade total da sua marca.</p>
-        
-        <ul class="clean-list">
-          <li>Manual e Diretrizes da Marca estruturados</li>
-          <li>Linhas Editoriais validadas</li>
-          <li>Calendário com status ao vivo</li>
-        </ul>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-tag">O ECOSSISTEMA CRIATIVO</div>
+    <h1>O lugar onde a sua presença digital ganha vida.</h1>
+    <p>Comunicação 360º de verdade. Unimos estratégia de conteúdo, roteiros magnéticos e direção de arte em um método fluido para você focar no que importa: crescer.</p>
+    <a href="#orcamento" class="btn-main">Entrar no Universo</a>
+  </section>
 
-        <div class="notion-preview-box">
-          <div class="notion-header-bar">
-            <div class="notion-dot dot-red"></div>
-            <div class="notion-dot dot-yellow"></div>
-            <div class="notion-dot dot-green"></div>
-          </div>
-          <div class="notion-content-lines">
-            <div>📁 <strong>Workspace: NatiVerso QG</strong></div>
-            <div>📄 Manual_Diretrizes_Marca.pdf</div>
-            <div>📅 Calendario_Editorial_Outubro.ts</div>
-            <div style="color: #61FF78;">🟢 Status: Roteiro Aprovado & Pronto</div>
+  <!-- Fita Amarela Curva -->
+  <div class="curved-marquee-wrap">
+    <div class="curved-tape">
+      <div class="curved-tape-content">
+        <span>✦ ESTRATÉGIA VISUAL ✦ MÉTODO ANTI-TRAVA ✦ QG NO NOTION ✦ ROTEIROS QUE RETÊM ✦ STORYMAKING ✦</span>
+        <span>✦ ESTRATÉGIA VISUAL ✦ MÉTODO ANTI-TRAVA ✦ QG NO NOTION ✦ ROTEIROS QUE RETÊM ✦ STORYMAKING ✦</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEÇÃO SOBRE -->
+  <section class="coffee-section" id="sobre">
+    <div class="editorial-layout">
+      
+      <!-- Bloco 1 -->
+      <div class="editorial-block">
+        <div class="editorial-text">
+          <h2>A mente por trás do universo.</h2>
+          <p>O NatiVerso não é só uma agência, é um ecossistema. Nasceu da necessidade de conectar estética a conteúdos que realmente seguram a atenção da audiência do primeiro ao último segundo.</p>
+          <p>Seja gerenciando suas redes, desenhando a identidade visual do zero, cobrindo o seu evento com o celular na mão ou gravando a voz que vai representar o seu negócio: eu entrego o pacote completo.</p>
+        </div>
+        <div class="editorial-card-frame">
+          <div style="height: 260px; display: flex; align-items: center; justify-content: center; color: var(--color-mustard); font-weight: 600;">
+            [Foto Editorial / Nati]
           </div>
         </div>
       </div>
 
-      <div class="visual-side-card">
-        <span style="font-size: 3rem;">⚡</span>
-        <h4>Interface Centralizada</h4>
-        <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem;">Tudo o que você e sua marca precisam em um só clique, sem ruídos de comunicação.</p>
+      <!-- Bloco 2: Gravação sem travar -->
+      <div class="editorial-block reverse">
+        <div class="editorial-card-frame yellow-tint">
+          <div style="height: 220px; display: flex; align-items: center; justify-content: center; color: var(--bg-cream); opacity: 0.9; font-weight: 600;">
+            [Bastidores / Captação]
+          </div>
+        </div>
+        <div class="editorial-text">
+          <h2>Gravação sem travar. Roteiros que retêm.</h2>
+          <p>Acha difícil gravar? Eu tenho um método. Desenvolvo seus roteiros guiados por storytelling e ganchos poderosos para falar com naturalidade absoluta frente à câmera.</p>
+          <ul class="clean-list">
+            <li>Foco total em retenção visual</li>
+            <li>Roteiro estratégico sob medida</li>
+            <li>Direção in loco para destravar a fala</li>
+          </ul>
+        </div>
       </div>
+
+      <!-- Bloco 3: QG no Notion (Consertado e sem cortes!) -->
+      <div class="editorial-block">
+        <div class="editorial-text">
+          <h2>O seu QG exclusivo no Notion.</h2>
+          <p>Esqueça a bagunça no WhatsApp. Como meu cliente, você recebe um ambiente premium com absoluto controle, organização e visibilidade da sua marca centralizados.</p>
+          <ul class="clean-list">
+            <li>Manual e Diretrizes da Marca</li>
+            <li>Linhas Editoriais Estruturadas</li>
+            <li>Calendário e status de aprovação ao vivo</li>
+          </ul>
+          
+          <div class="notion-preview-box">
+            <div class="notion-header-bar">
+              <div class="notion-dot dot-red"></div>
+              <div class="notion-dot dot-yellow"></div>
+              <div class="notion-dot dot-green"></div>
+            </div>
+            <div class="notion-content-lines">
+              <div>📁 <strong>Workspace: NatiVerso QG</strong></div>
+              <div>📄 Manual_Diretrizes_Marca.pdf</div>
+              <div>📅 Calendario_Editorial.ts</div>
+              <div style="color: #61FF78;">🟢 Status: Roteiro Aprovado & Pronto</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="visual-side-card">
+          <span style="font-size: 2.8rem;">⚡</span>
+          <h4>Interface Centralizada</h4>
+          <p style="font-size: 0.9rem; opacity: 0.85; margin-top: 0.5rem;">Tudo o que sua marca precisa em um só lugar, transparente e sem ruído.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE SERVIÇOS INTERATIVOS -->
+  <section class="services-section" id="servicos">
+    <h2 class="section-title">Serviços</h2>
+    <div class="services-interactive-container">
+      
+      <div class="services-tabs-header">
+        <button class="srv-tab-btn active" onclick="switchService(event, 'srv-social')">Social Media</button>
+        <button class="srv-tab-btn" onclick="switchService(event, 'srv-story')">StoryMaker</button>
+        <button class="srv-tab-btn" onclick="switchService(event, 'srv-video')">VideoMaker</button>
+        <button class="srv-tab-btn" onclick="switchService(event, 'srv-loc')">Locução</button>
+        <button class="srv-tab-btn" onclick="switchService(event, 'srv-id')">Identidade Visual</button>
+      </div>
+
+      <div id="srv-social" class="srv-content-panel active">
+        <h3>Social Media Completo</h3>
+        <p>Gestão completa e estratégica de presença digital para o seu negócio se destacar com autoridade e elegância.</p>
+        <ul>
+          <li>Estudo profundo e posicionamento da marca</li>
+          <li>Definição de Linhas Editoriais</li>
+          <li>Calendário Mensal estruturado</li>
+          <li>Design autoral e copy magnética</li>
+        </ul>
+      </div>
+
+      <div id="srv-story" class="srv-content-panel">
+        <h3>StoryMaker em Eventos</h3>
+        <p>Cobertura em tempo real pensada para transformar acontecimentos em conexões reais com a sua audiência.</p>
+        <ul>
+          <li>Cobertura criativa e dinâmica in loco</li>
+          <li>Roteiro prévio alinhado com objetivos</li>
+          <li>Captação mobile focada em narrativa envolvente</li>
+        </ul>
+      </div>
+
+      <div id="srv-video" class="srv-content-panel">
+        <h3>VideoMaker</h3>
+        <p>Produção de vídeos verticais focados em alta retenção e conversão para as suas redes sociais.</p>
+        <ul>
+          <li>Gravação guiada pelo Método Anti-Trava</li>
+          <li>Edição vertical dinâmica e profissional</li>
+          <li>Cortes ágeis e sonoplastia imersiva</li>
+        </ul>
+      </div>
+
+      <div id="srv-loc" class="srv-content-panel">
+        <h3>Locução Publicitária</h3>
+        <p>A voz profissional ideal para dar personalidade, peso e autoridade aos seus projetos e campanhas.</p>
+        <ul>
+          <li>Locução publicitária exclusiva</li>
+          <li>Narração de vídeos para redes sociais</li>
+          <li>Voz institucional e comercial</li>
+        </ul>
+      </div>
+
+      <div id="srv-id" class="srv-content-panel">
+        <h3>Identidade Visual</h3>
+        <p>Construção estética do zero para garantir que a sua marca seja inconfundível em qualquer lugar.</p>
+        <ul>
+          <li>Criação de Logo e Variações</li>
+          <li>Manual da Marca guardado no Notion</li>
+          <li>Kit visual pronto para redes sociais e apresentações</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE PORTFÓLIO INTERATIVO -->
+  <section class="portfolio-section" id="portfolio">
+    <h2 class="section-title">Portfólio</h2>
+    
+    <div class="portfolio-tabs">
+      <button class="tab-btn active" onclick="switchPortfolioTab(event, 'port-social')">Social Media & Design</button>
+      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-video')">Edição de Vídeo</button>
+      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-story')">StoryMaker</button>
+      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-loc')">Locução</button>
+      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-id')">Identidade Visual</button>
     </div>
 
-  </div>
+    <!-- 1. Social Media & Design -->
+    <div id="port-social" class="portfolio-content-grid active">
+      <div class="work-item"><div class="media-placeholder">[Design 01]</div><h4>Carrossel Raiz</h4><p>Estratégia visual de alto engajamento.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Design 02]</div><h4>Estética de Feed</h4><p>Harmonia e identidade marcante.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Design 03]</div><h4>Stories Dinâmicos</h4><p>Templates autorais editáveis.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Design 04]</div><h4>Capa de Destaque</h4><p>Organização visual do perfil.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Design 05]</div><h4>Apresentação Visual</h4><p>PDFs e materiais institucionais.</p></div>
+    </div>
+
+    <!-- 2. Edição de Vídeo -->
+    <div id="port-video" class="portfolio-content-grid">
+      <div class="work-item"><div class="media-placeholder">[Vídeo 01]</div><h4>Reel de Retenção</h4><p>Cortes ágeis e legendas dinâmicas.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Vídeo 02]</div><h4>Vídeo para Lançamento</h4><p>Narrativa fluida e imersiva.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Vídeo 03]</div><h4>Corte Podcast</h4><p>Destaques com alto poder de viralização.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Vídeo 04]</div><h4>Reels Educacional</h4><p>Clareza e dinamismo visual.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Vídeo 05]</div><h4>Institucional</h4><p>Autoridade e profissionalismo em cena.</p></div>
+    </div>
+
+    <!-- 3. StoryMaker -->
+    <div id="port-story" class="portfolio-content-grid">
+      <div class="work-item"><div class="media-placeholder">[StoryMaker]</div><h4>Cobertura ao Vivo</h4><p>Bastidores e conexão real com a audiência.</p></div>
+    </div>
+
+    <!-- 4. Locução -->
+    <div id="port-loc" class="portfolio-content-grid">
+      <div class="work-item"><div class="media-placeholder">[Locução 01]</div><h4>Spot Comercial</h4><p>Voz marcante para conversão.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Locução 02]</div><h4>Narração de Vídeo</h4><p>Fluidez e tom institucional ideal.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Locução 03]</div><h4>Vinheta & Chamada</h4><p>Impacto imediato para o seu público.</p></div>
+    </div>
+
+    <!-- 5. Identidade Visual -->
+    <div id="port-id" class="portfolio-content-grid">
+      <div class="work-item"><div class="media-placeholder">[Branding]</div><h4>Identidade & Notion</h4><p>Logotipo completo e manual da marca centralizado.</p></div>
+    </div>
+
+  </section>
+
+  <!-- SEÇÃO DE DIFERENCIAIS (Após o Portfólio) -->
+  <section class="differentials-section" id="diferenciais">
+    <div style="text-align: center; margin-bottom: 3.5rem;">
+      <h2 class="section-title" style="margin-bottom: 0.5rem; color: var(--bg-coffee);">Por que escolher o NatiVerso?</h2>
+      <p style="opacity: 0.8; font-size: 1.05rem;">Diferenciais criados para simplificar a sua rotina e acelerar resultados.</p>
+    </div>
+
+    <div class="differentials-grid">
+      <div class="diff-card">
+        <div class="diff-icon">🎯</div>
+        <h3>Método Anti-Trava</h3>
+        <p>Direção e roteiros dinâmicos que tiram o peso da câmera e fazem você destravar na hora de gravar.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon">⚡</div>
+        <h3>Agilidade Sem Perder o Charme</h3>
+        <p>Processos fluidos, comunicação direta e entregas pontuais para o seu negócio nunca ficar parado.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon">🔮</div>
+        <h3>Visão 360º Integrada</h3>
+        <p>Do design inicial à locução e cobertura de eventos: tudo conectado sob a mesma identidade estética.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTATO -->
+  <footer id="contato">
+    <div class="footer-container" id="orcamento">
+      <h2>Pronta para entrar no NatiVerso?</h2>
+      <p>Bora transformar a presença digital do seu negócio? Resposta rápida, sem enrolação.</p>
+      <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-main">Marcar um bate-papo</a>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div class="social-links-right">
+        <a href="https://instagram.com/SEUPERFIL" target="_blank">Instagram</a>
+        <a href="https://tiktok.com/@SEUPERFIL" target="_blank">TikTok</a>
+        <a href="https://linkedin.com/in/SEUPERFIL" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function switchService(evt, serviceId) {
+      const panels = document.querySelectorAll('.srv-content-panel');
+      panels.forEach(panel => panel.classList.remove('active'));
+
+      const buttons = document.querySelectorAll('.srv-tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(serviceId).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+
+    function switchPortfolioTab(evt, categoryId) {
+      const grids = document.querySelectorAll('.portfolio-content-grid');
+      grids.forEach(grid => grid.classList.remove('active'));
+
+      const buttons = document.querySelectorAll('.portfolio-tabs .tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(categoryId).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>

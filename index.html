@@ -14,9 +14,10 @@
     :root {
       --bg-cream: #FDF9F3;         
       --bg-coffee: #221611;     
-      --bg-soft-blue: #D6E4ED;     
-      --bg-soft-yellow: #F7E9B9;   
-      --bg-card: #F4EADF;         
+      --card-purple: #4A3B5C;
+      --card-orange: #C65D3B;
+      --card-pink: #D97D88;
+      --card-yellow: #E5C158;
       --color-mustard: #D49A36;    
       --color-accent: #8C3B32;     
       --font-main: 'Poppins', sans-serif;
@@ -33,7 +34,7 @@
       position: relative;
     }
 
-    /* Textura de quadradinhos sutil */
+    /* Textura de quadradinhos sutil no fundo */
     .grid-texture {
       background-image: 
         linear-gradient(to right, rgba(34, 22, 17, 0.035) 1px, transparent 1px),
@@ -41,7 +42,7 @@
       background-size: 30px 30px;
     }
 
-    /* ─── HEADER ─── */
+    /* ─── HEADER (Marrom Café) ─── */
     header {
       position: sticky;
       top: 0;
@@ -87,25 +88,18 @@
     }
     .btn-nav:hover { transform: translateY(-1px); }
 
-    /* ─── HERO SECTION COM COMPOSIÇÃO DE IMAGENS E FORMAS ─── */
+    /* ─── HERO SECTION (Alinhado à Esquerda) ─── */
     .hero {
-      padding: 6rem 6% 4rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 4rem;
-      align-items: center;
-      position: relative;
-    }
-
-    .hero-content {
+      padding: 7rem 6% 4rem;
       text-align: left;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
     }
 
     .hero-tag {
       display: inline-block;
-      background-color: var(--bg-soft-yellow);
+      background-color: var(--card-yellow);
       border: 2px solid var(--bg-coffee);
       padding: 0.4rem 1.2rem;
       border-radius: 50px;
@@ -119,33 +113,19 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.3rem, 4vw, 3.6rem);
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
       font-weight: 700;
       line-height: 1.15;
       letter-spacing: -0.5px;
       margin-bottom: 1.5rem;
-      position: relative;
-    }
-
-    /* O quadradinho decorativo atrás do título principal */
-    .hero h1::before {
-      content: "";
-      position: absolute;
-      top: -15px;
-      left: -20px;
-      width: 80px;
-      height: 80px;
-      background-color: var(--bg-soft-blue);
-      border: 2px solid var(--bg-coffee);
-      border-radius: 16px;
-      z-index: -1;
-      transform: rotate(-6deg);
+      max-width: 850px;
     }
 
     .hero p {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 400;
-      margin-bottom: 2.5rem;
+      max-width: 650px;
+      margin: 0 0 2.5rem 0;
       opacity: 0.85;
     }
 
@@ -163,81 +143,36 @@
     }
     .btn-main:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--bg-coffee); }
 
-    /* Mosaico de imagens decorativas no topo (estilo Olive & Studio) */
-    .hero-images-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-      position: relative;
-    }
-
-    .hero-img-box {
-      background-color: #312018;
-      border-radius: 20px;
-      height: 200px;
-      border: 2px solid var(--bg-coffee);
-      box-shadow: 5px 5px 0 var(--bg-coffee);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-mustard);
-      font-size: 0.85rem;
-      font-weight: 600;
-      position: relative;
+    /* ─── FITA AMARELA CURVA (Inspirada na Referência) ─── */
+    .curved-marquee-wrap {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
       overflow: hidden;
-    }
-    .hero-img-box.yellow-bg { background-color: var(--bg-soft-yellow); color: var(--bg-coffee); box-shadow: 5px 5px 0 var(--color-accent); }
-    .hero-img-box:nth-child(2) { transform: translateY(20px); }
-
-    /* Selo / Adesivo decorativo flutuante */
-    .hero-badge-sticker {
-      position: absolute;
-      bottom: -15px;
-      right: -15px;
-      background-color: var(--color-accent);
-      color: #FDF9F3;
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-align: center;
-      border: 2px solid var(--bg-coffee);
-      transform: rotate(12deg);
-      box-shadow: 3px 3px 0 var(--bg-coffee);
-      z-index: 5;
+      position: relative;
+      padding: 2rem 0;
+      z-index: 10;
     }
 
-    /* ─── FITA DESLIZANTE ─── */
-    .marquee-strip {
-      background-color: var(--bg-soft-blue);
+    .curved-tape {
+      background-color: var(--card-yellow);
       color: var(--bg-coffee);
-      padding: 0.7rem 0;
-      transform: rotate(-1deg);
-      width: 110vw;
-      margin-left: -5vw;
-      overflow: hidden;
+      padding: 0.9rem 0;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       border-top: 2px solid var(--bg-coffee);
       border-bottom: 2px solid var(--bg-coffee);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      position: relative;
-      z-index: 10;
-      margin-top: 3rem;
-      margin-bottom: 2rem;
-    }
-    .marquee-content {
-      display: flex;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      transform: rotate(-3deg) scale(1.05);
       white-space: nowrap;
-      animation: scrollText 15s linear infinite;
     }
-    .marquee-content span {
+
+    .curved-tape-content {
+      display: flex;
+      animation: scrollText 16s linear infinite;
+    }
+    .curved-tape-content span {
       display: flex;
       gap: 2rem;
       padding-right: 2rem;
@@ -247,25 +182,11 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* ─── ONDA GROSSA DE TRANSIÇÃO ─── */
-    .thick-wave-divider {
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      height: 70px;
-      overflow: hidden;
-      line-height: 0;
-    }
-    .thick-wave-divider svg {
-      display: block;
-      width: 100%;
-      height: 70px;
-    }
-
     /* ─── SEÇÕES MARROM CAFÉ ─── */
     .coffee-section {
       background-color: var(--bg-coffee);
       color: var(--bg-cream);
-      padding: 5rem 6%;
+      padding: 6rem 6%;
       position: relative;
     }
 
@@ -301,15 +222,17 @@
     }
     .editorial-text p { font-size: 1.02rem; opacity: 0.9; margin-bottom: 1.2rem; }
 
+    /* Moldura de Cartão Estilo Referência (Cantos super arredondados e texturizados) */
     .editorial-card-frame {
       background-color: #312018;
-      border-radius: 24px;
+      border-radius: 32px;
       padding: 2.5rem;
       border: 2px solid rgba(212, 154, 54, 0.3);
       position: relative;
+      box-shadow: 6px 6px 0 rgba(0,0,0,0.3);
     }
-    .editorial-card-frame.yellow-tint { background-color: #38321E; border-color: var(--bg-soft-yellow); }
-    .editorial-card-frame.blue-tint { background-color: #1E2D38; border-color: var(--bg-soft-blue); }
+    .editorial-card-frame.yellow-tint { background-color: #4A3F22; border-color: var(--card-yellow); }
+    .editorial-card-frame.blue-tint { background-color: #1E2D38; border-color: var(--card-purple); }
 
     .clean-list { list-style: none; margin-top: 1.5rem; }
     .clean-list li {
@@ -319,7 +242,7 @@
 
     .notion-box {
       background-color: #1A100B;
-      border-radius: 12px;
+      border-radius: 16px;
       padding: 1.2rem;
       font-family: monospace;
       font-size: 0.85rem;
@@ -327,6 +250,50 @@
       margin-top: 1.5rem;
     }
     .notion-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; opacity: 0.9; }
+
+    /* ─── CARTÓES INCLINADOS COLORIDOS (Inspirados na 2ª referência) ─── */
+    .cards-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 4rem auto 0;
+    }
+
+    .slant-card {
+      border-radius: 28px;
+      padding: 2rem 1.5rem;
+      color: #FFFFFF;
+      border: 2px solid var(--bg-coffee);
+      box-shadow: 6px 6px 0 var(--bg-coffee);
+      transition: transform 0.3s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 280px;
+    }
+    .slant-card:hover { transform: translateY(-8px) rotate(0deg) !important; }
+
+    /* Inquinações charmosas estilo baralho */
+    .slant-card:nth-child(1) { background-color: var(--card-purple); transform: rotate(-3deg); }
+    .slant-card:nth-child(2) { background-color: var(--card-orange); transform: rotate(2deg); }
+    .slant-card:nth-child(3) { background-color: var(--card-pink); transform: rotate(-2deg); }
+    .slant-card:nth-child(4) { background-color: var(--card-yellow); color: var(--bg-coffee); transform: rotate(3deg); }
+
+    .slant-card .card-num {
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: rgba(0,0,0,0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      align-self: flex-start;
+      margin-bottom: 1rem;
+    }
+    .slant-card:nth-child(4) .card-num { background: rgba(34,22,17,0.15); }
+
+    .slant-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; line-height: 1.2; }
+    .slant-card p { font-size: 0.85rem; opacity: 0.9; }
 
     /* ─── SERVIÇOS INTERATIVOS ─── */
     .services-section {
@@ -369,14 +336,13 @@
     .srv-content-panel {
       display: none;
       background-color: #FFFFFF;
-      border-radius: 24px;
+      border-radius: 28px;
       padding: 3rem;
       border: 2px solid var(--bg-coffee);
       box-shadow: 6px 6px 0 var(--bg-coffee);
-      position: relative;
     }
     .srv-content-panel.active { display: block; }
-    .srv-content-panel h3 { font-size: 1.6rem; font-weight: 700; color: var(--color-accent); margin-bottom: 1rem; }
+    .srv-content-panel h3 { font-size: 1.6rem; font-weight: 700; color: var(--card-orange); margin-bottom: 1rem; }
     .srv-content-panel ul { list-style: none; margin-top: 1.5rem; }
     .srv-content-panel ul li { font-size: 1rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem; }
     .srv-content-panel ul li::before { content: "✦"; color: var(--color-mustard); font-size: 0.8rem; }
@@ -424,16 +390,17 @@
 
     .work-item {
       background-color: #312018;
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 1.5rem;
       border: 2px solid rgba(212, 154, 54, 0.3);
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
     }
 
     .media-placeholder {
       width: 100%;
       height: 240px;
       background-color: #1A100B;
-      border-radius: 12px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -489,10 +456,10 @@
       font-size: 0.95rem;
       transition: color 0.2s;
     }
-    .social-links-right a:hover { color: var(--color-accent); }
+    .social-links-right a:hover { color: var(--card-orange); }
 
     @media (max-width: 860px) {
-      .hero, .editorial-block { grid-template-columns: 1fr; gap: 2rem; }
+      .editorial-block, .cards-showcase-grid { grid-template-columns: 1fr; gap: 2rem; }
       nav { display: none; }
       .footer-bottom-bar { justify-content: center; }
     }
@@ -512,36 +479,22 @@
     <a href="#orcamento" class="btn-nav">Orçamento</a>
   </header>
 
-  <!-- Hero Section com Formas Decorativas e Imagens no Topo -->
+  <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content">
-      <div class="hero-tag">✦ O ECOSSISTEMA CRIATIVO ✦</div>
-      <h1>O lugar onde a sua presença digital ganha vida.</h1>
-      <p>Comunicação 360º de verdade. Unimos estratégia de conteúdo, roteiros magnéticos e direção de arte em um método fluido para você focar no que importa: crescer.</p>
-      <a href="#orcamento" class="btn-main">Entrar no Universo</a>
-    </div>
-
-    <!-- Mosaico decorativo e orgânico no topo -->
-    <div class="hero-images-grid">
-      <div class="hero-img-box">[ Editorial 01 ]</div>
-      <div class="hero-img-box yellow-bg">[ Conteúdo ]</div>
-      <div class="hero-badge-sticker">NATI<br>VERSO</div>
-    </div>
+    <div class="hero-tag">✦ O ECOSSISTEMA CRIATIVO ✦</div>
+    <h1>O lugar onde a sua presença digital ganha vida.</h1>
+    <p>Comunicação 360º de verdade. Unimos estratégia de conteúdo, roteiros magnéticos e direção de arte em um método fluido para você focar no que importa: crescer.</p>
+    <a href="#orcamento" class="btn-main">Entrar no Universo</a>
   </section>
 
-  <!-- Fita Deslizante -->
-  <div class="marquee-strip">
-    <div class="marquee-content">
-      <span>✦ ESTRATÉGIA VISUAL ✦ MÉTODO ANTI-TRAVA ✦ QG NO NOTION ✦ ROTEIROS QUE RETÊM ✦ STORYMAKING ✦</span>
-      <span>✦ ESTRATÉGIA VISUAL ✦ MÉTODO ANTI-TRAVA ✦ QG NO NOTION ✦ ROTEIROS QUE RETÊM ✦ STORYMAKING ✦</span>
+  <!-- Fita Amarela Curva (Inspirada na 1ª Referência) -->
+  <div class="curved-marquee-wrap">
+    <div class="curved-tape">
+      <div class="curved-tape-content">
+        <span>✦ ESTRATÉGIA VISUAL ✦ MÉTODO ANTI-TRAVA ✦ QG NO NOTION ✦ ROTEIROS QUE RETÊM ✦ STORYMAKING ✦</span>
+        <span>✦ ESTRATÉGIA VISUAL ✦ MÉTODO ANTI-TRAVA ✦ QG NO NOTION ✦ ROTEIROS QUE RETÊM ✦ STORYMAKING ✦</span>
+      </div>
     </div>
-  </div>
-
-  <!-- Onda Grossa de Transição -->
-  <div class="thick-wave-divider">
-    <svg viewBox="0 0 1200 70" preserveAspectRatio="none">
-      <path d="M0,35 Q300,70 600,35 T1200,35 L1200,70 L0,70 Z" fill="#221611"/>
-    </svg>
   </div>
 
   <!-- SEÇÃO SOBRE & DIFERENCIAIS (Fundo Marrom Café Real) -->
@@ -599,23 +552,49 @@
           </div>
         </div>
         <div class="editorial-card-frame blue-tint">
-          <div style="height: 260px; display: flex; align-items: center; justify-content: center; color: var(--bg-soft-blue); font-weight: 600;">
+          <div style="height: 260px; display: flex; align-items: center; justify-content: center; color: #D6E4ED; font-weight: 600;">
             [Prévia do Painel Notion]
           </div>
         </div>
       </div>
 
     </div>
+
+    <!-- Showcase de Cartões Inclinados Coloridos (Inspirado na 2ª Referência) -->
+    <div class="cards-showcase-grid">
+      <div class="slant-card">
+        <span class="card-num">01</span>
+        <div>
+          <h3>Posicionamento Estratégico</h3>
+          <p>Sua marca apresentada com identidade visual forte e coerente.</p>
+        </div>
+      </div>
+      <div class="slant-card">
+        <span class="card-num">02</span>
+        <div>
+          <h3>Conteúdo com Retenção</h3>
+          <p>Roteiros e vídeos verticais pensados para prender a atenção.</p>
+        </div>
+      </div>
+      <div class="slant-card">
+        <span class="card-num">03</span>
+        <div>
+          <h3>Cobertura em Tempo Real</h3>
+          <p>Storymaking dinâmico para aproximar o seu público do seu dia a dia.</p>
+        </div>
+      </div>
+      <div class="slant-card">
+        <span class="card-num">04</span>
+        <div>
+          <h3>Organização Total</h3>
+          <p>Seu QG exclusivo no Notion com controle de todas as entregas.</p>
+        </div>
+      </div>
+    </div>
+
   </section>
 
-  <!-- Onda Grossa de Transição para o Claro -->
-  <div class="thick-wave-divider" style="background-color: #221611;">
-    <svg viewBox="0 0 1200 70" preserveAspectRatio="none">
-      <path d="M0,35 Q300,0 600,35 T1200,35 L1200,0 L0,0 Z" fill="#FDF9F3"/>
-    </svg>
-  </div>
-
-  <!-- SEÇÃO DE SERVIÇOS INTERATIVA -->
+  <!-- SEÇÃO DE SERVIÇOS INTERATIVOS -->
   <section class="services-section" id="servicos">
     <h2 class="section-title" style="color: var(--bg-coffee);">Serviços</h2>
     <div class="services-interactive-container">
@@ -687,11 +666,11 @@
     <h2 class="section-title">Portfólio</h2>
     
     <div class="portfolio-tabs">
-      <button class="tab-btn active" onclick="switchPortfolioTab(event, 'port-social')">Social Media & Design</button>
-      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-video')">Edição de Vídeo</button>
-      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-story')">StoryMaker</button>
-      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-loc')">Locução</button>
-      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-id')">Identidade Visual</button>
+      <button class="tab-btn active" onclick="switchPortfolioTab(event, 'port-social')">Social Media & Design (5)</button>
+      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-video')">Edição de Vídeo (5)</button>
+      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-story')">StoryMaker (1)</button>
+      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-loc')">Locução (3)</button>
+      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-id')">Identidade Visual (1)</button>
     </div>
 
     <!-- 1. Social Media & Design (5 itens) -->
@@ -731,7 +710,7 @@
 
   </section>
 
-  <!-- FOOTER & ORÇAMENTO -->
+  <!-- FOOTER / CONTATO -->
   <footer id="contato">
     <div class="footer-container" id="orcamento">
       <h2>Pronta para entrar no NatiVerso?</h2>

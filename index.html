@@ -64,34 +64,29 @@
     /* ─── HEADER ─── */
     header {
       position: sticky;
-      top: 12px;
+      top: 0;
       z-index: 1000;
-      margin: 12px 4% 0;
-      background-color: #FFFFFF;
-      padding: .65rem .7rem .65rem 1.2rem;
+      background-color: var(--bg-coffee);
+      padding: 1.2rem 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border: 2px solid var(--bg-coffee);
-      border-radius: 60px;
-      box-shadow: 4px 4px 0 var(--bg-coffee);
+      border-bottom: 2px solid rgba(212, 154, 54, 0.2);
     }
-    .brand { display: flex; align-items: center; gap: .6rem; font-size: 1.3rem; font-weight: 800; color: var(--bg-coffee); text-decoration: none; letter-spacing: -0.5px; }
-    .brand-mark { width: 38px; height: 38px; border-radius: 50%; background-color: var(--color-mustard); border: 2px solid var(--bg-coffee); display: grid; place-items: center; font-family: var(--font-accent); font-size: 1.35rem; font-weight: 700; letter-spacing: 0; line-height: 1; }
-    .brand .verso { background: linear-gradient(transparent 55%, var(--card-yellow) 55% 92%, transparent 92%); padding: 0 .1em; }
-    nav { display: flex; gap: .3rem; align-items: center; }
-    nav a { color: var(--bg-coffee); text-decoration: none; font-size: 0.95rem; font-weight: 500; padding: .4rem .95rem; border-radius: 20px; transition: background-color 0.2s; }
-    nav a:hover { background-color: var(--card-yellow); }
+    .brand { font-family: var(--font-accent); font-size: 2.2rem; font-weight: 700; line-height: 1; color: var(--bg-cream); text-decoration: none; }
+    .brand span { color: var(--color-mustard); }
+    nav { display: flex; gap: 1.8rem; align-items: center; }
+    nav a { color: var(--bg-cream); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: var(--color-mustard); }
     .btn-nav {
       background-color: var(--color-mustard);
       color: var(--bg-coffee);
-      padding: 0.55rem 1.5rem;
-      border: 2px solid var(--bg-coffee);
-      border-radius: 30px;
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
       font-weight: 600;
       text-decoration: none;
       font-size: 0.9rem;
-      box-shadow: 2px 2px 0 var(--bg-coffee);
+      box-shadow: 2px 2px 0 var(--bg-cream);
       transition: transform 0.1s;
     }
     .btn-nav:hover { transform: translateY(-1px); }
@@ -164,7 +159,7 @@
       pointer-events: none;
     }
     .ribbon svg { width: 100%; height: auto; display: block; overflow: visible; }
-    .ribbon text { font-family: var(--font-main); font-weight: 700; font-size: 24px; letter-spacing: 3px; fill: var(--bg-coffee); }
+    .ribbon text { font-family: var(--font-main); font-weight: 700; font-size: 26px; letter-spacing: 1px; fill: var(--bg-coffee); }
     .ribbon.alt text { font-family: var(--font-accent); font-style: normal; font-size: 36px; letter-spacing: 2px; }
 
     /* ─── SEÇÃO SOBRE ─── */
@@ -417,7 +412,7 @@
 
   <!-- Header -->
   <header>
-    <a href="#" class="brand"><span class="brand-mark" aria-hidden="true">NV</span><span>NATI<span class="verso">VERSO</span></span></a>
+    <a href="#" class="brand">Nati<span>Verso</span></a>
     <nav>
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
@@ -452,7 +447,7 @@
     <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMid meet">
       <path id="rp1" d="M-60 190 C 160 40, 380 40, 560 150 S 900 300, 1100 140 S 1380 60, 1500 130" fill="none" stroke="#221611" stroke-width="66" stroke-linecap="round"/>
       <path d="M-60 190 C 160 40, 380 40, 560 150 S 900 300, 1100 140 S 1380 60, 1500 130" fill="none" stroke="#E5C158" stroke-width="58" stroke-linecap="round"/>
-      <text dy="9"><textPath href="#rp1">✦ ESTRATÉGIA VISUAL ✦ MÉTODO ANTI-TRAVA ✦ QG NO NOTION ✦ ROTEIROS QUE RETÊM ✦ STORYMAKING ✦ ESTRATÉGIA VISUAL ✦ MÉTODO ANTI-TRAVA ✦</textPath></text>
+      <text dy="9"><textPath href="#rp1" data-speed="70">✦ Estratégia visual ✦ Método Anti-Trava ✦ QG no Notion ✦ Roteiros que retêm ✦ Storymaking ✦</textPath></text>
     </svg>
   </div>
 
@@ -584,7 +579,7 @@
     <svg viewBox="0 0 1440 320" preserveAspectRatio="xMidYMid meet">
       <path id="rp2" d="M-60 90 C 240 300, 480 -20, 620 130 C 720 240, 560 280, 520 170 C 490 70, 800 30, 960 150 S 1320 270, 1500 90" fill="none" stroke="#221611" stroke-width="66" stroke-linecap="round"/>
       <path d="M-60 90 C 240 300, 480 -20, 620 130 C 720 240, 560 280, 520 170 C 490 70, 800 30, 960 150 S 1320 270, 1500 90" fill="none" stroke="#D49A36" stroke-width="58" stroke-linecap="round"/>
-      <text dy="9"><textPath href="#rp2">✦ TODA MARCA TEM UMA HISTÓRIA ✦ VAMOS CONTAR A SUA ✦ TODA MARCA TEM UMA HISTÓRIA ✦ VAMOS CONTAR A SUA ✦ TODA MARCA TEM UMA HISTÓRIA ✦ VAMOS CONTAR A SUA ✦</textPath></text>
+      <text dy="9"><textPath href="#rp2" data-speed="60">✦ Toda marca tem uma história ✦ Vamos contar a sua ✦</textPath></text>
     </svg>
   </div>
 
@@ -689,6 +684,48 @@
       document.getElementById(categoryId).classList.add('active');
       evt.currentTarget.classList.add('active');
     }
+
+    /* Texto das fitas em movimento */
+    (function () {
+      const NS = 'http://www.w3.org/2000/svg';
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function setup(tp) {
+        const svg = tp.ownerSVGElement;
+        const pathLen = svg.querySelector(tp.getAttribute('href')).getTotalLength();
+        const unit = tp.textContent.trim() + ' ';
+        const speed = parseFloat(tp.dataset.speed) || 60;
+        let period = 1;
+
+        function measure(str) {
+          const t = document.createElementNS(NS, 'text');
+          t.setAttribute('visibility', 'hidden');
+          t.textContent = str;
+          svg.appendChild(t);
+          const len = t.getComputedTextLength();
+          svg.removeChild(t);
+          return len;
+        }
+        function build() {
+          period = measure(unit + unit) - measure(unit) || 1;
+          tp.textContent = unit.repeat(Math.ceil(pathLen / period) + 2);
+        }
+
+        build();
+        window.addEventListener('resize', build);
+        if (reduce) return;
+
+        const t0 = performance.now();
+        (function frame(now) {
+          tp.setAttribute('startOffset', -(((now - t0) / 1000 * speed) % period));
+          requestAnimationFrame(frame);
+        })(t0);
+      }
+
+      Promise.all([document.fonts.load('700 30px Caveat'), document.fonts.load('700 24px Poppins')])
+        .catch(function () {})
+        .then(function () { document.querySelectorAll('.ribbon textPath').forEach(setup); });
+    })();
   </script>
 
 </body>

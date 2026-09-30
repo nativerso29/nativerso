@@ -8,7 +8,7 @@
   <!-- Fonte Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@1,600;1,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -22,7 +22,7 @@
       --rose: #E9A88F;
       --sand: #F3E3C3;
       --font-main: 'Poppins', sans-serif;
-      --font-accent: 'Fraunces', Georgia, serif;
+      --font-accent: 'Caveat', 'Comic Sans MS', cursive;
       /* textura de grão */
       --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
@@ -59,34 +59,39 @@
     /* Marca-texto */
     .hl { background: linear-gradient(transparent 60%, var(--card-yellow) 60% 92%, transparent 92%); padding: 0 .1em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
     /* segunda fonte: destaque de frases */
-    .accent { font-family: var(--font-accent); font-style: italic; font-weight: 800; letter-spacing: -0.01em; }
+    .accent { font-family: var(--font-accent); font-style: normal; font-weight: 700; font-size: 1.3em; line-height: .9; letter-spacing: 0; }
 
     /* ─── HEADER ─── */
     header {
       position: sticky;
-      top: 0;
+      top: 12px;
       z-index: 1000;
-      background-color: var(--bg-coffee);
-      padding: 1.2rem 6%;
+      margin: 12px 4% 0;
+      background-color: #FFFFFF;
+      padding: .65rem .7rem .65rem 1.2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid rgba(212, 154, 54, 0.2);
+      border: 2px solid var(--bg-coffee);
+      border-radius: 60px;
+      box-shadow: 4px 4px 0 var(--bg-coffee);
     }
-    .brand { font-size: 1.5rem; font-weight: 700; color: var(--bg-cream); text-decoration: none; letter-spacing: -0.5px; }
-    .brand span { color: var(--color-mustard); }
-    nav { display: flex; gap: 1.8rem; align-items: center; }
-    nav a { color: var(--bg-cream); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
-    nav a:hover { color: var(--color-mustard); }
+    .brand { display: flex; align-items: center; gap: .6rem; font-size: 1.3rem; font-weight: 800; color: var(--bg-coffee); text-decoration: none; letter-spacing: -0.5px; }
+    .brand-mark { width: 38px; height: 38px; border-radius: 50%; background-color: var(--color-mustard); border: 2px solid var(--bg-coffee); display: grid; place-items: center; font-family: var(--font-accent); font-size: 1.35rem; font-weight: 700; letter-spacing: 0; line-height: 1; }
+    .brand .verso { background: linear-gradient(transparent 55%, var(--card-yellow) 55% 92%, transparent 92%); padding: 0 .1em; }
+    nav { display: flex; gap: .3rem; align-items: center; }
+    nav a { color: var(--bg-coffee); text-decoration: none; font-size: 0.95rem; font-weight: 500; padding: .4rem .95rem; border-radius: 20px; transition: background-color 0.2s; }
+    nav a:hover { background-color: var(--card-yellow); }
     .btn-nav {
       background-color: var(--color-mustard);
       color: var(--bg-coffee);
-      padding: 0.5rem 1.5rem;
-      border-radius: 20px;
+      padding: 0.55rem 1.5rem;
+      border: 2px solid var(--bg-coffee);
+      border-radius: 30px;
       font-weight: 600;
       text-decoration: none;
       font-size: 0.9rem;
-      box-shadow: 2px 2px 0 var(--bg-cream);
+      box-shadow: 2px 2px 0 var(--bg-coffee);
       transition: transform 0.1s;
     }
     .btn-nav:hover { transform: translateY(-1px); }
@@ -160,7 +165,7 @@
     }
     .ribbon svg { width: 100%; height: auto; display: block; overflow: visible; }
     .ribbon text { font-family: var(--font-main); font-weight: 700; font-size: 24px; letter-spacing: 3px; fill: var(--bg-coffee); }
-    .ribbon.alt text { font-family: var(--font-accent); font-style: italic; font-size: 26px; letter-spacing: 1px; }
+    .ribbon.alt text { font-family: var(--font-accent); font-style: normal; font-size: 36px; letter-spacing: 2px; }
 
     /* ─── SEÇÃO SOBRE ─── */
     .coffee-section {
@@ -174,7 +179,7 @@
       background-size: 24px 24px, 100% 100%;
     }
     .section-title { font-size: 2.3rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 1rem; text-align: center; }
-    .section-sub { text-align: center; opacity: .85; margin-bottom: 3rem; font-family: var(--font-accent); font-style: italic; font-size: 1.2rem; }
+    .section-sub { text-align: center; opacity: .85; margin-bottom: 3rem; font-family: var(--font-accent); font-style: normal; font-weight: 600; font-size: 1.6rem; line-height: 1.2; }
 
     .editorial-layout { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 6rem; }
     .editorial-block { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
@@ -265,6 +270,8 @@
     .srv-content-panel, .footer-container { transition: transform .25s ease; }
     .srv-content-panel:hover { transform: scale(1.025); }
     .footer-container:hover { transform: scale(1.03); }
+    .footer-container .btn-main { background-color: var(--bg-coffee); color: var(--bg-cream); box-shadow: 3px 3px 0 var(--bg-cream); }
+    .footer-container .btn-main:hover { box-shadow: 5px 5px 0 var(--bg-cream); }
     .srv-content-panel h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; }
     .srv-content-panel p { font-size: 1.05rem; opacity: 0.9; }
     .srv-content-panel ul { list-style: none; margin-top: 1.8rem; }
@@ -410,7 +417,7 @@
 
   <!-- Header -->
   <header>
-    <a href="#" class="brand">NATI<span>VERSO</span></a>
+    <a href="#" class="brand"><span class="brand-mark" aria-hidden="true">NV</span><span>NATI<span class="verso">VERSO</span></span></a>
     <nav>
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
@@ -435,7 +442,7 @@
         <circle cx="65" cy="65" r="63" fill="#D49A36" stroke="#221611" stroke-width="2.5"/>
         <defs><path id="circ" d="M65 65 m-46 0 a46 46 0 1 1 92 0 a46 46 0 1 1 -92 0"/></defs>
         <text><textPath href="#circ" textLength="280" lengthAdjust="spacing">✦ 360º ✦ SOCIAL MEDIA ✦ STORYMAKING ✦ </textPath></text>
-        <text x="65" y="78" text-anchor="middle" style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:800;font-size:34px;letter-spacing:0">NV</text>
+        <text x="65" y="80" text-anchor="middle" style="font-family:'Caveat',cursive;font-weight:700;font-size:44px;letter-spacing:0">NV</text>
       </svg>
     </div>
   </section>
@@ -577,7 +584,7 @@
     <svg viewBox="0 0 1440 320" preserveAspectRatio="xMidYMid meet">
       <path id="rp2" d="M-60 90 C 240 300, 480 -20, 620 130 C 720 240, 560 280, 520 170 C 490 70, 800 30, 960 150 S 1320 270, 1500 90" fill="none" stroke="#221611" stroke-width="66" stroke-linecap="round"/>
       <path d="M-60 90 C 240 300, 480 -20, 620 130 C 720 240, 560 280, 520 170 C 490 70, 800 30, 960 150 S 1320 270, 1500 90" fill="none" stroke="#D49A36" stroke-width="58" stroke-linecap="round"/>
-      <text dy="9"><textPath href="#rp2">✦ TODA MARCA TEM UMA HISTÓRIA ✦ VAMOS CONTAR A SUA ✦ TODA MARCA TEM UMA HISTÓRIA ✦ VAMOS CONTAR A SUA ✦</textPath></text>
+      <text dy="9"><textPath href="#rp2">✦ TODA MARCA TEM UMA HISTÓRIA ✦ VAMOS CONTAR A SUA ✦ TODA MARCA TEM UMA HISTÓRIA ✦ VAMOS CONTAR A SUA ✦ TODA MARCA TEM UMA HISTÓRIA ✦ VAMOS CONTAR A SUA ✦</textPath></text>
     </svg>
   </div>
 
@@ -653,7 +660,7 @@
 
   <!-- FOOTER / CONTATO -->
   <footer id="contato">
-    <div class="footer-container c-rose tex" id="orcamento">
+    <div class="footer-container c-yellow tex" id="orcamento">
       <h2>Pronta para entrar no <span class="accent">NatiVerso</span>?</h2>
       <p>Bora transformar a presença digital do seu negócio? Resposta rápida, sem enrolação.</p>
       <a href="https://wa.me/55SEUNUMERO" target="_blank" rel="noopener" class="btn-main">Marcar um bate-papo</a>

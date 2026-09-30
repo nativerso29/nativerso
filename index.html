@@ -46,19 +46,19 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background-color: rgba(253, 249, 243, 0.95);
+      background-color: var(--bg-coffee);
       backdrop-filter: blur(10px);
       padding: 1.2rem 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px dashed rgba(212, 154, 54, 0.3);
+      border-bottom: 2px solid rgba(212, 154, 54, 0.2);
     }
 
     .brand {
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--bg-coffee);
+      color: var(--bg-cream);
       text-decoration: none;
       letter-spacing: -0.5px;
     }
@@ -66,7 +66,7 @@
 
     nav { display: flex; gap: 1.8rem; align-items: center; }
     nav a {
-      color: var(--bg-coffee);
+      color: var(--bg-cream);
       text-decoration: none;
       font-size: 0.95rem;
       font-weight: 500;
@@ -82,16 +82,25 @@
       font-weight: 600;
       text-decoration: none;
       font-size: 0.9rem;
-      box-shadow: 2px 2px 0 var(--bg-coffee);
+      box-shadow: 2px 2px 0 var(--bg-cream);
       transition: transform 0.1s;
     }
     .btn-nav:hover { transform: translateY(-1px); }
 
-    /* ─── HERO SECTION ─── */
+    /* ─── HERO SECTION COM COMPOSIÇÃO DE IMAGENS E FORMAS ─── */
     .hero {
       padding: 6rem 6% 4rem;
-      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      align-items: center;
       position: relative;
+    }
+
+    .hero-content {
+      text-align: left;
     }
 
     .hero-tag {
@@ -110,20 +119,33 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-size: clamp(2.3rem, 4vw, 3.6rem);
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 1.15;
       letter-spacing: -0.5px;
       margin-bottom: 1.5rem;
-      max-width: 800px;
-      margin-inline: auto;
+      position: relative;
+    }
+
+    /* O quadradinho decorativo atrás do título principal */
+    .hero h1::before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: -20px;
+      width: 80px;
+      height: 80px;
+      background-color: var(--bg-soft-blue);
+      border: 2px solid var(--bg-coffee);
+      border-radius: 16px;
+      z-index: -1;
+      transform: rotate(-6deg);
     }
 
     .hero p {
       font-size: 1.05rem;
       font-weight: 400;
-      max-width: 580px;
-      margin: 0 auto 2.5rem;
+      margin-bottom: 2.5rem;
       opacity: 0.85;
     }
 
@@ -141,7 +163,55 @@
     }
     .btn-main:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--bg-coffee); }
 
-    /* ─── FITA DESLIZANTE (Corrigida sem falhas no loop) ─── */
+    /* Mosaico de imagens decorativas no topo (estilo Olive & Studio) */
+    .hero-images-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      position: relative;
+    }
+
+    .hero-img-box {
+      background-color: #312018;
+      border-radius: 20px;
+      height: 200px;
+      border: 2px solid var(--bg-coffee);
+      box-shadow: 5px 5px 0 var(--bg-coffee);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-mustard);
+      font-size: 0.85rem;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-img-box.yellow-bg { background-color: var(--bg-soft-yellow); color: var(--bg-coffee); box-shadow: 5px 5px 0 var(--color-accent); }
+    .hero-img-box:nth-child(2) { transform: translateY(20px); }
+
+    /* Selo / Adesivo decorativo flutuante */
+    .hero-badge-sticker {
+      position: absolute;
+      bottom: -15px;
+      right: -15px;
+      background-color: var(--color-accent);
+      color: #FDF9F3;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-align: center;
+      border: 2px solid var(--bg-coffee);
+      transform: rotate(12deg);
+      box-shadow: 3px 3px 0 var(--bg-coffee);
+      z-index: 5;
+    }
+
+    /* ─── FITA DESLIZANTE ─── */
     .marquee-strip {
       background-color: var(--bg-soft-blue);
       color: var(--bg-coffee);
@@ -159,7 +229,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       position: relative;
       z-index: 10;
-      margin-top: 2rem;
+      margin-top: 3rem;
       margin-bottom: 2rem;
     }
     .marquee-content {
@@ -177,17 +247,18 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* ─── ONDA GROSSA E ENCORPADA (Transição Perfeita) ─── */
+    /* ─── ONDA GROSSA DE TRANSIÇÃO ─── */
     .thick-wave-divider {
-      width: 100%;
-      height: 80px;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      height: 70px;
       overflow: hidden;
       line-height: 0;
     }
     .thick-wave-divider svg {
       display: block;
       width: 100%;
-      height: 80px;
+      height: 70px;
     }
 
     /* ─── SEÇÕES MARROM CAFÉ ─── */
@@ -240,25 +311,12 @@
     .editorial-card-frame.yellow-tint { background-color: #38321E; border-color: var(--bg-soft-yellow); }
     .editorial-card-frame.blue-tint { background-color: #1E2D38; border-color: var(--bg-soft-blue); }
 
-    /* Estrela sutil autoral nas molduras */
-    .editorial-card-frame::before {
-      content: "✦";
-      position: absolute;
-      top: -12px;
-      right: 20px;
-      background-color: var(--bg-coffee);
-      color: var(--color-mustard);
-      padding: 0 8px;
-      font-size: 1rem;
-    }
-
     .clean-list { list-style: none; margin-top: 1.5rem; }
     .clean-list li {
       font-size: 0.95rem; font-weight: 500; margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.6rem;
     }
     .clean-list li::before { content: "✦"; font-size: 0.8rem; color: var(--color-mustard); }
 
-    /* Notion Preview */
     .notion-box {
       background-color: #1A100B;
       border-radius: 12px;
@@ -270,61 +328,99 @@
     }
     .notion-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; opacity: 0.9; }
 
-    /* ─── SEÇÃO DE SERVIÇOS (Fundo claro, sem manchas brancas) ─── */
+    /* ─── SERVIÇOS INTERATIVOS ─── */
     .services-section {
       background-color: var(--bg-cream);
       color: var(--bg-coffee);
       padding: 6rem 6%;
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      max-width: 1100px;
+    .services-interactive-container {
+      max-width: 900px;
       margin: 0 auto;
     }
 
-    .service-box {
-      background-color: #FFFFFF;
-      border-radius: 20px;
-      padding: 2.2rem;
-      border: 2px solid var(--bg-coffee);
-      box-shadow: 4px 4px 0 var(--bg-coffee);
+    .services-tabs-header {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
     }
-    .service-box h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-accent); }
-    .service-box ul { list-style: none; }
-    .service-box ul li { font-size: 0.88rem; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; opacity: 0.85; }
-    .service-box ul li::before { content: "✦"; color: var(--color-mustard); font-size: 0.75rem; }
 
-    /* ─── PORTFÓLIO RETO E ORGANIZADO POR CATEGORIAS ─── */
+    .srv-tab-btn {
+      background-color: #FFFFFF;
+      border: 2px solid var(--bg-coffee);
+      color: var(--bg-coffee);
+      padding: 0.7rem 1.4rem;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--bg-coffee);
+      transition: all 0.2s;
+    }
+    .srv-tab-btn:hover, .srv-tab-btn.active {
+      background-color: var(--color-mustard);
+      box-shadow: 3px 3px 0 var(--bg-coffee);
+      transform: translateY(-2px);
+    }
+
+    .srv-content-panel {
+      display: none;
+      background-color: #FFFFFF;
+      border-radius: 24px;
+      padding: 3rem;
+      border: 2px solid var(--bg-coffee);
+      box-shadow: 6px 6px 0 var(--bg-coffee);
+      position: relative;
+    }
+    .srv-content-panel.active { display: block; }
+    .srv-content-panel h3 { font-size: 1.6rem; font-weight: 700; color: var(--color-accent); margin-bottom: 1rem; }
+    .srv-content-panel ul { list-style: none; margin-top: 1.5rem; }
+    .srv-content-panel ul li { font-size: 1rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem; }
+    .srv-content-panel ul li::before { content: "✦"; color: var(--color-mustard); font-size: 0.8rem; }
+
+    /* ─── PORTFÓLIO INTERATIVO ─── */
     .portfolio-section {
       background-color: var(--bg-coffee);
       color: var(--bg-cream);
       padding: 6rem 6%;
     }
 
-    .portfolio-category-block {
-      max-width: 1100px;
-      margin: 0 auto 5rem;
-    }
-    .portfolio-category-block:last-child { margin-bottom: 0; }
-
-    .category-title {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--color-mustard);
-      margin-bottom: 2rem;
+    .portfolio-tabs {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
     }
 
-    .portfolio-grid-items {
-      display: grid;
+    .tab-btn {
+      background-color: transparent;
+      border: 2px solid rgba(212, 154, 54, 0.4);
+      color: var(--bg-cream);
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background-color: var(--color-mustard);
+      color: var(--bg-coffee);
+      border-color: var(--color-mustard);
+    }
+
+    .portfolio-content-grid {
+      display: none;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
     }
+    .portfolio-content-grid.active { display: grid; }
 
     .work-item {
       background-color: #312018;
@@ -377,7 +473,6 @@
       max-width: 1100px;
       margin: 4rem auto 0;
       padding-top: 2rem;
-      border-top: 1px dashed rgba(34, 22, 17, 0.3);
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -397,7 +492,7 @@
     .social-links-right a:hover { color: var(--color-accent); }
 
     @media (max-width: 860px) {
-      .editorial-block, .services-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero, .editorial-block { grid-template-columns: 1fr; gap: 2rem; }
       nav { display: none; }
       .footer-bottom-bar { justify-content: center; }
     }
@@ -417,12 +512,21 @@
     <a href="#orcamento" class="btn-nav">Orçamento</a>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section com Formas Decorativas e Imagens no Topo -->
   <section class="hero">
-    <div class="hero-tag">✦ O ECOSSISTEMA CRIATIVO ✦</div>
-    <h1>O lugar onde a sua presença digital ganha vida.</h1>
-    <p>Comunicação 360º de verdade. Unimos estratégia de conteúdo, roteiros magnéticos e direção de arte em um método fluido para você focar no que importa: crescer.</p>
-    <a href="#orcamento" class="btn-main">Entrar no Universo</a>
+    <div class="hero-content">
+      <div class="hero-tag">✦ O ECOSSISTEMA CRIATIVO ✦</div>
+      <h1>O lugar onde a sua presença digital ganha vida.</h1>
+      <p>Comunicação 360º de verdade. Unimos estratégia de conteúdo, roteiros magnéticos e direção de arte em um método fluido para você focar no que importa: crescer.</p>
+      <a href="#orcamento" class="btn-main">Entrar no Universo</a>
+    </div>
+
+    <!-- Mosaico decorativo e orgânico no topo -->
+    <div class="hero-images-grid">
+      <div class="hero-img-box">[ Editorial 01 ]</div>
+      <div class="hero-img-box yellow-bg">[ Conteúdo ]</div>
+      <div class="hero-badge-sticker">NATI<br>VERSO</div>
+    </div>
   </section>
 
   <!-- Fita Deslizante -->
@@ -435,8 +539,8 @@
 
   <!-- Onda Grossa de Transição -->
   <div class="thick-wave-divider">
-    <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
-      <path d="M0,40 Q300,80 600,40 T1200,40 L1200,80 L0,80 Z" fill="#221611"/>
+    <svg viewBox="0 0 1200 70" preserveAspectRatio="none">
+      <path d="M0,35 Q300,70 600,35 T1200,35 L1200,70 L0,70 Z" fill="#221611"/>
     </svg>
   </div>
 
@@ -506,116 +610,125 @@
 
   <!-- Onda Grossa de Transição para o Claro -->
   <div class="thick-wave-divider" style="background-color: #221611;">
-    <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
-      <path d="M0,40 Q300,0 600,40 T1200,40 L1200,0 L0,0 Z" fill="#FDF9F3"/>
+    <svg viewBox="0 0 1200 70" preserveAspectRatio="none">
+      <path d="M0,35 Q300,0 600,35 T1200,35 L1200,0 L0,0 Z" fill="#FDF9F3"/>
     </svg>
   </div>
 
-  <!-- SEÇÃO DE SERVIÇOS (Fundo Claro Limpo, Sem fundos pretos) -->
+  <!-- SEÇÃO DE SERVIÇOS INTERATIVA -->
   <section class="services-section" id="servicos">
     <h2 class="section-title" style="color: var(--bg-coffee);">Serviços</h2>
-    <div class="services-grid">
-      <div class="service-box">
+    <div class="services-interactive-container">
+      
+      <div class="services-tabs-header">
+        <button class="srv-tab-btn active" onclick="switchService(event, 'srv-social')">Social Media</button>
+        <button class="srv-tab-btn" onclick="switchService(event, 'srv-story')">StoryMaker</button>
+        <button class="srv-tab-btn" onclick="switchService(event, 'srv-video')">VideoMaker</button>
+        <button class="srv-tab-btn" onclick="switchService(event, 'srv-loc')">Locução</button>
+        <button class="srv-tab-btn" onclick="switchService(event, 'srv-id')">Identidade Visual</button>
+      </div>
+
+      <div id="srv-social" class="srv-content-panel active">
         <h3>Social Media Completo</h3>
+        <p>Gestão completa e estratégica de presença digital para o seu negócio se destacar com autoridade e elegância.</p>
         <ul>
-          <li>Estudo profundo e posicionamento</li>
+          <li>Estudo profundo e posicionamento da marca</li>
           <li>Definição de Linhas Editoriais</li>
           <li>Calendário Mensal estruturado</li>
-          <li>Design autoral e copy</li>
+          <li>Design autoral e copy magnética</li>
         </ul>
       </div>
 
-      <div class="service-box">
+      <div id="srv-story" class="srv-content-panel">
         <h3>StoryMaker em Eventos</h3>
+        <p>Cobertura em tempo real pensada para transformar acontecimentos em conexões reais com a sua audiência.</p>
         <ul>
-          <li>Cobertura criativa em tempo real</li>
-          <li>Roteiro prévio alinhado</li>
-          <li>Captação mobile focada em narrativa</li>
+          <li>Cobertura criativa e dinâmica in loco</li>
+          <li>Roteiro prévio alinhado com objetivos</li>
+          <li>Captação mobile focada em narrativa envolvente</li>
         </ul>
       </div>
 
-      <div class="service-box">
+      <div id="srv-video" class="srv-content-panel">
         <h3>VideoMaker</h3>
+        <p>Produção de vídeos verticais focados em alta retenção e conversão para as suas redes sociais.</p>
         <ul>
-          <li>Gravação guiada Anti-Trava</li>
-          <li>Edição vertical de alta retenção</li>
-          <li>Cortes dinâmicos e sonoplastia</li>
+          <li>Gravação guiada pelo Método Anti-Trava</li>
+          <li>Edição vertical dinâmica e profissional</li>
+          <li>Cortes ágeis e sonoplastia imersiva</li>
         </ul>
       </div>
 
-      <div class="service-box">
-        <h3>Locução</h3>
+      <div id="srv-loc" class="srv-content-panel">
+        <h3>Locução Publicitária</h3>
+        <p>A voz profissional ideal para dar personalidade, peso e autoridade aos seus projetos e campanhas.</p>
         <ul>
           <li>Locução publicitária exclusiva</li>
-          <li>Narração para redes sociais</li>
+          <li>Narração de vídeos para redes sociais</li>
           <li>Voz institucional e comercial</li>
         </ul>
       </div>
 
-      <div class="service-box" style="grid-column: span 2;">
+      <div id="srv-id" class="srv-content-panel">
         <h3>Identidade Visual</h3>
+        <p>Construção estética do zero para garantir que a sua marca seja inconfundível em qualquer lugar.</p>
         <ul>
           <li>Criação de Logo e Variações</li>
           <li>Manual da Marca guardado no Notion</li>
           <li>Kit visual pronto para redes sociais e apresentações</li>
         </ul>
       </div>
+
     </div>
   </section>
 
-  <!-- SEÇÃO DE PORTFÓLIO ORGANIZADO POR CATEGORIAS DIRETAS -->
+  <!-- SEÇÃO DE PORTFÓLIO INTERATIVO -->
   <section class="portfolio-section" id="portfolio">
     <h2 class="section-title">Portfólio</h2>
+    
+    <div class="portfolio-tabs">
+      <button class="tab-btn active" onclick="switchPortfolioTab(event, 'port-social')">Social Media & Design</button>
+      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-video')">Edição de Vídeo</button>
+      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-story')">StoryMaker</button>
+      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-loc')">Locução</button>
+      <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-id')">Identidade Visual</button>
+    </div>
 
     <!-- 1. Social Media & Design (5 itens) -->
-    <div class="portfolio-category-block">
-      <h3 class="category-title">✦ Social Media & Design</h3>
-      <div class="portfolio-grid-items">
-        <div class="work-item"><div class="media-placeholder">[Design 01]</div><h4>Carrossel Raiz</h4><p>Estratégia visual de alto engajamento.</p></div>
-        <div class="work-item"><div class="media-placeholder">[Design 02]</div><h4>Estética de Feed</h4><p>Harmonia e identidade marcante.</p></div>
-        <div class="work-item"><div class="media-placeholder">[Design 03]</div><h4>Stories Dinâmicos</h4><p>Templates autorais editáveis.</p></div>
-        <div class="work-item"><div class="media-placeholder">[Design 04]</div><h4>Capa de Destaque</h4><p>Organização visual do perfil.</p></div>
-        <div class="work-item"><div class="media-placeholder">[Design 05]</div><h4>Apresentação Visual</h4><p>PDFs e materiais institucionais.</p></div>
-      </div>
+    <div id="port-social" class="portfolio-content-grid active">
+      <div class="work-item"><div class="media-placeholder">[Design 01]</div><h4>Carrossel Raiz</h4><p>Estratégia visual de alto engajamento.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Design 02]</div><h4>Estética de Feed</h4><p>Harmonia e identidade marcante.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Design 03]</div><h4>Stories Dinâmicos</h4><p>Templates autorais editáveis.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Design 04]</div><h4>Capa de Destaque</h4><p>Organização visual do perfil.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Design 05]</div><h4>Apresentação Visual</h4><p>PDFs e materiais institucionais.</p></div>
     </div>
 
     <!-- 2. Edição de Vídeo (5 itens) -->
-    <div class="portfolio-category-block">
-      <h3 class="category-title">✦ Edição de Vídeo (VideoMaker)</h3>
-      <div class="portfolio-grid-items">
-        <div class="work-item"><div class="media-placeholder">[Vídeo 01]</div><h4>Reel de Retenção</h4><p>Cortes ágeis e legendas dinâmicas.</p></div>
-        <div class="work-item"><div class="media-placeholder">[Vídeo 02]</div><h4>Vídeo para Lançamento</h4><p>Narrativa fluida e imersiva.</p></div>
-        <div class="work-item"><div class="media-placeholder">[Vídeo 03]</div><h4>Corte Podcast</h4><p>Destaques com alto poder de viralização.</p></div>
-        <div class="work-item"><div class="media-placeholder">[Vídeo 04]</div><h4>Reels Educacional</h4><p>Clareza e dinamismo visual.</p></div>
-        <div class="work-item"><div class="media-placeholder">[Vídeo 05]</div><h4>Institucional</h4><p>Autoridade e profissionalismo em cena.</p></div>
-      </div>
+    <div id="port-video" class="portfolio-content-grid">
+      <div class="work-item"><div class="media-placeholder">[Vídeo 01]</div><h4>Reel de Retenção</h4><p>Cortes ágeis e legendas dinâmicas.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Vídeo 02]</div><h4>Vídeo para Lançamento</h4><p>Narrativa fluida e imersiva.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Vídeo 03]</div><h4>Corte Podcast</h4><p>Destaques com alto poder de viralização.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Vídeo 04]</div><h4>Reels Educacional</h4><p>Clareza e dinamismo visual.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Vídeo 05]</div><h4>Institucional</h4><p>Autoridade e profissionalismo em cena.</p></div>
     </div>
 
     <!-- 3. StoryMaker (1 item) -->
-    <div class="portfolio-category-block">
-      <h3 class="category-title">✦ StoryMaker</h3>
-      <div class="portfolio-grid-items">
-        <div class="work-item"><div class="media-placeholder">[StoryMaker]</div><h4>Cobertura ao Vivo</h4><p>Bastidores e conexão real com a audiência.</p></div>
-      </div>
+    <div id="port-story" class="portfolio-content-grid">
+      <div class="work-item"><div class="media-placeholder">[StoryMaker]</div><h4>Cobertura ao Vivo</h4><p>Bastidores e conexão real com a audiência.</p></div>
     </div>
 
     <!-- 4. Locução (3 itens) -->
-    <div class="portfolio-category-block">
-      <h3 class="category-title">✦ Locução</h3>
-      <div class="portfolio-grid-items">
-        <div class="work-item"><div class="media-placeholder">[Locução 01]</div><h4>Spot Comercial</h4><p>Voz marcante para conversão.</p></div>
-        <div class="work-item"><div class="media-placeholder">[Locução 02]</div><h4>Narração de Vídeo</h4><p>Fluidez e tom institucional ideal.</p></div>
-        <div class="work-item"><div class="media-placeholder">[Locução 03]</div><h4>Vinheta & Chamada</h4><p>Impacto imediato para o seu público.</p></div>
-      </div>
+    <div id="port-loc" class="portfolio-content-grid">
+      <div class="work-item"><div class="media-placeholder">[Locução 01]</div><h4>Spot Comercial</h4><p>Voz marcante para conversão.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Locução 02]</div><h4>Narração de Vídeo</h4><p>Fluidez e tom institucional ideal.</p></div>
+      <div class="work-item"><div class="media-placeholder">[Locução 03]</div><h4>Vinheta & Chamada</h4><p>Impacto imediato para o seu público.</p></div>
     </div>
 
     <!-- 5. Identidade Visual (1 item) -->
-    <div class="portfolio-category-block">
-      <h3 class="category-title">✦ Identidade Visual</h3>
-      <div class="portfolio-grid-items">
-        <div class="work-item"><div class="media-placeholder">[Branding]</div><h4>Identidade & Notion</h4><p>Logotipo completo e manual da marca centralizado.</p>
-      </div>
+    <div id="port-id" class="portfolio-content-grid">
+      <div class="work-item"><div class="media-placeholder">[Branding]</div><h4>Identidade & Notion</h4><p>Logotipo completo e manual da marca centralizado.</p></div>
     </div>
+
   </section>
 
   <!-- FOOTER & ORÇAMENTO -->
@@ -626,7 +739,6 @@
       <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-main">Marcar um bate-papo</a>
     </div>
 
-    <!-- Redes sociais estritamente no canto direito -->
     <div class="footer-bottom-bar">
       <div class="social-links-right">
         <a href="https://instagram.com/SEUPERFIL" target="_blank">Instagram</a>
@@ -635,6 +747,30 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    function switchService(evt, serviceId) {
+      const panels = document.querySelectorAll('.srv-content-panel');
+      panels.forEach(panel => panel.classList.remove('active'));
+
+      const buttons = document.querySelectorAll('.srv-tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(serviceId).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+
+    function switchPortfolioTab(evt, categoryId) {
+      const grids = document.querySelectorAll('.portfolio-content-grid');
+      grids.forEach(grid => grid.classList.remove('active'));
+
+      const buttons = document.querySelectorAll('.portfolio-tabs .tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(categoryId).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>

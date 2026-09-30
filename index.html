@@ -34,7 +34,7 @@
       position: relative;
     }
 
-    /* Textura de quadradinhos sutil no fundo */
+    /* Textura de fundo geral */
     .grid-texture {
       background-image: 
         linear-gradient(to right, rgba(34, 22, 17, 0.035) 1px, transparent 1px),
@@ -42,7 +42,25 @@
       background-size: 30px 30px;
     }
 
-    /* ─── HEADER (Marrom Café) ─── */
+    /* Textura interna pontilhada/quadriculada sutil para cards inspirada na 1ª ref */
+    .pattern-texture {
+      background-image: radial-gradient(rgba(212, 154, 54, 0.15) 1.5px, transparent 1.5px);
+      background-size: 16px 16px;
+    }
+
+    /* Elementos decorativos de estrelas */
+    .star-deco {
+      color: var(--color-mustard);
+      font-size: 1.2rem;
+      display: inline-block;
+      animation: pulseStar 2s infinite ease-in-out;
+    }
+    @keyframes pulseStar {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+
+    /* ─── HEADER ─── */
     header {
       position: sticky;
       top: 0;
@@ -88,7 +106,7 @@
     }
     .btn-nav:hover { transform: translateY(-1px); }
 
-    /* ─── HERO SECTION (Alinhado à Esquerda) ─── */
+    /* ─── HERO SECTION ─── */
     .hero {
       padding: 7rem 6% 4rem;
       text-align: left;
@@ -143,7 +161,7 @@
     }
     .btn-main:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--bg-coffee); }
 
-    /* ─── FITA AMARELA CURVA (Inspirada na Referência) ─── */
+    /* ─── FITA AMARELA CURVA (Inspirada na Referência 1) ─── */
     .curved-marquee-wrap {
       width: 100vw;
       margin-left: calc(-50vw + 50%);
@@ -222,7 +240,7 @@
     }
     .editorial-text p { font-size: 1.02rem; opacity: 0.9; margin-bottom: 1.2rem; }
 
-    /* Moldura de Cartão Estilo Referência (Cantos super arredondados e texturizados) */
+    /* Moldura com Textura Interna */
     .editorial-card-frame {
       background-color: #312018;
       border-radius: 32px;
@@ -251,7 +269,43 @@
     }
     .notion-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; opacity: 0.9; }
 
-    /* ─── CARTÓES INCLINADOS COLORIDOS (Inspirados na 2ª referência) ─── */
+    /* ─── NOVA SEÇÃO: DIFERENCIAIS EXCLUSIVOS ─── */
+    .differentials-section {
+      background-color: var(--bg-cream);
+      color: var(--bg-coffee);
+      padding: 6rem 6%;
+      position: relative;
+    }
+    .differentials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .diff-card {
+      background-color: #FFFFFF;
+      border: 2px solid var(--bg-coffee);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      box-shadow: 5px 5px 0 var(--bg-coffee);
+      transition: transform 0.2s ease;
+      position: relative;
+    }
+    .diff-card:hover { transform: translateY(-5px); }
+    .diff-card .diff-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      background: var(--card-yellow);
+      padding: 0.6rem 1rem;
+      border-radius: 16px;
+      border: 2px solid var(--bg-coffee);
+    }
+    .diff-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; }
+    .diff-card p { font-size: 0.95rem; opacity: 0.85; }
+
+    /* ─── CARTÓES INCLINADOS COLORIDOS ─── */
     .cards-showcase-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -275,7 +329,6 @@
     }
     .slant-card:hover { transform: translateY(-8px) rotate(0deg) !important; }
 
-    /* Inquinações charmosas estilo baralho */
     .slant-card:nth-child(1) { background-color: var(--card-purple); transform: rotate(-3deg); }
     .slant-card:nth-child(2) { background-color: var(--card-orange); transform: rotate(2deg); }
     .slant-card:nth-child(3) { background-color: var(--card-pink); transform: rotate(-2deg); }
@@ -295,7 +348,7 @@
     .slant-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; line-height: 1.2; }
     .slant-card p { font-size: 0.85rem; opacity: 0.9; }
 
-    /* ─── SERVIÇOS INTERATIVOS ─── */
+    /* ─── SERVIÇOS INTERATIVOS (Com textura interna inspirada na Ref 1) ─── */
     .services-section {
       background-color: var(--bg-cream);
       color: var(--bg-coffee);
@@ -340,6 +393,7 @@
       padding: 3rem;
       border: 2px solid var(--bg-coffee);
       box-shadow: 6px 6px 0 var(--bg-coffee);
+      position: relative;
     }
     .srv-content-panel.active { display: block; }
     .srv-content-panel h3 { font-size: 1.6rem; font-weight: 700; color: var(--card-orange); margin-bottom: 1rem; }
@@ -459,7 +513,7 @@
     .social-links-right a:hover { color: var(--card-orange); }
 
     @media (max-width: 860px) {
-      .editorial-block, .cards-showcase-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .editorial-block, .cards-showcase-grid, .differentials-grid { grid-template-columns: 1fr; gap: 2rem; }
       nav { display: none; }
       .footer-bottom-bar { justify-content: center; }
     }
@@ -472,6 +526,7 @@
     <a href="#" class="brand">NATI<span>VERSO</span></a>
     <nav>
       <a href="#sobre">Sobre</a>
+      <a href="#diferenciais">Diferenciais</a>
       <a href="#servicos">Serviços</a>
       <a href="#portfolio">Portfólio</a>
       <a href="#contato">Contato</a>
@@ -481,13 +536,13 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-tag">✦ O ECOSSISTEMA CRIATIVO ✦</div>
+    <div class="hero-tag"><span class="star-deco">✦</span> O ECOSSISTEMA CRIATIVO <span class="star-deco">✦</span></div>
     <h1>O lugar onde a sua presença digital ganha vida.</h1>
     <p>Comunicação 360º de verdade. Unimos estratégia de conteúdo, roteiros magnéticos e direção de arte em um método fluido para você focar no que importa: crescer.</p>
     <a href="#orcamento" class="btn-main">Entrar no Universo</a>
   </section>
 
-  <!-- Fita Amarela Curva (Inspirada na 1ª Referência) -->
+  <!-- Fita Amarela Curva -->
   <div class="curved-marquee-wrap">
     <div class="curved-tape">
       <div class="curved-tape-content">
@@ -497,27 +552,27 @@
     </div>
   </div>
 
-  <!-- SEÇÃO SOBRE & DIFERENCIAIS (Fundo Marrom Café Real) -->
+  <!-- SEÇÃO SOBRE & DIFERENCIAIS -->
   <section class="coffee-section" id="sobre">
     <div class="editorial-layout">
       
-      <!-- Bloco 1: A mente por trás do universo -->
+      <!-- Bloco 1 -->
       <div class="editorial-block">
         <div class="editorial-text">
           <h2>A mente por trás do universo.</h2>
           <p>O NatiVerso não é só uma agência, é um ecossistema. Nasceu da necessidade de conectar estética a conteúdos que realmente seguram a atenção da audiência do primeiro ao último segundo.</p>
           <p>Seja gerenciando suas redes, desenhando a identidade visual do zero, cobrindo o seu evento com o celular na mão ou gravando a voz que vai representar o seu negócio: eu entrego o pacote completo.</p>
         </div>
-        <div class="editorial-card-frame">
+        <div class="editorial-card-frame pattern-texture">
           <div style="height: 260px; display: flex; align-items: center; justify-content: center; color: var(--color-mustard); font-weight: 600;">
             [Foto Editorial / Nati]
           </div>
         </div>
       </div>
 
-      <!-- Bloco 2: Gravação sem travar -->
+      <!-- Bloco 2 -->
       <div class="editorial-block reverse">
-        <div class="editorial-card-frame yellow-tint">
+        <div class="editorial-card-frame yellow-tint pattern-texture">
           <div style="height: 220px; display: flex; align-items: center; justify-content: center; color: var(--bg-cream); opacity: 0.8; font-weight: 600;">
             [Bastidores / Captação]
           </div>
@@ -533,7 +588,7 @@
         </div>
       </div>
 
-      <!-- Bloco 3: QG no Notion -->
+      <!-- Bloco 3 -->
       <div class="editorial-block">
         <div class="editorial-text">
           <h2>O seu QG exclusivo no Notion.</h2>
@@ -551,7 +606,7 @@
             <div class="notion-row" style="margin-bottom:0;"><span>🟢 Status:</span> Roteiro Aprovado & Pronto</div>
           </div>
         </div>
-        <div class="editorial-card-frame blue-tint">
+        <div class="editorial-card-frame blue-tint pattern-texture">
           <div style="height: 260px; display: flex; align-items: center; justify-content: center; color: #D6E4ED; font-weight: 600;">
             [Prévia do Painel Notion]
           </div>
@@ -560,7 +615,7 @@
 
     </div>
 
-    <!-- Showcase de Cartões Inclinados Coloridos (Inspirado na 2ª Referência) -->
+    <!-- Showcase de Cartões Inclinados Coloridos -->
     <div class="cards-showcase-grid">
       <div class="slant-card">
         <span class="card-num">01</span>
@@ -594,6 +649,33 @@
 
   </section>
 
+  <!-- SEÇÃO EXCLUSIVA DE DIFERENCIAIS -->
+  <section class="differentials-section" id="diferenciais">
+    <div style="text-align: center; margin-bottom: 3.5rem;">
+      <span class="star-deco">✦</span>
+      <h2 class="section-title" style="margin-bottom: 0.5rem; color: var(--bg-coffee);">Por que escolher o NatiVerso?</h2>
+      <p style="opacity: 0.8; font-size: 1.05rem;">Diferenciais criados para simplificar a sua rotina e acelerar resultados.</p>
+    </div>
+
+    <div class="differentials-grid">
+      <div class="diff-card">
+        <div class="diff-icon">🎯</div>
+        <h3>Método Anti-Trava</h3>
+        <p>Direção e roteiros dinâmicos que tiram o peso da câmera e fazem você destravar na hora de gravar.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon">⚡</div>
+        <h3>Agilidade Sem Perder o Charme</h3>
+        <p>Processos fluidos, comunicação direta e entregas pontuais para o seu negócio nunca ficar parado.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon">🔮</div>
+        <h3>Visão 360º Integrada</h3>
+        <p>Do design inicial à locução e cobertura de eventos: tudo conectado sob a mesma identidade estética.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- SEÇÃO DE SERVIÇOS INTERATIVOS -->
   <section class="services-section" id="servicos">
     <h2 class="section-title" style="color: var(--bg-coffee);">Serviços</h2>
@@ -607,7 +689,7 @@
         <button class="srv-tab-btn" onclick="switchService(event, 'srv-id')">Identidade Visual</button>
       </div>
 
-      <div id="srv-social" class="srv-content-panel active">
+      <div id="srv-social" class="srv-content-panel active pattern-texture">
         <h3>Social Media Completo</h3>
         <p>Gestão completa e estratégica de presença digital para o seu negócio se destacar com autoridade e elegância.</p>
         <ul>
@@ -618,7 +700,7 @@
         </ul>
       </div>
 
-      <div id="srv-story" class="srv-content-panel">
+      <div id="srv-story" class="srv-content-panel pattern-texture">
         <h3>StoryMaker em Eventos</h3>
         <p>Cobertura em tempo real pensada para transformar acontecimentos em conexões reais com a sua audiência.</p>
         <ul>
@@ -628,7 +710,7 @@
         </ul>
       </div>
 
-      <div id="srv-video" class="srv-content-panel">
+      <div id="srv-video" class="srv-content-panel pattern-texture">
         <h3>VideoMaker</h3>
         <p>Produção de vídeos verticais focados em alta retenção e conversão para as suas redes sociais.</p>
         <ul>
@@ -638,7 +720,7 @@
         </ul>
       </div>
 
-      <div id="srv-loc" class="srv-content-panel">
+      <div id="srv-loc" class="srv-content-panel pattern-texture">
         <h3>Locução Publicitária</h3>
         <p>A voz profissional ideal para dar personalidade, peso e autoridade aos seus projetos e campanhas.</p>
         <ul>
@@ -648,7 +730,7 @@
         </ul>
       </div>
 
-      <div id="srv-id" class="srv-content-panel">
+      <div id="srv-id" class="srv-content-panel pattern-texture">
         <h3>Identidade Visual</h3>
         <p>Construção estética do zero para garantir que a sua marca seja inconfundível em qualquer lugar.</p>
         <ul>
@@ -673,7 +755,7 @@
       <button class="tab-btn" onclick="switchPortfolioTab(event, 'port-id')">Identidade Visual (1)</button>
     </div>
 
-    <!-- 1. Social Media & Design (5 itens) -->
+    <!-- 1. Social Media & Design -->
     <div id="port-social" class="portfolio-content-grid active">
       <div class="work-item"><div class="media-placeholder">[Design 01]</div><h4>Carrossel Raiz</h4><p>Estratégia visual de alto engajamento.</p></div>
       <div class="work-item"><div class="media-placeholder">[Design 02]</div><h4>Estética de Feed</h4><p>Harmonia e identidade marcante.</p></div>
@@ -682,7 +764,7 @@
       <div class="work-item"><div class="media-placeholder">[Design 05]</div><h4>Apresentação Visual</h4><p>PDFs e materiais institucionais.</p></div>
     </div>
 
-    <!-- 2. Edição de Vídeo (5 itens) -->
+    <!-- 2. Edição de Vídeo -->
     <div id="port-video" class="portfolio-content-grid">
       <div class="work-item"><div class="media-placeholder">[Vídeo 01]</div><h4>Reel de Retenção</h4><p>Cortes ágeis e legendas dinâmicas.</p></div>
       <div class="work-item"><div class="media-placeholder">[Vídeo 02]</div><h4>Vídeo para Lançamento</h4><p>Narrativa fluida e imersiva.</p></div>
@@ -691,19 +773,19 @@
       <div class="work-item"><div class="media-placeholder">[Vídeo 05]</div><h4>Institucional</h4><p>Autoridade e profissionalismo em cena.</p></div>
     </div>
 
-    <!-- 3. StoryMaker (1 item) -->
+    <!-- 3. StoryMaker -->
     <div id="port-story" class="portfolio-content-grid">
       <div class="work-item"><div class="media-placeholder">[StoryMaker]</div><h4>Cobertura ao Vivo</h4><p>Bastidores e conexão real com a audiência.</p></div>
     </div>
 
-    <!-- 4. Locução (3 itens) -->
+    <!-- 4. Locução -->
     <div id="port-loc" class="portfolio-content-grid">
       <div class="work-item"><div class="media-placeholder">[Locução 01]</div><h4>Spot Comercial</h4><p>Voz marcante para conversão.</p></div>
       <div class="work-item"><div class="media-placeholder">[Locução 02]</div><h4>Narração de Vídeo</h4><p>Fluidez e tom institucional ideal.</p></div>
       <div class="work-item"><div class="media-placeholder">[Locução 03]</div><h4>Vinheta & Chamada</h4><p>Impacto imediato para o seu público.</p></div>
     </div>
 
-    <!-- 5. Identidade Visual (1 item) -->
+    <!-- 5. Identidade Visual -->
     <div id="port-id" class="portfolio-content-grid">
       <div class="work-item"><div class="media-placeholder">[Branding]</div><h4>Identidade & Notion</h4><p>Logotipo completo e manual da marca centralizado.</p></div>
     </div>

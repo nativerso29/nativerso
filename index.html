@@ -306,6 +306,9 @@
       margin-bottom: 1.2rem;
       border: 2px dashed currentColor;
     }
+    .media-placeholder.has-media { border: none; background: #000; overflow: hidden; padding: 0; }
+    .media-placeholder.vertical { height: auto; aspect-ratio: 9 / 16; max-height: 460px; }
+    .media-placeholder img, .media-placeholder video, .media-placeholder iframe { width: 100%; height: 100%; object-fit: cover; border: 0; display: block; }
     .work-item h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem; }
     .work-item p { font-size: 0.9rem; opacity: 0.85; }
 
@@ -341,11 +344,11 @@
     .cta-card .hero-tag { font-size: .7rem; padding: .25rem .9rem; margin-bottom: 1rem; box-shadow: 2px 2px 0 var(--bg-coffee); }
     .cta-card h3 { font-size: 1.4rem; font-weight: 700; line-height: 1.25; margin-bottom: 1.4rem; }
     .cta-card .btn-main { width: 100%; text-align: center; }
-    .footer-main { max-width: 1100px; margin: 4.5rem auto 0; padding-top: 2.2rem; border-top: 1px solid rgba(253, 249, 243, .15); display: flex; justify-content: space-between; align-items: center; gap: 1.5rem 2rem; flex-wrap: wrap; }
+    .footer-main { max-width: 1100px; margin: 4rem auto 0; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem 2rem; flex-wrap: wrap; }
     .footer-social { display: flex; gap: .6rem; flex-wrap: wrap; }
     .footer-social a { color: var(--bg-cream); text-decoration: none; font-size: .85rem; font-weight: 500; border: 1px solid rgba(212,154,54,.55); border-radius: 20px; padding: .35rem 1rem; transition: all .2s; }
     .footer-social a:hover { background: var(--color-mustard); color: var(--bg-coffee); border-color: var(--color-mustard); }
-    .footer-legal { max-width: 1100px; margin: 3rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(253, 249, 243, .15); display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: .85rem; opacity: .65; }
+    .footer-legal { max-width: 1100px; margin: 2rem auto 0; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: .85rem; opacity: .65; }
     .footer-legal a { color: var(--bg-cream); text-decoration: none; }
     .footer-legal a:hover { color: var(--color-mustard); }
 
